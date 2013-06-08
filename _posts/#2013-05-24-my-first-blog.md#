@@ -1,0 +1,12 @@
+---
+layout: post
+title: "My first blog"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
+
+  This is my first blog.I will try my best to make it a better palce.First I should learn the markdown language.~~~
+
+test fcitx input method. 偶也。中文输入法。实施的了开发就sldsddf是地方df alskkdfj是了的空间发阿隆索了的快递费空间sdkfj a是了看到积分 
