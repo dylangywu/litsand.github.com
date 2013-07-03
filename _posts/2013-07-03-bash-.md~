@@ -1,0 +1,8 @@
+---
+layout: post
+title: "bash 命令集锦"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
