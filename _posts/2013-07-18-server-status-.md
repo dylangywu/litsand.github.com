@@ -9,9 +9,6 @@ tags: []
 
 http://www.apache.org/server-status
 server-status没有限制访问，导致信息泄漏。
-<img src="/upload/201307/19095948b272b9d9f0164d9e8b7d981b19d1664b.png" alt="apache1.png" />
-<img src="/upload/201307/1910014158a28a5fa2ab4f6c00b438c081729f3d.png" alt="apache2.png" />
-<img src="/upload/201307/19100154671cb2dd81492e3eef74f15fcee467d0.png" alt="apache3.png" />
 泄漏的信息点：
 1,Apache Server Status for www.apache.org (via 140.211.11.131) 这个说明泄露了真实ip，不过经过测试apache也没有做cdn，应该有做负载均衡，有时候刷新，这个说明的ip会变成另外一个，经测试直接访问ipapache的主页。
 2,Server uptime: 3 days 4 hours 48 minutes 43 seconds
