@@ -20,7 +20,6 @@ tags: []
 	python patator_v0.5.py telnet_login
 	Patator v0.5 (http://code.google.com/p/patator/)
 	Usage: telnet_login <module-options ...> [global-options ...]
-
 	Examples:
 	telnet_login host=10.0.0.1 inputs='FILE0\nFILE1' 0=logins.txt 1=passwords.txt persistent=0 prompt_re='Username:|Password:' -x ignore:egrep='Login incorrect.+Username:'
 
