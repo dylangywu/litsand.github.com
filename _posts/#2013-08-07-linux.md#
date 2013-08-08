@@ -1,0 +1,83 @@
+---
+layout: post
+title: "linux用户管理(读私房菜笔记)"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
+
+## linux帐号和群组 ##
+
+系统是通过UID来识别用户的。实验做了一下，确实是这个样子。
+
+	drwxr-xr-x 2 1000 lit 4096 Apr 27 13:36 Music
+
+
+
+# passwd文件格式 #
+
+	rtkit:x:111:122:RealtimeKit,,,:/proc:/bin/false
+	speech-dispatcher:x:112:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/sh
+	hplip:x:113:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+
+共有7个部分。
+
+账户名称:密码:UID:GID:说明栏:家目录:shell
+
+UID为0为系统管理员，可以有多个UID为0的用户。
+
+# shadow文件格式 #
+
+因为passwd权限必须设为644,以供其他程序读取。所以密码存放在passwd就很不安全。所以有了shadow文件。
+
+	root:$6wpNg5Qu/6x1cc1:15924:0:99999:7:::
+	daemon:*:15453:0:99999:7:::
+	bin:*:15453:0:99999:7:::
+	sys:*:15453:0:99999:7:::
+	sync:*:15453:0:99999:7:::
+	games:*:15453:0:99999:7:::
+
+共有9个部分。
+
+帐号名称:密码:最近更改密码的日期:口令不可以被改动的天数（想对于3部分):密码需要重新变更的天数:密码需要变更期限前的警告天数:密码过期后的帐号宽限时间:帐号失效日期:保留备用
+
+
+# group文件格式 #
+
+	root:x:0:
+	daemon:x:1:
+	bin:x:2:
+	sys:x:3:
+	adm:x:4:and
+
+共有4个部分。群组名称:群组密码（通常不需要设定）:GID:群组包含的用户名称
+
+
+# 有效群组和初始群组 #
+
+这个概念之前确实没注意过。passwd里的GID是初始群组，group相关的组的行里不需要单独添加了。在group里添加的是次要群组。测试了用当前用户新建文件，群组是用户的初始群组。
+
+查看当前用户群组的命令 groups和id
+
+切换有效群组命令  newgrp 群组名。是新开了一个shell，赋予新的GID，所以可以用exit命令退出，返回到之前的shell中。
+
+添加群组的命令  usermod 和gpasswd
+
+#  gshadow文件格式#
+
+	root:*::
+	daemon:*::
+	bin:*::
+	sys:*::
+	adm:*::litsand
+	tty:*::
+	disk:*::
+	lp:*::
+
+共4栏。群组名称:群组密码:群组管理员:群组成员
+
+# 帐号管理 #
+
+相关命令 useradd,usermod,userdel
+
