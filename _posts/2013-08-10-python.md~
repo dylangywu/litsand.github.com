@@ -1,0 +1,8 @@
+---
+layout: post
+title: "python基本语法速查"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
