@@ -37,7 +37,7 @@ tags: [python,google]
 
 找到一个哥们的代码,还不错,稍微改了下就可以用了.只是发现google的检查策略确实很强大,居然可以根据所有的关键字判断是否是恶意搜索.
 
-[github](https://github.com/litsand/GoogleSearchCrawler)
+![github](https://github.com/litsand/GoogleSearchCrawler)
 
 话说还有很多想法,想好好实现一下.
 
