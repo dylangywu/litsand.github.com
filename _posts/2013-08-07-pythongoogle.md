@@ -24,7 +24,13 @@ tags: [python,google]
 
 这几个api的一些参考资料
 
-https://developers.google.com/custom-search/v1/using_rest?hl=zh-CN#query-params
+<https://developers.google.com/custom-search/v1/using_rest?hl=zh-CN#query-params>
+
+<https://developers.google.com/custom-search/v1/using_rest?hl=zh-CN>
+
+<http://www.seotcs.com/blog/3850.html>
+
+
 ## python实现 ##
 
 写成一个函数，参数为起始条目，以及这次请求获取的条目数。
