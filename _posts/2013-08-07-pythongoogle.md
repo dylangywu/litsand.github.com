@@ -9,6 +9,7 @@ tags: [python,google]
 
 ## google 搜索表单 ##
 抓包网站备份文件扫描工具3.6获取其抓取google搜索结果的请求为
+
 	GET /search?q=%E9%A3%9E%E6%9C%BA%E6%9D%AF&num=50&hl=zh-CN&safe=strict&prmd=fd&ei=d3GgTLmnNo_uvQP5_dyNDQ&start=0
 
 谷歌搜索表单参数url[参数详解](http://ylbook.com/cms/web/gugecanshu.htm)
@@ -33,5 +34,18 @@ tags: [python,google]
 
 ## python实现 ##
 
-写成一个函数，参数为起始条目，以及这次请求获取的条目数。
+找到一个哥们的代码,还不错,稍微改了下就可以用了.只是发现google的检查策略确实很强大,居然可以根据所有的关键字判断是否是恶意搜索.
+
+[github](https://github.com/litsand/GoogleSearchCrawler)
+
+话说还有很多想法,想好好实现一下.
+
+
+## python编程 ##
+
+果断需要一直坚持写代码,一段时间不用.语法都忘的差不多了.
+
+遇到的两个问题,一个是需要检查python发送的数据包调试.把https改成http抓包,分析了数据包.还有一个问题是获取文件中的内容,把换行符也读了进来,结果又看不到换行符,就结了好一会.
+
+
 
