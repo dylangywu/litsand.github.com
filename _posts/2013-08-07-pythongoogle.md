@@ -11,6 +11,7 @@ tags: [python,google]
 抓包网站备份文件扫描工具3.6获取其抓取google搜索结果的请求为
 
 	GET /search?q=%E9%A3%9E%E6%9C%BA%E6%9D%AF&num=50&hl=zh-CN&safe=strict&prmd=fd&ei=d3GgTLmnNo_uvQP5_dyNDQ&start=0
+	
 
 谷歌搜索表单参数url[参数详解](http://ylbook.com/cms/web/gugecanshu.htm)
 
