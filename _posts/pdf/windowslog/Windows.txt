@@ -1,2 +1,133 @@
-事件ID 英文解释 中文解释10 Noise Entry 512 Windows NT is starting up Windows 正在启动。513 Windows is shutting down Windows 正在关机。514 An authentication package has been loaded by the Local Security Authority 本地安全机制机构已加载身份验证数据包。515 A trusted logon process has registered with the Local Security Authority 受信任的登录过程已经在本地安全机构注册。516 Internal resources allocated for the queuing of audit messages have been exhausted, leading to the loss of some audits 用来列队审核消息的内部资源已经用完，从而导致部分审核数据丢失。517 The audit log was cleared 审核日志已清除。518 A notification package has been loaded by the Security Account Manager 安全帐户管理器已加载通知数据包。519 A process is using an invalid local procedure call (LPC) port 进程正在使用无效的本地过程调用 (LPC) 端口，试图伪装客户端并向客户端地址空间答复、读取或写入。520 The system time was changed 修改系统时间528 Successful Logon 用户成功登录到计算机。529 Logon Failure - Unknown user name or bad password 登录失败。试图使用未知的用户名或已知用户名但错误密码进行登录。530 Logon Failure - Account logon time restriction violation 登录失败。试图在允许的时间外登录。531 Logon Failure - Account currently disabled 登录失败。试图使用禁用的帐户登录532 Logon Failure - The specified user account has expired 登录失败。试图使用已过期的帐户登录。533 Logon Failure - User not allowed to logon at this computer 登录失败。不允许登录到指定计算机的用户试图登录。534 Logon Failure - The user has not been granted the requested logon type at this machine 登录失败。用户试图使用不允许的密码类型登录。535 Logon Failure - The specified account's password has expired 登录失败。指定帐户的密码已过期。536 Logon Failure - The NetLogon component is not active 登录失败。Net Logon 服务没有启动。537 Logon failure - The logon attempt failed for other reasons. 登录失败。由于其他原因登录尝试失败。 注意：在某些情况下，登录失败的原因可能是未知的。538 User Logoff 用户的注销过程已完成。539 Logon Failure - Account locked out 登录失败。试图登录时，该帐户已锁定。540 Successful Network Logon 用户成功登录到网络。551 User initiated logoff 用户已启动注销过程。552 Logon attempt using explicit credentials 用户使用明确凭据成功登录到作为其他用户已登录到的计算机。560 Object Open 访问权限已授予现有的对象。561 Handle Allocated 指向对象的句柄已分配。562 Handle Closed 指向对象的句柄已关闭。563 Object Open for Delete 试图打开一个对象并打算将其删除。 注意：当在 Createfile() 中指定了 FILE_DELETE_ON_CLOSE 标记时，此事件可以用于文件系统564 Object Deleted 受保护对象已删除。565 Object Open (Active Directory) 访问权限已授予现有的对象类型。566 Object Operation (W3 Active Directory) 发生了一般对象操作。567 Object Access Attempt 使用了与句柄关联的权限。注意： 创建句柄时，已授予其具体权限，如读取、写入等。使用句柄时，最多为每个使用的权限生成一个审核。576 Special privileges assigned to new logon 指定的特权已添加到用户的访问令牌中。 注意：当用户登录时生成此事件。 577 Privileged Service Called 用户试图执行需要特权的系统服务操作。578 Privileged object operation 特权用于已经打开的受保护对象的句柄。592 A new process has been created 已创建新进程。593 A process has exited 进程已退出。594 A handle to an object has been duplicated 对象句柄已复制。595 Indirect access to an object has been obtained 已获取对象的间接访问权。600 A process was assigned a primary token 已分配给进程主令牌。601 Attempt to install service 用户试图安装服务。602 Scheduled Task created 已创建计划程序任务。608 User Right Assigned 已分配用户权限。609 User Right Removed 用户权限已删除。610 New Trusted Domain 与其他域的信任关系已创建。611 Removing Trusted Domain 与其他域的信任关系已删除。612 Audit Policy Change 审核策略已更改。613 IPSec policy agent started Internet 协议安全 (IPSec) 策略代理已启动。614 IPSec policy agent disabled IPSec 策略代理已禁用。615 IPSEC PolicyAgent Service IPSec 策略代理已更改。616 IPSec policy agent encountered a potentially serious failure. IPSec 策略代理遇到一个可能很严重的故障。617 Kerberos Policy Changed Kerberos v5 策略已更改。618 Encrypted Data Recovery Policy Changed 加密数据恢复策略已更改。620 Trusted Domain Information Modified 与其他域的信任关系已修改。621 System Security Access Granted 已授予帐户系统访问权限。622 System Security Access Removed 已删除帐户的系统访问权限。623 Per User Audit Policy was refreshed 按用户设置审核策略。624 User Account Created 用户帐户已创建。625 User Account Type Changed 按用户刷新审核策略。626 User Account Enabled 用户已启用627 Change Password Attempt 用户密码已更改。628 User Account password set 用户密码已设置。629 User Account Disabled 用户账户已禁止。630 User Account Deleted 用户帐户已删除。 
-631 Security Enabled Global Group Created 全局组已创建。632 Security Enabled Global Group Member Added 成员已添加至全局组。633 Security Enabled Global Group Member Removed 成员已从全局组删除。634 Security Enabled Global Group Deleted 全局组已删除。635 Security Enabled Local Group Created 已新建本地组。636 Security Enabled Local Group Member Added 成员已添加至本地组。637 Security Enabled Local Group Member Removed 成员已从本地组删除。638 Security Enabled Local Group Deleted 本地组已删除。639 Security Enabled Local Group Changed 本地组帐户已更改。641 Security Enabled Global Group Changed 全局组帐户已更改。642 User Account Changed 用户帐户已更改。643 Domain Policy Changed 域策略已修改。644 User Account Locked Out 用户帐户被自动锁定。645 Computer Account Created 计算机帐户已创建。646 Computer Account Changed 计算机帐户已更改。647 Computer Account Deleted 计算机帐户已删除。648 Security Disabled Local Group Created 禁用安全的本地安全组已创建。649 Security Disabled Local Group Changed 禁用安全的本地安全组已更改。650 Security Disabled Local Group Member Added 成员已添加至禁用安全的本地安全组。651 Security Disabled Local Group Member Removed 成员已从禁用安全的本地安全组删除。652 Security Disabled Local Group Deleted 禁用安全的本地组已删除。653 Security Disabled Global Group Created 禁用安全的全局组已创建。654 Security Disabled Global Group Changed 禁用安全的全局组已更改。655 Security Disabled Global Group Member Added 成员已添加至禁用安全的全局组。656 Security Disabled Global Group Member Removed 成员已从禁用安全的全局组删除。657 Security Disabled Global Group Deleted 禁用安全的全局组已删除。658 Security Enabled Universal Group Created 启用安全的通用组已创建。659 Security Enabled Universal Group Changed 启用安全的通用组已更改。660 Security Enabled Universal Group Member Added 成员已添加至启用安全的通用组。661 Security Enabled Universal Group Member Removed 成员已从启用安全的通用组删除。662 Security Enabled Universal Group Deleted 启用安全的通用组已删除。663 Security Disabled Universal Group Created 禁用安全的通用组已创建。664 Security Disabled Universal Group Changed 禁用安全的通用组已更改。665 Security Disabled Universal Group Member Added 成员已添加至禁用安全的通用组。666 Security Disabled Universal Group Member Removed 成员已从禁用安全的通用组删除。667 Security Disabled Universal Group Deleted 禁用安全的通用组已删除。668 Group Type Changed 组类型已更改。671 User Account Unlocked 用户已解锁。672 Authentication Ticket Granted 已成功颁发和验证身份验证服务 (AS) 票证。673 Service Ticket Granted 授权票证服务 (TGS) 票证已授权。TGS 是由 Kerberos v5 票证授权服务 (TGS) 颁发的票证，允许用户对域中的特定服务进行身份验证。674 Ticket Granted Renewed 安全主体已更新 AS 票证或 TGS 票证。675 Pre-authentication failed 预身份验证失败。用户键入错误的密码时，密钥发行中心 (KDC) 生成此事件。676 Authentication Ticket Request Failed 身份验证票证请求失败。在 Windows XP Professional 或 Windows Server 家族的成员中不生成此事件677 Service Ticket Request Failed TGS 票证未被授权。在 Windows XP Professional 或 Windows Server 家族的成员中不生成此事件。678 Account Mapped for Logon by 帐户已成功映射到域帐户681 The logon to account: %2 by: %1 from workstation: %3 failed. 登录失败。尝试进行域帐户登录。在 Windows XP Professional 或 Windows Server 家族的成员中不生成此事件682 Session reconnected to winstation 用户已重新连接至已断开的终端服务器会话。683 Session disconnected from winstation 用户还未注销就断开终端服务器会话。注意：当用户通过网络连接到终端服务器会话时，就会生成此事件。该事件出现在终端服务器上。684 Set ACLs of members in administrators groups 管理组成员的安全描述符已设置。注意： 在域控制器上，每隔 60 分钟，后台线程就会搜索管理组的所有成员（如域、企业和架构管理员），并对其应用一个固定的安全描述符。该事件已记录。 685 Account Name Changed 帐户名称已更改。686 Password of the following user accessed 用以下列密码访问687 Basic Application Group Created 基本应用程序组已创建。688 Basic Application Group Changed 基本应用程序组已改变。689 Basic Application Group Member Added 基本应用程序组已添加安全成员。690 Basic Application Group Member Removed 基本应用程序组已删除安全成员。691 Basic Application Group Non-Member Added 基本应用程序组添加非安全成员692 Basic Application Group Non-Member Removed 基本应用程序组删除非安全成员693 Basic Application Group Deleted 基本应用程序组已删除。694 LDAP Query Group Created LDAP查询组已建立。695 LDAP Query Group Changed LDAP查询组已改变。696 LDAP Query Group Deleted LDAP查询组已删除。806 Per User Audit Policy was refreshed 每个用户审核策略被刷新。807 Per user auditing policy set for user 为每个用户设置账户审计策略。808 A security event source has attempted to register 一个安全事件源已登录。809 A security event source has attempted to unregister 一个安全事件源被注销。 
+事件ID 英文解释 中文解释
+10 Noise Entry 
+512 Windows NT is starting up Windows 正在启动。
+513 Windows is shutting down Windows 正在关机。
+514 An authentication package has been loaded by the Local Security Authority 本地安全机制机构已加载身份验证数据包。
+515 A trusted logon process has registered with the Local Security Authority 受信任的登录过程已经在本地安全机构注册。
+516 Internal resources allocated for the queuing of audit messages have been exhausted, leading to the loss of some audits 用来列队审核消息的内部资源已经用完，从而导致部分审核数据丢失。
+517 The audit log was cleared 审核日志已清除。
+518 A notification package has been loaded by the Security Account Manager 安全帐户管理器已加载通知数据包。
+519 A process is using an invalid local procedure call (LPC) port 进程正在使用无效的本地过程调用 (LPC) 端口，试图伪装客户端并向客户端地址空间答复、读取或写入。
+520 The system time was changed 修改系统时间
+528 Successful Logon 用户成功登录到计算机。
+529 Logon Failure - Unknown user name or bad password 登录失败。试图使用未知的用户名或已知用户名但错误密码进行登录。
+530 Logon Failure - Account logon time restriction violation 登录失败。试图在允许的时间外登录。
+531 Logon Failure - Account currently disabled 登录失败。试图使用禁用的帐户登录
+532 Logon Failure - The specified user account has expired 登录失败。试图使用已过期的帐户登录。
+533 Logon Failure - User not allowed to logon at this computer 登录失败。不允许登录到指定计算机的用户试图登录。
+534 Logon Failure - The user has not been granted the requested logon type at this machine 登录失败。用户试图使用不允许的密码类型登录。
+535 Logon Failure - The specified account's password has expired 登录失败。指定帐户的密码已过期。
+536 Logon Failure - The NetLogon component is not active 登录失败。Net Logon 服务没有启动。
+537 Logon failure - The logon attempt failed for other reasons. 登录失败。由于其他原因登录尝试失败。 注意：在某些情况下，登录失败的原因可能是未知的。
+538 User Logoff 用户的注销过程已完成。
+539 Logon Failure - Account locked out 登录失败。试图登录时，该帐户已锁定。
+540 Successful Network Logon 用户成功登录到网络。
+551 User initiated logoff 用户已启动注销过程。
+552 Logon attempt using explicit credentials 用户使用明确凭据成功登录到作为其他用户已登录到的计算机。
+560 Object Open 访问权限已授予现有的对象。
+561 Handle Allocated 指向对象的句柄已分配。
+562 Handle Closed 指向对象的句柄已关闭。
+563 Object Open for Delete 试图打开一个对象并打算将其删除。 注意：当在 Createfile() 中指定了 FILE_DELETE_ON_CLOSE 标记时，此事件可以用于文件系统
+564 Object Deleted 受保护对象已删除。
+565 Object Open (Active Directory) 访问权限已授予现有的对象类型。
+566 Object Operation (W3 Active Directory) 发生了一般对象操作。
+567 Object Access Attempt 使用了与句柄关联的权限。注意： 创建句柄时，已授予其具体权限，如读取、写入等。使用句柄时，最多为每个使用的权限生成一个审核。
+576 Special privileges assigned to new logon 指定的特权已添加到用户的访问令牌中。 注意：当用户登录时生成此事件。 
+577 Privileged Service Called 用户试图执行需要特权的系统服务操作。
+578 Privileged object operation 特权用于已经打开的受保护对象的句柄。
+592 A new process has been created 已创建新进程。
+593 A process has exited 进程已退出。
+594 A handle to an object has been duplicated 对象句柄已复制。
+595 Indirect access to an object has been obtained 已获取对象的间接访问权。
+600 A process was assigned a primary token 已分配给进程主令牌。
+601 Attempt to install service 用户试图安装服务。
+602 Scheduled Task created 已创建计划程序任务。
+608 User Right Assigned 已分配用户权限。
+609 User Right Removed 用户权限已删除。
+610 New Trusted Domain 与其他域的信任关系已创建。
+611 Removing Trusted Domain 与其他域的信任关系已删除。
+612 Audit Policy Change 审核策略已更改。
+613 IPSec policy agent started Internet 协议安全 (IPSec) 策略代理已启动。
+614 IPSec policy agent disabled IPSec 策略代理已禁用。
+615 IPSEC PolicyAgent Service IPSec 策略代理已更改。
+616 IPSec policy agent encountered a potentially serious failure. IPSec 策略代理遇到一个可能很严重的故障。
+617 Kerberos Policy Changed Kerberos v5 策略已更改。
+618 Encrypted Data Recovery Policy Changed 加密数据恢复策略已更改。
+620 Trusted Domain Information Modified 与其他域的信任关系已修改。
+621 System Security Access Granted 已授予帐户系统访问权限。
+622 System Security Access Removed 已删除帐户的系统访问权限。
+623 Per User Audit Policy was refreshed 按用户设置审核策略。
+624 User Account Created 用户帐户已创建。
+625 User Account Type Changed 按用户刷新审核策略。
+626 User Account Enabled 用户已启用
+627 Change Password Attempt 用户密码已更改。
+628 User Account password set 用户密码已设置。
+629 User Account Disabled 用户账户已禁止。
+630 User Account Deleted 用户帐户已删除。 
+
+631 Security Enabled Global Group Created 全局组已创建。
+632 Security Enabled Global Group Member Added 成员已添加至全局组。
+633 Security Enabled Global Group Member Removed 成员已从全局组删除。
+634 Security Enabled Global Group Deleted 全局组已删除。
+635 Security Enabled Local Group Created 已新建本地组。
+636 Security Enabled Local Group Member Added 成员已添加至本地组。
+637 Security Enabled Local Group Member Removed 成员已从本地组删除。
+638 Security Enabled Local Group Deleted 本地组已删除。
+639 Security Enabled Local Group Changed 本地组帐户已更改。
+641 Security Enabled Global Group Changed 全局组帐户已更改。
+642 User Account Changed 用户帐户已更改。
+643 Domain Policy Changed 域策略已修改。
+644 User Account Locked Out 用户帐户被自动锁定。
+645 Computer Account Created 计算机帐户已创建。
+646 Computer Account Changed 计算机帐户已更改。
+647 Computer Account Deleted 计算机帐户已删除。
+648 Security Disabled Local Group Created 禁用安全的本地安全组已创建。
+649 Security Disabled Local Group Changed 禁用安全的本地安全组已更改。
+650 Security Disabled Local Group Member Added 成员已添加至禁用安全的本地安全组。
+651 Security Disabled Local Group Member Removed 成员已从禁用安全的本地安全组删除。
+652 Security Disabled Local Group Deleted 禁用安全的本地组已删除。
+653 Security Disabled Global Group Created 禁用安全的全局组已创建。
+654 Security Disabled Global Group Changed 禁用安全的全局组已更改。
+655 Security Disabled Global Group Member Added 成员已添加至禁用安全的全局组。
+656 Security Disabled Global Group Member Removed 成员已从禁用安全的全局组删除。
+657 Security Disabled Global Group Deleted 禁用安全的全局组已删除。
+658 Security Enabled Universal Group Created 启用安全的通用组已创建。
+659 Security Enabled Universal Group Changed 启用安全的通用组已更改。
+660 Security Enabled Universal Group Member Added 成员已添加至启用安全的通用组。
+661 Security Enabled Universal Group Member Removed 成员已从启用安全的通用组删除。
+662 Security Enabled Universal Group Deleted 启用安全的通用组已删除。
+663 Security Disabled Universal Group Created 禁用安全的通用组已创建。
+664 Security Disabled Universal Group Changed 禁用安全的通用组已更改。
+665 Security Disabled Universal Group Member Added 成员已添加至禁用安全的通用组。
+666 Security Disabled Universal Group Member Removed 成员已从禁用安全的通用组删除。
+667 Security Disabled Universal Group Deleted 禁用安全的通用组已删除。
+668 Group Type Changed 组类型已更改。
+671 User Account Unlocked 用户已解锁。
+672 Authentication Ticket Granted 已成功颁发和验证身份验证服务 (AS) 票证。
+673 Service Ticket Granted 授权票证服务 (TGS) 票证已授权。TGS 是由 Kerberos v5 票证授权服务 (TGS) 颁发的票证，允许用户对域中的特定服务进行身份验证。
+674 Ticket Granted Renewed 安全主体已更新 AS 票证或 TGS 票证。
+675 Pre-authentication failed 预身份验证失败。用户键入错误的密码时，密钥发行中心 (KDC) 生成此事件。
+676 Authentication Ticket Request Failed 身份验证票证请求失败。在 Windows XP Professional 或 Windows Server 家族的成员中不生成此事件
+677 Service Ticket Request Failed TGS 票证未被授权。在 Windows XP Professional 或 Windows Server 家族的成员中不生成此事件。
+678 Account Mapped for Logon by 帐户已成功映射到域帐户
+681 The logon to account: %2 by: %1 from workstation: %3 failed. 登录失败。尝试进行域帐户登录。在 Windows XP Professional 或 Windows Server 家族的成员中不生成此事件
+682 Session reconnected to winstation 用户已重新连接至已断开的终端服务器会话。
+683 Session disconnected from winstation 用户还未注销就断开终端服务器会话。注意：当用户通过网络连接到终端服务器会话时，就会生成此事件。该事件出现在终端服务器上。
+684 Set ACLs of members in administrators groups 管理组成员的安全描述符已设置。注意： 在域控制器上，每隔 60 分钟，后台线程就会搜索管理组的所有成员（如域、企业和架构管理员），并对其应用一个固定的安全描述符。该事件已记录。 
+685 Account Name Changed 帐户名称已更改。
+686 Password of the following user accessed 用以下列密码访问
+687 Basic Application Group Created 基本应用程序组已创建。
+688 Basic Application Group Changed 基本应用程序组已改变。
+689 Basic Application Group Member Added 基本应用程序组已添加安全成员。
+690 Basic Application Group Member Removed 基本应用程序组已删除安全成员。
+691 Basic Application Group Non-Member Added 基本应用程序组添加非安全成员
+692 Basic Application Group Non-Member Removed 基本应用程序组删除非安全成员
+693 Basic Application Group Deleted 基本应用程序组已删除。
+694 LDAP Query Group Created LDAP查询组已建立。
+695 LDAP Query Group Changed LDAP查询组已改变。
+696 LDAP Query Group Deleted LDAP查询组已删除。
+806 Per User Audit Policy was refreshed 每个用户审核策略被刷新。
+807 Per user auditing policy set for user 为每个用户设置账户审计策略。
+808 A security event source has attempted to register 一个安全事件源已登录。
+809 A security event source has attempted to unregister 一个安全事件源被注销。
+ 

@@ -22,5 +22,28 @@ tags: [日志分析,log]
 
 evt格式的日志log parser2.2提示格式错误,用高版本的日志查看器打开另存为evtx格式就可以正常识别了.
 
-先在日志查看器中人工分析日志,发现登录产生的
+先在日志查看器中人工分析日志,发现登录产生一系列日志.决定采用528事件作为分析对象.528是2003用户登录成功事件.(之前的测试应该是登录不成功不会记录ip,登录成功是否记录ip要看连接协议)
+
+使用命令
+
+	C:\log>logparser.exe -i:evt -o:xls "select * into sec.xls from sec.evtx where EventID=528"
+	
+
+或得安全事件中id为528的事件,并且转化为csv格式.下一步就要过滤出来用户名和密码以及时间.
+
+使用
+
+	C:\log>LogParser.exe -i:csv -o:csv "select extract_token( Strings, 13, '|') as ipaddress into ipaddr.csv from sec.xls"
+
+获得事件中的ip
+
+
+	C:\log>LogParser.exe -i:csv -o:csv "select ipaddress, count(*) as hits into count.csv from ipaddr.csv group by ipaddress order by hits desc"
+	
+
+去得ip出现的次数,排序.
+
+这样子得到了所有登录过的ip以及相应的次数.没有考虑到用户名.算是完成了60%吧.
+
+
 
