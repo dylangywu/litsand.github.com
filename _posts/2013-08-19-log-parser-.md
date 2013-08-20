@@ -45,5 +45,15 @@ evt格式的日志log parser2.2提示格式错误,用高版本的日志查看器
 
 这样子得到了所有登录过的ip以及相应的次数.没有考虑到用户名.算是完成了60%吧.
 
+## 参考资料 ##
+
+[如何快速查找感染 Conficker 的客户端](http://blogs.technet.com/b/gcrsec/archive/2009/04/23/conficker.aspx)
+
+[Log Parser-記錄檔分析器](http://blog.weithenn.org/2009/05/windowslog-parser.html)
+
+[logparser及常用使用方法总结](http://www.cnblogs.com/qiqi9039420/articles/2051059.html)
+
+[記錄剖析器 2.2 ](http://support.microsoft.com/kb/910447/zh-tw)
+
 
 
