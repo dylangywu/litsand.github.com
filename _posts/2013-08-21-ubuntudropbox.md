@@ -17,6 +17,14 @@ ubuntu12.04
 
 解压之后,放到家目录就可以了.注意这个包解压之后名字是以点开头的隐藏的文件名.需要用ls -a 查看.
 
+## 遇到的问题 ##
+
+之前按照在centos上安装的经验,直接下载[tar](www.dropbox.com/download?plat=lnx.x86)包解压.运行dropboxd提示connection close 之类的错误.
+
+错误信息:
+
+Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
 ## 参考资料 ##
 
 [https://www.dropbox.com/help/247/en](https://www.dropbox.com/help/247/en)
