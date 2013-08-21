@@ -27,8 +27,6 @@ Did not receive a reply. Possible causes include: the remote application did not
 
 ## 参考资料 ##
 
-[https://www.dropbox.com/help/247/en](https://www.dropbox.com/help/247/en)
+[2](https://www.dropbox.com/help/247/en)
 
-[http://blog.xuite.net/pacermania/a1253247/63262677-%5BUbuntu%5DDropbox%E5%AE%89%E8%A3%9D%2B%E4%BD%BF%E7%94%A8](http://blog.xuite.net/pacermania/a1253247/63262677-%5BUbuntu%5DDropbox%E5%AE%89%E8%A3%9D%2B%E4%BD%BF%E7%94%A8)
-
-
+[1](http://blog.xuite.net/pacermania/a1253247/63262677-%5BUbuntu%5DDropbox%E5%AE%89%E8%A3%9D%2B%E4%BD%BF%E7%94%A8)
