@@ -10,3 +10,9 @@ tags: [google hack]
 搜索ftp泄漏的web.config文件
 
 	filetype:config inurl:web.config inurl:ftp
+
+空密码的phpadmin
+
+	inurl:phpmyadmin inurl:phpmyadmin/index.php
+
+	inurl:phpmyadmin inurl:phpmyadmin/sql.php
