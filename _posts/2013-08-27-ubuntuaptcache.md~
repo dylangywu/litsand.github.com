@@ -1,0 +1,8 @@
+---
+layout: post
+title: "ubuntu报错:apt:cache"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
