@@ -1,0 +1,8 @@
+---
+layout: post
+title: "redhat centos 手动配置IP"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}

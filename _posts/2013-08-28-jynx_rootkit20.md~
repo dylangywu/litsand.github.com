@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Jynx_Rootkit/2.0安装测试"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
