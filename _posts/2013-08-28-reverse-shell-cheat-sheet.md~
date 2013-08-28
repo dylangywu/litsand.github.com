@@ -1,0 +1,8 @@
+---
+layout: post
+title: "reverse shell cheat sheet"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
