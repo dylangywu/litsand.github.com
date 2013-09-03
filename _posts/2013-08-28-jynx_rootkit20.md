@@ -69,3 +69,11 @@ http://www.blackhatlibrary.net/Jynx_Rootkit/2.0
 
 http://resources.infosecinstitute.com/jynx2-sneak-peek-analysis/
 
+http://blog.csdn.net/haoel/article/details/1602108
+
+http://stackoverflow.com/questions/426230/what-is-the-ld-preload-trick
+
+http://www.infosecisland.com/blogview/22440-Analyzing-Jynx-and-LDPRELOAD-Based-Rootkits.html
+
+http://www.chokepoint.net/2013/08/jynxjynx2-userland-rootkits.html
+
