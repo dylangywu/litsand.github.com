@@ -1,0 +1,9 @@
+---
+layout: post
+title: "emacs速查"
+description: ""
+category: 工具使用
+tags: [emacs]
+---
+{% include JB/setup %}
+

