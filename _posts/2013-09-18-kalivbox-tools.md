@@ -1,5 +1,5 @@
 ---
-layout: posthttps://forums.kali.org/showthread.php?5804-Kernel-headers-problem
+layout: post
 title: "kali安装vbox tools"
 description: ""
 category: 工具使用
