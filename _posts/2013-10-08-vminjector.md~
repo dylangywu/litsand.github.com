@@ -1,0 +1,8 @@
+---
+layout: post
+title: "vminjector绕过虚拟机认证"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
