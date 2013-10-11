@@ -1,0 +1,8 @@
+---
+layout: post
+title: "kernel source mismatch"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
