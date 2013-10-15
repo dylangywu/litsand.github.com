@@ -1,0 +1,8 @@
+---
+layout: post
+title: "accelops report templates"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}

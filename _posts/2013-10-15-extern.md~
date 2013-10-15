@@ -1,0 +1,8 @@
+---
+layout: post
+title: "extern声明外部变量"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
