@@ -13,13 +13,10 @@ solarwinds的报表是利用一个专门的report客户端连接数据库,利用
 
 ## audit子类: ##
 
-authentication:(域各种权限的审计)
-
-file audit
-
-resource configure
-
-networktrafic (目前不具备)
+1. authentication:(域各种权限的审计)
+2. file audit
+3. resource configure
+4. networktrafic (目前不具备)
 
 ## security ##
 
@@ -29,7 +26,12 @@ networktrafic (目前不具备)
 4. suspicious behaviour
 5. machine audit
 6. attack behavior-access
+7. attack behavior-denial-relay
 
+## support ##
+自身的一些数据统计
 
-
+1. internal system
+2. incident
+3. database maintenance
 
