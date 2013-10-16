@@ -1,0 +1,8 @@
+---
+layout: post
+title: "syscall hijacking:kernel 2.6 systems"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
