@@ -56,4 +56,101 @@ tags: [kernel]
 	void (*pages_rw)(struct page *page, int numpages) =  (void *) 0xc012fbb0;
 	void (*pages_ro)(struct page *page, int numpages) =  (void *) 0xc012fe80;
 
+"pages\_rw"函数设置页面为写模式, "page\_ro"设置页面为读模式.但是这两个函数的参数为页面的虚拟地址.我们可以使用"virt\_to\_page()"这个函数.这个函数可以把内核访问的页面物理地址转换为页面的虚拟地址.为了使用这两个函数,我们首先也需要知道他们的地址.可以从"System.map"文件读取:
+
+
+	spaccio@spaccio-laptop:~$ cat /boot/System.map-2.6.35-23-generic | grep -e pages_rw -e pages_ro
+	c012fbb0 T set_pages_rw
+	c012fe80 T set_pages_ro
+
+现在我们就可以通过这种方式来修改"sys_call_table"了
+
+	...
+	 
+	unsigned long *syscall_table = (unsigned long *)0xc05d2180; 
+	 
+	...
+	 
+	void (*pages_rw)(struct page *page, int numpages) =  (void *) 0xc012fbb0;
+	void (*pages_ro)(struct page *page, int numpages) =  (void *) 0xc012fe80;
+	 
+	...
+	 
+	static int init(void)
+	{
+	 
+	    struct page *_sys_call_page;
+	    printk(KERN_ALERT "\nHIJACK INIT\n");
+	 
+	    _sys_call_page = virt_to_page(&syscall_table);
+	 
+	    pages_rw(_sys_call_page, 1);
+	     
+	    // now we can use the sys_call_table
+	     
+	    ...
+	}   
+
+
+下面是一个样例的代码.
+
+	#include <linux/init.h>
+	#include <linux/module.h>
+	#include <linux/kernel.h> 
+	#include <linux/errno.h> 
+	#include <linux/types.h>
+	#include <linux/unistd.h>
+	#include <asm/cacheflush.h>  
+	#include <asm/page.h>  
+	#include <asm/current.h>
+	#include <linux/sched.h>
+	#include <linux/kallsyms.h>
+	 
+	unsigned long *syscall_table = (unsigned long *)0xc05d2180; 
+	 
+	void (*pages_rw)(struct page *page, int numpages) =  (void *) 0xc012fbb0;
+	void (*pages_ro)(struct page *page, int numpages) =  (void *) 0xc012fe80;
+	 
+	asmlinkage int (*original_write)(unsigned int, const char __user *, size_t);
+	 
+	asmlinkage int new_write(unsigned int fd, const char __user *buf, size_t count) {
+	 
+	    // hijacked write
+	 
+	    printk(KERN_ALERT "WRITE HIJACKED");
+	 
+	    return (*original_write)(fd, buf, count);
+	}
+	 
+	static int init(void) {
+	 
+	    struct page *sys_call_page_temp;
+	 
+	    printk(KERN_ALERT "\nHIJACK INIT\n");
+	 
+	    sys_call_page_temp = virt_to_page(&syscall_table);
+	    pages_rw(sys_call_page_temp, 1);
+	 
+	    original_write = (void *)syscall_table[__NR_write];
+	    syscall_table[__NR_write] = new_write;  
+	 
+	    return 0;
+	}
+	 
+	static void exit(void) {
+	 
+	    struct page *sys_call_page_temp;
+	    
+	    sys_call_page_temp = virt_to_page(syscall_table);
+	    syscall_table[__NR_write] = original_write;  
+	    pages_ro(sys_call_page_temp, 1);
+	     
+	    printk(KERN_ALERT "MODULE EXIT\n");
+	 
+	    return;
+	}
+	 
+	module_init(init);
+	module_exit(exit);
+
 
