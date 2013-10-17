@@ -92,7 +92,7 @@ tags: [kernel]
 	}   
 
 
-下面是一个样例的代码.
+下面是一个样例的代码.(hijack.c)
 
 	#include <linux/init.h>
 	#include <linux/module.h>
@@ -153,4 +153,57 @@ tags: [kernel]
 	module_init(init);
 	module_exit(exit);
 
+(((这个方法在ubuntu12.04 Linux litsand-VirtualBox 3.2.0-45-generic-pae #70-Ubuntu SMP Wed May 29 20:31:05 UTC 2013 i686 i686 i386 GNU/Linux 测试失败.centos 5.4上system.map直接没有这两个函数的地址 )))
 
+下面是对应的Makefile文件:
+
+	obj-m   := hijack.o
+	 
+	KDIR    := /lib/modules/$(shell uname -r)/build
+	PWD    := $(shell pwd)
+	 
+	default:
+	    $(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
+
+
+可以通过一下命令加载模块:
+
+	spaccio@spaccio-laptop:~$ sudo insmod hijack.ko
+	
+	
+## 绕过CR0保护 ##
+
+有些cpu会把CR(control register)设置成0,代表这保护模式.这种保护模式最早出现在intel的80286上.这个标志位也叫做wp-bit.可以通过一下方式来验证.
+
+	spaccio@spaccio-laptop:~$ cat /proc/cpuinfo | grep wp
+	wp      : yes
+	wp      : yes
+
+详细的CR0资料可以参考[wiki](http://en.wikipedia.org/wiki/Control_register#CR0).如果WP设置为1,那么cpu是写保护模式.设置为0的时候是读写模式.
+
+如果cpu处于写保护模式,那么我们尝试加载"hijack.ko"模块的时候,内核把它结束掉.
+
+	spaccio@spaccio-laptop:~$ sudo insmod hijack.ko
+	Killed
+	
+所以我们把这个标志位设置为0就可以读写内存页面了(包括系统调用表).内核里提供了如下函数修改CR0
+
+
+#define read_cr0 () (native_read_cr0 ())
+#define write_cr0 (x) (native_write_cr0 (x))
+
+这两个native read/write函数的定义如下:
+
+	static inline unsigned long native_read_cr0 (void)
+	{
+	         unsigned long val;
+	         asm volatile("movl %%cr0,%0\n\t" :"=r" (val));
+	         return val;
+	}
+	 
+	static inline void native_write_cr0 (unsigned long val)
+	{
+	         asm volatile("movl %0,%%cr0": :"r" (val));
+	}
+
+"read_cr0"函数返回寄存器CR0的值,"write_cr0"函数设置这个寄存器的值.
