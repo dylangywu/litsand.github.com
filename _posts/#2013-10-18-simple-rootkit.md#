@@ -1,0 +1,43 @@
+---
+layout: post
+title: "simple rootkit"
+description: ""
+category: 技术研究
+tags: [rootkit,kernel]
+---
+{% include JB/setup %}
+
+这篇文章会讲解如何通过内核模块来修改进程的权限.可以通过这种方式来制造自己的rootkit.比如可以进行一个预设的动作,然后模块就会给予你root权限.
+
+当然,首先我们要知道那些认证信息是怎么存储的.内核版本小于2.6.29中,所有的信息存储在task_struct结构中.这个结构定义在"linux/sched.h"
+
+	struct task_struct {
+	    volatile long state;    /* -1 unrunnable, 0 runnable, >0 stopped */
+	    void *stack;
+	    atomic_t usage;
+	    unsigned int flags; /* per process flags, defined below */
+	    unsigned int ptrace;
+	    ...
+	    struct list_head children;  /* list of my children */
+	    struct list_head sibling;   /* linkage in my parent's children list */
+	    struct task_struct *group_leader;   /* threadgroup leader */
+	    ...
+	    /* process credentials */
+	    uid_t uid,euid,suid,fsuid;
+	    gid_t gid,egid,sgid,fsgid;
+	    struct group_info *group_info;
+	    ...
+	};
+
+
+这个结构维护了所有的任务的信息.包括进程的权限,比如UID,EUID,等等
+
+可以通过修改这个结构来修改进程的权限.比如下面的代码可以设置进程为root权限.
+
+	current->uid = current->gid = 0;
+	current->euid = current->egid = 0;
+	current->suid = current->sgid = 0;
+	current->fsuid = current->fsgid = 0;
+
+"current"是一个代表当前进程的task struct的宏.
+

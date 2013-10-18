@@ -1,0 +1,8 @@
+---
+layout: post
+title: "simple rootkit"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
