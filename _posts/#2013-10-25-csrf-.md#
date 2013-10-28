@@ -1,0 +1,13 @@
+---
+layout: post
+title: "csrf 分析及防御"
+description: ""
+category: 技术研究
+tags: [csrf]
+---
+{% include JB/setup %}
+
+## 参考资料 ##
+
+http://drops.wooyun.org/papers/155
+
