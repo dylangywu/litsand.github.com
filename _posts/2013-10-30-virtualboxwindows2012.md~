@@ -1,0 +1,8 @@
+---
+layout: post
+title: "virtualbox安装windows2012"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
