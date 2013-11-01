@@ -1,0 +1,13 @@
+---
+layout: post
+title: "gentoo amd64安装"
+description: ""
+category: 
+tags: [gentoo]
+---
+{% include JB/setup %}
+
+# 参考资料
+
+[handbook amd64](http://www.gentoo.org/doc/en/handbook/handbook-amd64.xml?part=1)
+
