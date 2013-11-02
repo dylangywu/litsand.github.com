@@ -1,0 +1,8 @@
+---
+layout: post
+title: "使用grub2启动gentoolivecd"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
