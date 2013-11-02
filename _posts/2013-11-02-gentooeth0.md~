@@ -1,0 +1,8 @@
+---
+layout: post
+title: "gentoo无法上网,没有eth0"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
