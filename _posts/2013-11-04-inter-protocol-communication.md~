@@ -1,0 +1,8 @@
+---
+layout: post
+title: "inter protocol communication测试"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
