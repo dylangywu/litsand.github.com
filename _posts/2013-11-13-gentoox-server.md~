@@ -1,0 +1,8 @@
+---
+layout: post
+title: "gentoo安装X server"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
