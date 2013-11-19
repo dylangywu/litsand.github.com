@@ -1,0 +1,16 @@
+---
+layout: post
+title: "win2008 group policy preference"
+description: ""
+category: 
+tags: [win2008]
+---
+{% include JB/setup %}
+
+http://labs.portcullis.co.uk/blog/are-you-considering-using-microsoft-group-policy-preferences-think-again/?utm_source=feedly
+
+
+windows 2008引入了一个成为组策略首选项(Group Policy Preferences)的新特性.这个特性允许管理员在整个域内部署配置.本文将会描述组策略首选项存在的问题,尤其是当部署的策略包含用户名和密码的时候.这些问题会导致一个本地的用户提升权限甚至获取整个域的权限.
+
+#组策略首选项
+

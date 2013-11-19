@@ -1,0 +1,8 @@
+---
+layout: post
+title: "win2008域环境搭建"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
