@@ -1,0 +1,8 @@
+---
+layout: post
+title: "csrf upload file"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
