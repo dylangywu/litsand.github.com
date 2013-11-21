@@ -1,0 +1,8 @@
+---
+layout: post
+title: "ubuntu安装搜狗输入法"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
