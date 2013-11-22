@@ -1,0 +1,8 @@
+---
+layout: post
+title: "syslog发送文本文件"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
