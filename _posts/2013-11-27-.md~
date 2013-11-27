@@ -1,0 +1,8 @@
+---
+layout: post
+title: "一个注入"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
