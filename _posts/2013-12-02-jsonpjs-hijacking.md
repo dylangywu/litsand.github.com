@@ -15,4 +15,6 @@ http://drops.wooyun.org/papers/42
 
 js-hijacking其实是对jsonp的一种合法使用。是因为服务端验证不全导致的信息泄露。
 
+应该说是使用自定义的callback函数只是js-hijacking的一种。
+
 
