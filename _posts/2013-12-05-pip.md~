@@ -1,0 +1,8 @@
+---
+layout: post
+title: "安装pip"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
