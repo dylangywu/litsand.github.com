@@ -1,0 +1,140 @@
+---
+layout: post
+title: "ssrf攻击简介"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
+
+
+#ssrf攻击概述
+
+很多web应用都提供了从其他的服务器上获取数据的功能。使用用户指定的URL，web应用可以获取图片，下载文件，读取文件内容等。这个功能如果被恶意使用，可以利用存在缺陷的web应用作为代理攻击远程和本地的服务器。这种形式的攻击称为服务端请求伪造攻击（Server-side Request Forgery）。
+
+比如下图显示的就是提供这种功能的典型应用：
+
+![baidu]({{site.img_url}}ssrf/ssrf1.png)
+
+如果应用程序对用户提供的URL和远端服务器返回的信息没有进行合适的验证和过滤，就可能存在这种服务端请求伪造的缺陷。Google,Facebook,Adobe,baidu,tencent等知名公司都被发现过这种漏洞。攻击者利用ssrf可以实现的攻击主要有5种：
+
+1. 可以对外网、服务器所在内网、本地进行端口扫描，获取一些服务的banner信息;
+2. 攻击运行在内网或本地的应用程序（比如溢出）;
+3. 对内网web应用进行指纹识别，通过访问默认文件实现;
+4. 攻击内外网的web应用，主要是使用get参数就可以实现的攻击（比如struts2，sqli等）;
+5. 利用file协议读取本地文件等。
+
+
+#常用的后端实现
+
+ssrf攻击可能存在任何语言编写的应用，我们通过一些php实现的代码来作为样例分析。代码的大部分来自于真实的应用源码。
+
+1,php  file_get_contents:
+
+	<?php
+	if (isset($_POST['url'])) 
+	{ 
+	$content = file_get_contents($_POST['url']); 
+	$filename = './images/'.rand().'img1.jpg'; 
+	file_put_contents($filename, $content); 
+	echo $_POST['url'].""; 
+	$img = "<img src=\"".$filename."\"/>"; 
+	} 
+	echo $img; 
+	?>
+
+这段代码使用file_get_contents函数从用户指定的url获取图片。然后把它用一个随即文件名保存在硬盘上，并展示给用户。
+
+
+2.php fsockopen():
+
+
+	<?php 
+	function GetFile($host,$port,$link) 
+	{ 
+	$fp = fsockopen($host, intval($port), $errno, $errstr, 30); 
+	if (!$fp) { 
+	echo "$errstr (error number $errno) \n"; 
+	} else { 
+	$out = "GET $link HTTP/1.1\r\n"; 
+	$out .= "Host: $host\r\n"; 
+	$out .= "Connection: Close\r\n\r\n"; 
+	$out .= "\r\n"; 
+	fwrite($fp, $out); 
+	$contents=''; 
+	while (!feof($fp)) { 
+	$contents.= fgets($fp, 1024); 
+	} 
+	fclose($fp); 
+	return $contents; 
+	} 
+	}
+	?>
+
+这段代码使用fsockopen函数实现获取用户制定url的数据（文件或者html）。这个函数会使用socket跟服务器建立tcp连接，传输原始数据。
+
+
+3.php curl_exec():
+
+
+	<?php 
+	if (isset($_POST['url']))
+	{
+	$link = $_POST['url'];
+	$curlobj = curl_init();
+	curl_setopt($curlobj, CURLOPT_POST, 0);
+	curl_setopt($curlobj,CURLOPT_URL,$link);
+	curl_setopt($curlobj, CURLOPT_RETURNTRANSFER, 1);
+	$result=curl_exec($curlobj);
+	curl_close($curlobj);
+
+	$filename = './curled/'.rand().'.txt';
+	file_put_contents($filename, $result); 
+	echo $result;
+	}
+	?>
+
+
+这是另外一个很常见的实现。使用curl获取数据。
+
+
+#攻击场景
+
+大部分的web服务器架构中，web服务器自身都可以访问互联网和服务器所在的内网。下图展示了web服务器的请求可以到达的地方。
+
+![baidu]({{site.img_url}}ssrf/ssrf2.png)
+
+
+##端口扫描
+
+
+大多数社交网站都提供了通过用户指定的url上传图片的功能。如果用户输入的url是无效的。大部分的web应用都会返回错误信息。攻击者可以输入一些不常见的但是有效的URI，比如
+
+
+	http://example.com:8080/dir/images/
+	http://example.com:22/dir/public/image.jpg
+	http://example.com:3306/dir/images/
+
+然后根据服务器的返回信息来判断端口是否开放。大部分应用并不会去判断端口，只要是有效的URL，就发出了请求。而大部分的TCP服务，在建立socket连接的时候就会发送banner信息，banner信息是ascii编码的，能够作为原始的html数据展示。当然，服务端在处理返回信息的时候一般不会直接展示，但是不同的错误码，返回信息的长度以及返回时间都可以作为依据来判断远程服务器的端口状态。
+
+下面一个实现就可以用来做端口扫描：
+
+	<?php 
+	if (isset($_POST['url']))
+	{
+	$link = $_POST['url'];
+	$filename = './curled/'.rand().'txt';
+	$curlobj = curl_init($link);
+	$fp = fopen($filename,"w");
+	curl_setopt($curlobj, CURLOPT_FILE, $fp);
+	curl_setopt($curlobj, CURLOPT_HEADER, 0);
+	curl_exec($curlobj);
+	curl_close($curlobj);
+	fclose($fp);
+	$fp = fopen($filename,"r");
+	$result = fread($fp, filesize($filename)); 
+	fclose($fp);
+	echo $result;
+	?>
+
+
