@@ -1,0 +1,8 @@
+---
+layout: post
+title: "a splunk big data case study"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
