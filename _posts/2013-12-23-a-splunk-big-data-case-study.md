@@ -27,7 +27,7 @@ Santa Claus(圣诞老人)international,和它的其他国际国际品牌像Fathe
 
 下图是圣诞老人国际（SCI）的生产车间。
 
-![plunk]({{site.img_url}splunk1.jpg})
+![plunk]({{site.img_url}}splunk1.jpg})
 
 
 SCI有很多的数据来源，大部分数据可以进行管理和分析，下面是他们分析数据的几个例子：
@@ -41,6 +41,6 @@ HoHoHoDoop--SCI自己定制了Hadoop，起了个名字叫HoHoHoDoop。这个集�
 
 数据智能--2013年SCI启动了他们第一个线上服务，Giftlink，这个服务允许孩子通过多种方式提交他们的需求。splunk实时的监控这个服务的数据，还可以生成很多报表。过度的礼物请求，splunk会产生告警，提醒这是一个淘气的孩子。SCI还准备上线一个新的服务来交易自己不喜欢的礼物。偶尔，人们也会犯错，买了自己不喜欢的东西。
 
-![plunk]({{site.img_url}splunk2.jpg})
+![plunk]({{site.img_url}}splunk2.jpg})
 
 右边的图显示英国打开的礼物数和关闭的数量对比。左边是北美已经送达的礼物数量和未送达的实时数据。
