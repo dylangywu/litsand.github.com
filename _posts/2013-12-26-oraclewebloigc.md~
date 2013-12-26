@@ -1,0 +1,8 @@
+---
+layout: post
+title: "搭建oracle和webloigc环境遇到的一些小问题"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
