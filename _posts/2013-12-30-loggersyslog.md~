@@ -1,0 +1,8 @@
+---
+layout: post
+title: "logger命令发送文本到syslog"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
