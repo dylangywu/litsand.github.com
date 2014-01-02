@@ -24,6 +24,8 @@ http://mramydnei.blogspot.jp/2013/12/referrer-xss.html
 
 https://developers.google.com/closure/templates/docs/security
 
+http://blog.kotowicz.net/2012/04/fun-with-data-urls.html
+
 
 
 
@@ -37,6 +39,10 @@ https://developers.google.com/closure/templates/docs/security
 #data uri的一些使用范例
 
 #data uri在xss中的利用
+
+data uri 语法fuzz
+
+
 
 #data uri在lfi中的利用
 
