@@ -1,0 +1,142 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>emerge安装软件中断后无法继续 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">emerge安装软件中断后无法继续</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#http-ref">http <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#emerge-ref">emerge <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#apt-get-ref">apt-get <span>2</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <p>用emerge命令和apt-get命令安装软件，中途停止了。然后再运行命令的时候就一直卡着，软件包下载不下来。显示链接服务器超时，可是用wget是可以成功下载的。</p>
+
+<p>经过抓包分析，其实是花了不少时间的。发现中断之后再重新执行emerge命令发的http请求是不一样的。如下：</p>
+
+<pre><code>GET /gentoo/distfiles/acpica-unix-20090123.tar.gz HTTP/1.1
+Range: bytes=386616-
+User-Agent: Wget/1.14 (linux-gnu)
+Accept: */*
+Host: mirrors.sohu.com
+Connection: Keep-Alive
+
+GET /gentoo/distfiles/harfbuzz-0.9.12.tar.bz2 HTTP/1.1
+User-Agent: Wget/1.14 (linux-gnu)
+Accept: */*
+Host: mirrors.163.com
+Connection: Keep-Alive</code></pre>
+
+<dl>
+<dt>多了一个range字段，经过搜索得知range这个字段是http 1.1协议新加的。目的是为了断点续传。可以请求一部分字段。是这个字段导致了服务器超时。解决的办法就是把emerge 或者apt-get缓存的软件包删掉。然后重新安装就可以了。</dt>
+
+<dd>
+<p>!: 想到一个问题。range 这个字段可以控制请求一部分内容。那么会不会导致一些安全问题。比如本来是一段文本的js，get的时候只返回了这段js，导致js执行。会不会出现这种情况？而且配合crlf注入，注入range字段？？</p>
+</dd>
+</dl>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">23 September 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/工具使用/2013/09/24/sh2log" class="next" title="sh2log安装指南">Next Post &rarr;</a>
+  
+  
+    <a href="/工具使用/2013/09/22/snmp" class="prev" title="中兴交换机配置snmp服务">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

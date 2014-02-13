@@ -1,0 +1,212 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>使用hash登录windows2012的远程桌面 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">使用hash登录windows2012的远程桌面</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#windows-ref">windows <span>12</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <p>windows2012R2采用了新版的远程桌面协议(RDP).本文主要讨论一下新版协议中的&#8221;受限管理员&#8221;(<a href='http://blogs.technet.com/b/kfalde/archive/2013/08/14/restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx'>Restricted Admin</a>)这个特性.相信渗透测试人员和系统管理员都会对这个特性有足够的兴趣,通过这个特性,我们可以实现<a href='http://en.wikipedia.org/wiki/Pass_the_hash'>哈希传递攻击</a>(Pass-the_Hash attacks).下面会先简要介绍一下哈希传递攻击,然后在windows2012R2上演示如何实现这样一种攻击.测试工具是我们在<a href='http://www.freerdp.com/'>FreeRDP</a>的基础上修改的,可以在这里<a href='http://labs.portcullis.co.uk/tools/freerdp-pth/'>下载</a>.</p>
+
+<h2 id='id2638'>哈希传递攻击简介</h2>
+
+<p>简单点说,哈希传递就是用户登录的时候使用密码的哈希值代替密码来完成认证.很多windows的协议都是需要用户提供他们的密码哈希值,并不一定非得需要用户提供密码.这一点在渗透测试过程中非常重要,因为发现用户的密码哈希比发现用户的密码容易多了.</p>
+
+<p>对于8.1版的RDP大部分情况下都需要用户提供他们的密码.但是有一个例外,那就是受限管理员模式,这种情况下用户可以使用他们的密码哈系来登录.</p>
+
+<p>微软发布过<a href='http://www.microsoft.com/en-gb/download/details.aspx?id=36036'>防御哈希传递攻击的指南</a>.</p>
+
+<h2 id='id2639'>受限管理员模式</h2>
+
+<p>在windows2012R2运行&#8221;mstsc /?&#8221;命令,会给出如下对受限管理员模式的说明:</p>
+
+<p><img alt='restricted admin' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/hash5.png' /></p>
+
+<p>所以,开启了受限管理员模式之后,一些恢复已登录用户明文密码的工具比如<a href='http://blog.gentilkiwi.com/mimikatz'>minikatz</a>就会失效了.基于这个理由,系统管理员肯定会被建议在2012的系统上开启这个特性.它的缺点是这个RDP会话中向外的连接可能无法通过认证,比如映射共享文件夹.所以连接一个独立的服务器的时候,这个特性很有用,连接一个跳板服务器的时候开启这个特性就没必要了.</p>
+
+<h2 id='rdpv81'>RDP协议v8.1</h2>
+
+<p>2013年7月22日,微软发布了RDP协议v8.1的<a href='http://msdn.microsoft.com/en-us/library/cc240445.aspx'>特性说明</a>.可以通过点击&#8221;关于&#8221;来查看你的客户端是否支持v8.1</p>
+
+<p><img alt='restricted admin' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/hash2.jpg' /></p>
+
+<p>我会简单介绍一下新版协议中的有意思的地方,这样你就不用花时间去读微软464页的技术文档了.</p>
+
+<ol>
+<li>
+<p>37页的下方我们可以看到RDP客户端可以发送一个RESTRICTED_ADMIN_MODE_REQUIRED 标志.我们的测试工具就是发送了这个标志.</p>
+</li>
+
+<li>
+<p>同样在这一页上的说明是这样的:&#8221;If the server supports this mode then it is acceptable for the client to send empty credentials in the TSPasswordCreds structure defined in <span>MS-CSSP</span> section 2.2.1.2.1.&#8221;(如果服务器支持这个模式,那么它会接受客户端用TSPasswordCreds这个结构发送空的认证信息).所以我们的测试工具需要发送一个空域名,空用户名,空密码的TSPassword结构到服务器端.</p>
+</li>
+</ol>
+
+<h2 id='id2640'>概念证明:场景</h2>
+
+<p>想象我们正在一个内网环境中进行渗透测试.我们的目标是登录一台Windows2012R2的远程桌面.这台服务器是一个独立的系统,而且开了防火墙,只允许RDP协议登录.</p>
+
+<p>这个网络里还有一些其他的主机,其中一台已经被我们攻破.使用<a href='http://foofus.net/goons/fizzgig/fgdump/'>fgdump</a>(或者其他获取hash的工具)获取了管理员的密码hash如下:</p>
+
+<pre><code>test:1001:NO PASSWORD*********************:36374BD2767773A2DD4F6B010EC5EE0D:::</code></pre>
+
+<p>我们假设这个密码是一个非常变态的强密码,无法破解它.这在以前是没有办法确实这个test账户是否能登录我们的目标服务器的.不过在windows2012R2上,我们可以使用哈希传递攻击,使用这个密码hash来登录服务器.</p>
+
+<h2 id='id2641'>概念证明:实现</h2>
+
+<p>测试工具是我们在最新版的<a href='https://github.com/FreeRDP/FreeRDP'>FreeRDP</a>的基础上修改的.最新版的FreeRDP支持了很多新的特性,比如:SSL和CredSSP(NLA),只需要稍微做一些修改就可以支持&#8221;受限管理员&#8221;模式了.</p>
+
+<p>建立RDP连接,通常的命令如下:</p>
+
+<pre><code>$ xfreerdp -u test -p Portcullis1 192.168.226.129</code></pre>
+
+<p>在修改版的FreeRDP中,-p选项被改成了密码hash,使用如下:</p>
+
+<pre><code>$ xfreerdp -u test -p 36374BD2767773A2DD4F6B010EC5EE0D 192.168.226.129</code></pre>
+
+<p>下图是使用hash登录的截图,图片下方是登录使用的命令.</p>
+
+<p><img alt='restricted admin' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/hash3.jpg' /></p>
+
+<p>是的,就是这么简单.不过这个可能要等2012R2普及之后才能显示出它巨大的威力.</p>
+
+<h2 id='id2642'>限制条件</h2>
+
+<p>受限管理员模式顾名思义,只对管理员组有效.所以如果你获取到的用户属于远程桌面用户组,那么是无法通过hash登录的.会提示如下的错误:</p>
+
+<p><img alt='restricted admin' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/hash4.jpg' /></p>
+
+<h3 id='id2643'>测试心得</h3>
+
+<p>原版的工具使用使用说明如下:</p>
+
+<p>解压工具包:</p>
+
+<pre><code>tar zxvf FreeRDP-pth.tar.gz (原参数写成了cfz,应该是笔误)
+cd FreeRDP</code></pre>
+
+<p>不编译执行:</p>
+
+<pre><code>$ client/X11/xfreerdp -u test -p 36374BD2767773A2DD4F6B010EC5EE0D 192.168.226.129</code></pre>
+
+<p>重新编译命令:</p>
+
+<pre><code>$ sh cmake.sh
+$ make</code></pre>
+
+<p>如果遇到编译问题,可以参考FreeRDP的<a href='https://github.com/FreeRDP/FreeRDP/wiki/Compilation'>文档</a>.在Ubuntu12.04上测试通过.</p>
+
+<p>经过一番艰苦的斗争,在不同的机器上反复测试,不断失败,最后完美的方法就是下载最新版FreeRDP,然后自己打补丁编译.</p>
+
+<pre><code>git clone git://github.com/FreeRDP/FreeRDP.git
+cd FreeRDP
+wget http://labs.portcullis.co.uk/wp-content/uploads/2013/10/FreeRDP-pth.diff_.txt
+patch -p1 &lt; FreeRDP-pth.diff_.txt
+cmake -DCMAKE_BUILD_TYPE=Debug -DWITH_SSE2=ON .
+make</code></pre>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">29 October 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/工具使用/2013/10/30/virtualboxwindows2012" class="next" title="virtualbox安装windows2012">Next Post &rarr;</a>
+  
+  
+    <a href="/技术研究/2013/10/29/hashwindows" class="prev" title="使用hash登录windows">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

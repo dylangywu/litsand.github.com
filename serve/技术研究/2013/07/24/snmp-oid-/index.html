@@ -1,0 +1,218 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>snmp oid 样例 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">snmp oid 样例</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#snmp-ref">snmp <span>4</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h2 id='oid'>通用流量oid</h2>
+
+<pre><code>ifNumber 1.3.6.1.2.1.2.1.0 端口数量
+ifEntry 1.3.6.1.2.1.2.2.1 端口的各种信息集合
+ifType 1.3.6.1.2.1.2.2.1.3 端口类型
+ifAdminStatus 1.3.6.1.2.1.2.2.1.7 端口的管理状态（up/down）
+ifInOctets 1.3.6.1.2.1.2.2.1.10 流入的总流量
+ifOutOctets 1.3.6.1.2.1.2.2.1.16 流出的总流量</code></pre>
+
+<h2 id='h3c_s5500ei'>h3c S5500EI</h2>
+
+<pre><code>hh3cEntityExtCpuUsage 1.3.6.1.4.1.25506.2.6.1.1.1.1.6.47 cpu使用率
+hh3cEntityExtMemUsage 1.3.6.1.4.1.25506.2.6.1.1.1.1.8.47 内存使用率</code></pre>
+
+<h2 id='mib'>天融信私有mib</h2>
+
+<pre><code>adminOnline 1.3.6.1.4.1.14331.5.5.1.4.4 在线管理员数
+cpuLoad 1.3.6.1.4.1.14331.5.5.1.4.5 Cpu负载（*0.01）
+memoryLoad 1.3.6.1.4.1.14331.5.5.1.4.6 系统内存占用率（*0.01）
+memoryFree 1.3.6.1.4.1.14331.5.5.1.4.7 空闲内存数（bytes）
+currentConnections 1.3.6.1.4.1.14331.5.5.1.4.9 系统实时连接数
+cps 1.3.6.1.4.1.14331.5.5.1.4.10 系统每秒新建连接数</code></pre>
+
+<h1 id='oid'>天融信网口流量oid</h1>
+
+<pre><code>ifInOctets 1.3.6.1.4.1.14331.5.5.1.5.1.16 接收字节数
+ifOutOctets 1.3.6.1.4.1.14331.5.5.1.5.1.23 发出的字节数</code></pre>
+
+<h1 id='sslvpn'>sslvpn</h1>
+
+<pre><code>svOnlineUser 1.3.6.1.4.1.14331.5.5.1.13.2 sslvpn 在线用户数 13.2</code></pre>
+
+<h1 id='tosivinfotalbe_'>tosIvInfoTalbe 表</h1>
+
+<pre><code>1.3.6.1.4.1.14331.5.5.1.12.3
+
+ivInfoTunnelNumber 隧道数量 12.3.1.1
+ivInfoOutPkts 隧道发出总包数 12.3.1.2
+ivInfoOutDrops 隧道发出丢弃包数 12.3.1.3
+ivInfoOutErrors 隧道发出错误包数 12.3.1.4
+ivInfoOutOctets 隧道发出总字节数 12.3.1.5
+ivInfoInPkts 隧道接收总包数 12.3.1.6
+ivInfoInDrops 隧道接收丢弃包数 12.3.1.7
+ifInfoInErrors 隧道接收错误包数 12.3.1.8
+ivInfoInOctets 隧道接收总字节数 12.3.1.9</code></pre>
+
+<h1 id='tosids_'>tosIDS 表</h1>
+
+<pre><code>idsTotal 1.3.6.1.4.1.14331.5.5.1.11.1 攻击总数 11.1(还有各种具体的攻击的次数)</code></pre>
+
+<h1 id='tosiftable_'>tosIfTable 网卡信息表</h1>
+
+<pre><code>1.3.6.1.4.1.14331.5.5.1.5
+
+ifNotBad 接口有无硬件错误 5.1.11
+ifInPkts 接收包数 5.1.15
+ifInOctets 接收字节数 5.1.16
+ifInDiscards 丢弃包数 5.1.17
+ifInErrors 接收错误的包数 5.1.18
+ifInDiscardsRate(x100) 丢弃包数和端口总包数的比例 5.1.16
+ifInErrorsRate. (x100) 接收错误的包数和端口总包数的比例 5.1.20
+ifInSpeed 进口速率 5.1.21
+ifOutPkts 发出的包数 5.1.22
+ifOutOctets 发出的字节数 5.1.23
+ifOutDiscards 发出时丢弃的包数 5.1.24
+ifOutErrors 发出时错误的包数 5.1.25
+ifOutDiscardsRate(x100) 发出丢弃包和总发出包数的比例 5.1.26
+ifOutErrorsRate(x100) 发出错误包和总发出包数的比例 5.1.27
+ifOutSpeed 出口速率 5.1.28
+ifBandInUse 带宽利用率(百分比) 5.1.29
+ifRcvChkSumErr 接收报校验和错误包数 5.1.30
+ifRcvL3bCast 接收 3 层广播包数 5.1.31
+ifRcvOtherErrPkts 接收的其它错误包数 5.1.32
+ifRcvRejectPkts 接收拒绝包数 5.1.45
+ifRcvIpoptionPkts 接收带有 ip 选项包数 5.1.46
+ifRcvFragPkts 拒绝和丢弃包的总数 5.1.47
+ifDropPkts 丢弃包总数 5.1.48
+ifColliPkts 冲突报总数 5.1.49</code></pre>
+
+<h2 id='id2537'>华为</h2>
+
+<p><a href='http://www-2w.blog.163.com/blog/static/97931518200931371710192/'>华为oid参考a资料</a></p>
+
+<h1 id='vrp_software_version_340_release_1702quidway_router_ar18231'>VRP software, Version 3.40, Release 1702.Quidway Router AR18-23-1</h1>
+
+<pre><code>hwCpuCostRatePer5Sec 1.3.6.1.4.1.2011.2.2.4.12.0 5秒cpu
+hwCpuCostRatePer5Minute 1.3.6.1.4.1.2011.2.2.4.13.0 5分钟cpu使用
+hwUsedMemory 1.3.6.1.4.1.2011.2.2.5.1.0 使用的内存</code></pre>
+
+<h2 id='windows'>windows性能</h2>
+
+<p>测试2003,win7貌似不行</p>
+
+<pre><code>1.3.6.1.2.1.25.3.3.1.2  cpu使用率
+1.3.6.1.2.1.25.2.2.0   内存使用单位KB</code></pre>
+
+<p><a href='http://hongliangpan.iteye.com/blog/226983'>详细列表</a> <a href='http://www.oidview.com/mibs/0/HOST-RESOURCES-MIB.html'>oidview参考资料</a></p>
+
+<h2 id='linux'>linux性能</h2>
+
+<p><a href='http://www.debianadmin.com/linux-snmp-oids-for-cpumemory-and-disk-statistics.html'>Linux SNMP OID’s for CPU,Memory and Disk Statistics</a></p>
+
+<pre><code>1.3.6.1.4.1.2021.10.1.3.1  一分钟load
+1.3.6.1.4.1.2021.4.6.0  内存使用量</code></pre>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">24 July 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/07/25/cve-2012-3268" class="next" title="CVE 2012 3268研究总结">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/07/19/nessus521" class="prev" title="nessus5.2.1离线安装插件">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

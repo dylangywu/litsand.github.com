@@ -1,0 +1,179 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>snmp监控iis并发链接数 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">snmp监控iis并发链接数</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#snmp-ref">snmp <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#windows-ref">windows <span>12</span></a></li>
+     
+    	<li><a href="/tags.html#oid-ref">oid <span>1</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <p>windows开启snmp服务,在添加组件的地方添加就可以.然后配置团体字是在服务管理里面.snmp服务的安全选项卡里.</p>
+
+<p>iis的相关oid如下:</p>
+
+<pre><code>TotalBytesSent_HighWord 	1.3.6.1.4.1.311.1.7.3.1.1.0
+TotalBytesSent_LowWord 	1.3.6.1.4.1.311.1.7.3.1.2.0
+TotalBytesReceived_HighWord 	1.3.6.1.4.1.311.1.7.3.1.3.0
+TotalBytesReceived_LowWord 	1.3.6.1.4.1.311.1.7.3.1.4.0
+TotalFilesSent 	1.3.6.1.4.1.311.1.7.3.1.5.0
+TotalFilesReceived 	1.3.6.1.4.1.311.1.7.3.1.6.0
+CurrentAnonymousUsers 	1.3.6.1.4.1.311.1.7.3.1.7.0
+CurrentNonAnonymousUsers 	1.3.6.1.4.1.311.1.7.3.1.8.0
+TotalAnonymousUsers 	1.3.6.1.4.1.311.1.7.3.1.9.0
+TotalNonAnonymousUsers 	1.3.6.1.4.1.311.1.7.3.1.10.0
+MaxAnonymousUsers 	1.3.6.1.4.1.311.1.7.3.1.11.0
+MaxNonAnonymousUsers 	1.3.6.1.4.1.311.1.7.3.1.12.0
+CurrentConnections 	1.3.6.1.4.1.311.1.7.3.1.13.0
+MaxConnections 	1.3.6.1.4.1.311.1.7.3.1.14.0
+ConnectionAttempts 	1.3.6.1.4.1.311.1.7.3.1.15.0
+LogonAttempts 	1.3.6.1.4.1.311.1.7.3.1.16.0
+TotalOptions 	1.3.6.1.4.1.311.1.7.3.1.17.0
+TotalGets 	1.3.6.1.4.1.311.1.7.3.1.18.0
+TotalPosts 	1.3.6.1.4.1.311.1.7.3.1.19.0
+TotalHeads 	1.3.6.1.4.1.311.1.7.3.1.20.0
+TotalPuts 	1.3.6.1.4.1.311.1.7.3.1.21.0
+TotalDeletes 	1.3.6.1.4.1.311.1.7.3.1.22.0
+TotalTraces 	1.3.6.1.4.1.311.1.7.3.1.23.0
+TotalMove 	1.3.6.1.4.1.311.1.7.3.1.24.0
+TotalCopy 	1.3.6.1.4.1.311.1.7.3.1.25.0
+TotalMkcol 	1.3.6.1.4.1.311.1.7.3.1.26.0
+TotalPropfind 	1.3.6.1.4.1.311.1.7.3.1.27.0
+TotalProppatch 	1.3.6.1.4.1.311.1.7.3.1.28.0
+TotalSearch 	1.3.6.1.4.1.311.1.7.3.1.29.0
+TotalLock 	1.3.6.1.4.1.311.1.7.3.1.30.0
+TotalUnlock 	1.3.6.1.4.1.311.1.7.3.1.31.0
+TotalOthers 	1.3.6.1.4.1.311.1.7.3.1.32.0
+CurrentCGIRequests 	1.3.6.1.4.1.311.1.7.3.1.33.0
+CurrentBGIRequests 	1.3.6.1.4.1.311.1.7.3.1.34.0
+TotalCGIRequests 	1.3.6.1.4.1.311.1.7.3.1.35.0
+TotalBGIRequests 	1.3.6.1.4.1.311.1.7.3.1.36.0
+MaxCGIRequests 	1.3.6.1.4.1.311.1.7.3.1.37.0
+MaxBGIRequests 	1.3.6.1.4.1.311.1.7.3.1.38.0
+CurrentBlockedRequests 	1.3.6.1.4.1.311.1.7.3.1.39.0
+TotalBlockedRequests 	1.3.6.1.4.1.311.1.7.3.1.40.0
+TotalAllowedRequests 	1.3.6.1.4.1.311.1.7.3.1.41.0
+TotalRejectedRequests 	1.3.6.1.4.1.311.1.7.3.1.42.0
+TotalNotFoundErrors 	1.3.6.1.4.1.311.1.7.3.1.43.0
+TotalLockedErrors 	1.3.6.1.4.1.311.1.7.3.1.44.0
+MeasuredBandwidth 	1.3.6.1.4.1.311.1.7.3.1.45.0
+CurrentCalAuth 	1.3.6.1.4.1.311.1.7.3.1.46.0
+MaxCalAuth 	1.3.6.1.4.1.311.1.7.3.1.47.0
+TotalFailedCalAuth 	1.3.6.1.4.1.311.1.7.3.1.48.0
+CurrentCalSsl 	1.3.6.1.4.1.311.1.7.3.1.49.0
+MaxCalSsl 	1.3.6.1.4.1.311.1.7.3.1.50.0
+TotalFailedCalSsl 	1.3.6.1.4.1.311.1.7.3.1.51.0</code></pre>
+
+<h2 id='id2559'>参考资料</h2>
+
+<p><a href='http://www.grandcloud.cn/help/detail/553'>Windows下如何启用snmp服务</a></p>
+
+<p><a href='http://blogs.msdn.com/b/vijaysk/archive/2010/01/28/mib-oids-for-iis-6-0.aspx'>iis oid</a></p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">14 August 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/08/14/windows" class="next" title="windows日志相关设置">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/08/14/smb-null-session-authentication" class="prev" title="smb null session authentication">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

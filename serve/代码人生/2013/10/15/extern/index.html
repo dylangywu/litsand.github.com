@@ -1,0 +1,185 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>extern声明外部变量 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">extern声明外部变量</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#c-ref">c <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#extern-ref">extern <span>1</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h2 id='id2629'>转载</h2>
+
+<p>http://www.chsi.com.cn/xy/com/201001/20100118/62031919.html</p>
+
+<p>全局变量(外部变量)是在函数的外部定义的，它的作用域为从变量的定义处开始，到本程序文件的末尾。在此作用域内，全局变量可以为本文件中各个函数所引用。编译时将全局变量分配在静态存储区。</p>
+
+<p>有时需要用extern来声明全局变量，以扩展全局变量的作用域。</p>
+
+<p>　　1. 在一个文件内声明全局变量</p>
+
+<p>　　如果外部变量不在文件的开头定义，其有效的作用范围只限于定义处到文件终了。如果在定义点之前的函数想引用该全局变量，则应该在引用之前用关键字extern对该变量作外部变量声明，表示该变量是一个将在下面定义的全局变量。有了此声明，就可以从声明处起，合法地引用该全局变量，这种声明称为提前引用声明。</p>
+
+<p>　　例4.14 用extern对外部变量作提前引用声明，以扩展程序文件中的作用域。</p>
+
+<pre><code>　　#include &lt;iostream&gt;
+
+　　using namespace std;
+
+　　int max(int,int); //函数声明
+
+　　void main( )
+
+　　{extern int a,b; //对全局变量a,b作提前引用声明
+
+　　cout&lt;&lt;max(a,b)&lt;&lt;endl;
+
+　　}
+
+　　int a=15,b=-7; //定义全局变量a,b
+
+　　int max(int x,int y)
+
+　　{int z;
+
+　　z=x&gt;y?x：y;
+
+　　return z;
+
+　　}</code></pre>
+
+<p>　　运行结果如下：</p>
+
+<p>　　15</p>
+
+<p>　　在main后面定义了全局变量a，b，但由于全局变量定义的位置在函数main之后，因此如果没有程序的第5行，在main函数中是不能引用全局变量a和b的。现在我们在main函数第2行用extern对a和b作了提前引用声明，表示a和b是将在后面定义的变量。这样在main函数中就可以合法地使用全局变量a和b了。如果不作extern声明，编译时会出错，系统认为a和b未经定义。一般都把全局变量的定义放在引用它的所有函数之前，这样可以避免在函数中多加一个extern声明。</p>
+
+<p>　　2. 在多文件的程序中声明外部变量</p>
+
+<p>　　如果一个程序包含两个文件，在两个文件中都要用到同一个外部变量num，不能分别在两个文件中各自定义一个外部变量num。正确的做法是：在任一个文件中定义外部变量num，而在另一文件中用extern对num作外部变量声明。即</p>
+
+<p>　　extern int num;</p>
+
+<p>　　编译系统由此知道num是一个已在别处定义的外部变量，它先在本文件中找有无外部变量num，如果有，则将其作用域扩展到本行开始(如上节所述)，如果本文件中无此外部变量，则在程序连接时从其他文件中找有无外部变量num，如果有，则把在另一文件中定义的外部变量num的作用域扩展到本文件，在本文件中可以合法地引用该外部变量num。</p>
+
+<p>　　分析下例：</p>
+
+<pre><code>　　file1.cpp file2.cpp
+
+　　extern int a,b; int a=3,b=4;
+
+　　int main( ) ┆
+
+　　{cout&lt;&lt;a&lt;&lt;″,″&lt;&lt;b&lt;&lt;endl;
+
+　　return 0;
+
+　　}</code></pre>
+
+<p>　　用extern扩展全局变量的作用域，虽然能为程序设计带来方便，但应十分慎重，因为在执行一个文件中的函数时，可能会改变了该全局变量的值，从而会影响到另一文件中的函数执行结果。</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">15 October 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/10/15/solarwinds-" class="next" title="solarwinds 报表分析">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/10/15/accelops-report-templates" class="prev" title="accelops report templates">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

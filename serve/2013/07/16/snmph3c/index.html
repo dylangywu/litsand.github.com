@@ -1,0 +1,141 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>snmp获取h3c交换机流量和性能信息 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">snmp获取h3c交换机流量和性能信息</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+    
+  
+
+
+
+  </ul>
+
+  <p>交换机型号：h3c s5500ei</p>
+
+<p>关于mib浏览器。 没有找到一个公认的结果。搜索了下，先下了hilisoft mib browser 1.7,在有的教程中也看到有用这个，可是未注册版太难用了，诸多限制，一会就弹提示，很不爽。放弃。然后google，mib browser，有个oid view的广告。下来看了下，虽然只有几天的试用。但是功能实在是太强大了。方便好用。强烈推荐。</p>
+
+<p>获取cpu性能和内存的信息</p>
+
+<p>需要下载h3c的mib库。comware mib。然后导入</p>
+
+<pre><code>Comware_MIB\H3C New Style Private MIB\hh3c-entity-ext.mib</code></pre>
+
+<p>经过测试，在oidview里需要先导入hh3c-oid.mib，即25506的库。</p>
+
+<p>然后在 SMI-&gt;(01)iso-&gt;(03)org-&gt;(06)dod-&gt;(01)internet-&gt;(04)private-&gt;(01)Enterprise-&gt;(02011)Huawei/(25506)hh3c-&gt;h3c-&gt;h3ccommon-&gt;h3cEntityExtend-&gt;h3cEntityExtObjects-&gt;h3cEntityExtState-&gt;h3cEntityExtStateTable-&gt;h3cEntityExtStateEntry</p>
+
+<p>下面有很多的选项，比如：h3cEntityExtCpuUsage就是我们要用到的CPU使用率，h3cEntityExtMemUsage就是内存使用率。</p>
+
+<p>具体参考<a href='http://hi.baidu.com/zcc_zhu/item/9259f2bcb7abc645ba0e1228'>获取交换机性能</a>。</p>
+
+<p>获取交换机流量信息</p>
+
+<p>抓取mrtg的发送的流量包如下</p>
+
+<pre><code> GetRequest(74) R=24050685  interfaces.ifTable.ifEntry.ifInOctets.22 interfaces.ifTable.ifEntry.ifOutOctets.22 system.sysUpTime.0 system.sysName.0 </code></pre>
+
+<p>发现mrtg只是取了流入的总流量和流出的总流量。而之前研究mrtg日志格式的时候发现，mrtg除了记录总流量，还记录了平均速率和最高的速率。可见，mrtg展示的平均速率是自己计算出来的。</p>
+
+<p>仔细查看mrtg发送的请求发现，它忽略了端口状态为down的端口。所以最后的结论是先根据ifnumber取到所有端口的数量。然后遍历，iftype，ifadminstatus，ifoperstatus，取端口状态，根据端口的类型和状态生成最后的需要获取流量的端口号。iftype有国际标准的，可以根据这个来判断端口是不是物理口。<a href='http://tools.cisco.com/Support/SNMP/do/BrowseOID.do?local=en&amp;translate=Translate&amp;objectInput=1.3.6.1.2.1.2.2.1.3'>iftype的标准</a>。另外发现ifadminstatus和ifoperstatus有些不同，mrtg应该是按照ifadminstatus来判断的。</p>
+
+<p>分析到这里，已经可以写程序来监控h3c的cpu，内存和流量信息了。</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">16 July 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/07/18/server-status-" class="next" title="server status 信息引起的信息泄漏">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/07/16/markdown-" class="prev" title="markdown 语法概要">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

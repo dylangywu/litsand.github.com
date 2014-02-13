@@ -1,0 +1,155 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>how to disable webcam light on windows &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">how to disable webcam light on windows</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+    
+  
+
+
+
+  </ul>
+
+  <p>http://blog.erratasec.com/2013/12/how-to-disable-webcam-light-on-windows.html#.Ur1X8X_8PZg</p>
+
+<p>最近不少新闻说FBI能够不开摄像头led灯的情况下打开摄像头。一些研究人员也发表文章称在一些老版本的Macbook上测试成功了。可以参考<a href='http://www.freebuf.com/news/21579.html'>破解苹果MacBook摄像头进行秘密监控</a>。不过苹果是高富帅玩的啊，我们吊丝还是搞搞windows吧。</p>
+
+<h1 id='id2670'>硬件，固件，驱动，软件</h1>
+
+<p>理论上来说，指示灯应该是一个硬件功能。当电源提供给摄像头的时候，也会提供电力到指示灯上。这样的话要想黑指示灯几乎是不可能的了。不过我不认为有人会这样来设计。</p>
+
+<p>在有些情况下，指示灯是固件控制的功能。摄像头会有自己的微处理器来执行代码，控制指示灯只是固件的一个小功能。但是，固件依然是某种形式的软件，这就给了我们进行篡改的机会。</p>
+
+<p>在有些情况下，是驱动控制着指示灯。可能是直接控制硬件的底层内核模式驱动，也可能是面向软件的高层的DLL文件。</p>
+
+<h1 id='id2671'>逆向工程</h1>
+
+<p>作为逆向工程师，我们收集了这些可能控制指示灯的软件/固件/驱动，然后在IDApro中调试，很快就发现了一些关键的地方。</p>
+
+<p>拿一个戴尔笔记本举例，我们发现摄像头的RealTek驱动中有一个函数“TurnOnOffLED()&#8221;</p>
+
+<p><img alt='pic' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/webcamera1.jpg' /></p>
+
+<p>简单的修改了一下，让这个函数执行打开指示灯，直接返回。下面是录制的一个演示视频：一开始是正常的，然后替换掉驱动的dll文件，打开摄像头之后，指示灯就不亮了。</p>
+
+<p>http://www.youtube.com/watch?v=w86OwkP7yUQ</p>
+
+<h1 id='usb'>关于USB设备</h1>
+
+<p>基本上所有的摄像头，包括笔记本内置的摄像头都是USB设备。对于usb摄像头，有一个标准叫<a href='http://en.wikipedia.org/wiki/USB_video_device_class'>UVC</a>。按照这个标准，大部分设备可以在不使用 厂家定制驱动的情况正常运行在标准操作系统上（windows,linux,mac)。只有在使用一些高级特性才需要厂家提供的专用驱动。</p>
+
+<p>这个标准中同样也规定了led指示灯是由主机软件控制的。linux平台上，有一套UVC工具集，安装之后可以直接使用命令来控制指示灯的打开和关闭。包括在摄像头打开的情况下关闭指示灯。</p>
+
+<p>windows上要想实现的话看起来需要自己写一个过滤驱动。我们太懒了就没写，这也是上面的视频演示直接修改DLL文件的原因。不过我们认为FBI应该做了这件事，完成了一个针对UVC标准的过滤驱动，这样一个程序可以控制不同厂家的大部分摄像头指示灯。不然的话FBI就得针对不同的摄像头单独修改驱动。</p>
+
+<p>USB还有很多有趣的特性。它的设计理念是一个用户不需要root/administrator权限就可以安装使用。因此，有了”用户模式“的驱动这样的思想，非管理员用户可以安装USB设备的驱动来使用它。</p>
+
+<p>这个可以通过设备固件升级（Device Firmware Update，DFU）标准来实现。这意味着大多数情况下，没有管理员权限的用户可以更新摄像头的固件。文章开头提到的研究人员在2008 Macbook上就使用了这种方式。理论上来说，在现在的大部分windows 7笔记本上也是可行的。问题在于这种方式需要事先修改好各种摄像头芯片的固件。</p>
+
+<h1 id='id2672'>结论</h1>
+
+<p>上面的视频可以证明至少我们已经在一台windows机器上实现了不开指示灯的情况下录像。而我们的研究表明，在常见操作系统上的大部分不同厂家的摄像头都可以实现秘密录像。</p>
+
+<h1 id='ps'>PS</h1>
+
+<p>现在的MacBooks已经不使用USB摄像头了。所以UVC和DFU的方式在最新的macbook上是无效的。</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">27 December 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/12/30/loggersyslog" class="next" title="logger命令发送文本到syslog">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/12/27/cve-2013-2186-apache-commons-fileupload" class="prev" title="CVE 2013 2186 Apache commons fileupload">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

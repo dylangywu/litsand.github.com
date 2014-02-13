@@ -1,0 +1,262 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>正则表达式效率分析 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">正则表达式效率分析</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#正则表达式-ref">正则表达式 <span>1</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h3 id='1ppt'>建议先读一下参考资料1中的ppt</h3>
+
+<p>ppt中关于正则运行原理的部分讲的很不错。写了很久，发现我还是没把回溯这个事情将清楚。最好自己用regexbuddy调试一下，可以加深理解。</p>
+
+<h3 id='id2521'>两种引擎</h3>
+
+<p>要分析正则表达式效率的问题首先需要了解正则表达式引擎运行的原理。简单的说，正则表达式的引擎主要有两种：</p>
+
+<ul>
+<li>DFA Deterministic finite automaton 确定型有穷自动机</li>
+
+<li>NFA Non-deterministic finite automaton 非确定型有穷自动机</li>
+</ul>
+
+<p>DFA又称为文本导向的引擎，比如用正则</p>
+
+<pre><code>    abc|abcdef</code></pre>
+
+<p>去匹配字符串&#8221;abcdefghi&#8221;,匹配的结果是abcdef。它的过程是这样子的：拿字符串中的地一个字符&#8221;a&#8221;跟正则的两个分支匹配，匹配成功。然后把权限让给第二个字符&#8221;b&#8221;，&#8221;b&#8221;跟两个分支匹配也成功，然后第三个字符&#8221;c&#8221;，&#8221;c&#8221;匹配成功之后匹配的过程没有结束。而是继续用后面的字符&#8221;d&#8221;去跟正则匹配，这时候第一个分支匹配失败，被淘汰掉，第二个分支匹配成功。后续&#8221;e&#8221;&#8221;f&#8221;也匹配成功，所以最后的结果是匹配成功，匹配到的字符串是&#8221;abcdef&#8221;.</p>
+
+<p>NFA又称为正则导向的引擎。还是用上一个例子。如果是一个正则导向的引擎去匹配的话，匹配到的结果是&#8221;abc&#8221;,而不是&#8221;abcdef&#8221;。它的工作过程是这样子的，一开始的控制权是在正则表达式的手里。它用&#8221;abc|abcdef&#8221;的地一个分支去跟要匹配的字符串&#8221;abcdefghi&#8221;，（在之前DFA的工作流程中，控制权是在字符串手里，用字符串去跟正则匹配，所以DFA成为文本导向。这里，控制权在正则表达式的手里，所以称为正则导向）正则第一个分支&#8221;abc&#8221;跟字符串&#8221;abcdefghi&#8221;匹配成功之后，NFA引擎就立刻上报发现成功匹配，匹配结果是&#8221;abc&#8221;，它就不会继续去匹配正则的第二个分支了。</p>
+
+<p>示例： egrep 默认使用的正则引擎是DFA，grep -P 参数是指用perl的正则引擎，属于NFA的引擎。可以看到匹配到的字符是不同的。</p>
+
+<p><img alt='test' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/egrep.png' /></p>
+
+<h3 id='dfanfa'>DFA与NFA的区别</h3>
+
+<p>DFA不需要回溯，匹配快速，但是不支持捕获组，所以也不支持反向引用等多种特性。目前使用DFA引擎的语言和工具主要有awk，egrep和lex。</p>
+
+<p>NFA支持捕获组，惰性量词等，需要回溯。所以他的匹配速度相对慢一些，但是支持的特性多。我们平时用的大多数语言和工具都是NFA引擎。比如:java,php,python,ruby&#8230;..</p>
+
+<p>本文对于正则表达式效率的讨论也是基于标准的NFA引擎。</p>
+
+<h3 id='id2522'>性能和回溯</h3>
+
+<p>正则的语法就不介绍了。这里用一个例子稍微详细的介绍一下正则匹配的过程和回溯的概念。用正则</p>
+
+<pre><code>ID:\s*(.*?)MMM</code></pre>
+
+<p>去匹配</p>
+
+<pre><code>ID:   S-1-2MMM</code></pre>
+
+<p>先看一下匹配过程。</p>
+
+<p><img alt='backtrack' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/backtrack.png' /></p>
+
+<p>先用正则的I跟字符串的I匹配，匹配成功，后面类似。当控制权权到</p>
+
+<pre><code>\s*</code></pre>
+
+<p>这里的时候，\s和修饰它的量词是作为一个整体来匹配的。由于是贪婪模式，所以第四步，一下匹配了3个空格。然后控制权到了</p>
+
+<pre><code>(.*?)</code></pre>
+
+<p>这里是非贪婪模式，所以它优先选任意字符出现零次，即什么都没有匹配。（这里是第5,第6步，因为有括号。所以是两步）只是在这里做了一个标记，因为这里有多种可能行，当后面匹配失败，就会重新回到这里，然后控制权就到了正则里的</p>
+
+<pre><code>M</code></pre>
+
+<p>这里。第七步，M跟字符串的S匹配，匹配失败。控制权重新回到</p>
+
+<pre><code>(.*?)</code></pre>
+
+<p>这里。这个过程就是一个回溯。回到这里之后，这次就会去尝试匹配一个任意字符。这里匹配了S，然后在这里做了标记，控制权又交给了M，M匹配又失败，又回溯到之前标记的地方。</p>
+
+<p>可以看到这个成功的匹配过程经过了5次回溯。下图是匹配失败时候的回溯，其实匹配成功一般不会有性能问题，出现性能问题一般都是匹配失败的时候。</p>
+
+<p>为了方便讲解，把正则跟需要匹配的字符串都简化了一下：</p>
+
+<pre><code>正则：ID:\s*(.*?)M
+字符串：ID: SN</code></pre>
+
+<p>匹配失败，用了30步。</p>
+
+<p><img alt='shibai' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/jianhua2.png' /></p>
+
+<p>匹配成功的时候只有10步。</p>
+
+<p><img alt='chenggong' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/jianhua.png' /></p>
+
+<p>其实最好的办法是放到regexbuddy里调试一下。可以看到16步，当后面的都匹配失败，回溯点回到了</p>
+
+<pre><code>\s* 这里。\s*是贪婪匹配，之前匹配了一个空格。</code></pre>
+
+<p>可是后面的都匹配失败了，它至少吐一个空格出来。然后，后面的</p>
+
+<pre><code>(.*?)M再来一边。</code></pre>
+
+<p>17步是</p>
+
+<pre><code>(.*?) 非贪婪匹配，匹配了零个字符。。。。。。</code></pre>
+
+<h3 id='id2523'>如何避免回溯</h3>
+
+<p>回溯可能产生的地方有两个，一个是分支结构，一个是量词。</p>
+
+<p>对于分支结构来说，可以把概率高的分支放在前面，因为NFA是优先选择左端的结果。</p>
+
+<p>对于量词来说有三个思路。</p>
+
+<p>* 一个是元字符的精确化，就是尽量详细分析字符内容，慎重用点号星号。 * 另一个就是用原子组和占有优先量词避免回溯。 * 避免两个及以上使用了量词的元字符紧挨在一起，这样子会引起大量的回溯。</p>
+
+<h4 id='id2524'>实例测试</h4>
+
+<pre><code>(已成功登录帐户。\s*主题:\s*安全 ID:\s*(.*?)\s*帐户名:\s*(.*?)\s*帐户域:\s*(.*?)\s*登录 ID:\s*(.*?)\s*登录类型:\s*(.*?)\s* 新登录:\s*安全 ID\s*(.*?)\s*帐户名:\s*(.*?)\s*帐户域:\s*(.*?)\s*登录 ID:\s*(.*?)\s*登录 GUID:\s*(.*?)\s*进程信息:\s*进程 ID:\s*(.*?)\s*进程名:\s*(.*?)\s*网络信息:\s*工作站名:\s*(.*?)\s*源网络地址:\s*(?:\-|(\S+))\s*源端口:\s*(?:(\d+)|\-)\s*详细身份验证信息:\s*登录进程:\s*(.*?)\s*身份验证数据包:\s*(.*?)\s*传递服务:\s*(.*?)\s*数据包名\(仅限 NTLM\):\s*(.*?)\s*密钥长度:\s*(.*?)\s*在创建登录会话后在被访问的计算机上生成此事件。\s*“主题”字段指明本地系统上请求登录的帐户。\s*这通常是一个服务\(例如 Server 服务\)或本地进程\(例如 Winlogon.exe 或 Services.exe\)。\s*“登录类型”字段指明发生的登录种类。\s*最常见的类型是 2 \(交互式\)和 3 \(网络\)。\s*“新登录”字段会指明新登录是为哪个帐户创建的，即登录的帐户。\s*“网络”字段指明远程登录请求来自哪里。\s*“工作站名”并非总是可用，而且在某些情况下可能会留为空白。\s*“身份验证信息”字段提供关于此特定登录请求的详细信息。\s*-“登录 GUID”是可以用于将此事件与一个 KDC 事件关联起来的唯一标识符。\s*-“传递服务”指明哪些直接服务参与了此登录请求。\s*- “数据包名”指明在 NTLM 协议之间使用了哪些子协议。\s*-“密钥长度”指明生成的会话密钥的长度。\s*如果没有请求会话密钥则此字段为 0。)</code></pre>
+
+<p>这个例子中直接测试的话regexbuddy匹配超过100万次就停止了（下面的次数都是指匹配失败的情况下）。实际匹配完成需要的次数可能远远超过100万次。如果把</p>
+
+<pre><code>(.*?) 全部换成 (\S*?)</code></pre>
+
+<p>之后只需要2300次左右匹配就结束了。当然这里账户名可能含有空格，如果把账户名，账户域，依然用点星来匹配，其他的换成\S,需要的匹配次数仍然超过100万次。看起来这个问题主要是由于点号导致的。可以再进一步优化下，把点号换成</p>
+
+<pre><code>[^:]</code></pre>
+
+<p>既假设用户名里是不含有冒号的。这样子的匹配次数是依然超过100万次。。。貌似没有什么效果。</p>
+
+<p>上面的方法都是基于字符精确话这个原则。此外还可以利用原子组和占有优先量词避免回溯。以占有优先量词为例，它的语法是在量词后面加一个+号。</p>
+
+<pre><code>比如： \s*+  这样子的话，它匹配到的字符会作为一个整体，不会再产生回溯。</code></pre>
+
+<p>虽然上面的正则是贪婪匹配，匹配到了好几个空格，但是加了占有优先量词，就不会再出现吐一个字符出来，产生回溯的情况。</p>
+
+<p>这个例子中，经过上面的优化没有效果的情况下，把每个冒号后面的第一个</p>
+
+<pre><code>\s* 换成 \s*+</code></pre>
+
+<p>匹配次数降到了3万次，已经可以运行了。其实这个效果并不是很好。当把登录ID的</p>
+
+<pre><code>\S*? 换成 .*?之后，匹配次数马上达到了27万次</code></pre>
+
+<p>按照思路三：</p>
+
+<p>经过一番调试发现，如果把</p>
+
+<pre><code>\s*(.*?)\s* 换成(.*?)</code></pre>
+
+<p>匹配次数只需要38000次，所以把量词修饰的元字符放在一起才是造成这个性能问题的主要原因。</p>
+
+<p>这里\s其实是用来净化捕获组的获取的字符串，去掉字符串首尾的空格。如果程序在存储或展示的时候有对字符串进行去掉首尾空格的处理，那么正则就可以省略这个步骤，就不存在性能问题了。日志相对来说还是比较短的，只要注意思路三，一般不会引起性能问题。</p>
+
+<h2 id='id2525'>参考资料</h2>
+
+<p><a href='http://www.cnxct.com/regularexpressions-pptx-pdf-share/'>全面的正则讲解PPT，因为只是PPT很多只是点到没有细讲</a></p>
+
+<p><a href='http://jm.taobao.org/2012/10/29/java%E6%AD%A3%E5%88%99%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/'>Java正则引发的思考</a></p>
+
+<p><a href='http://www.regular-expressions.info/catastrophic.html'>Catastrophic Backtracking</a></p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">07 June 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/06/19/iis-put-" class="next" title="iis put 写权限利用">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/05/24/my-first-blog" class="prev" title="My first blog">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+
