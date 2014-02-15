@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>redhat centos 手动配置IP &larr; </title>
+   <title>漏洞对比的设计 &larr; </title>
    <meta name="author" content="litsand" />
 
    <link rel="start" href="/" />
@@ -44,17 +44,13 @@
   
 <div id="page">
 	
-  <h1 class="emphnext">redhat centos 手动配置IP</h1>
+  <h1 class="emphnext">漏洞对比的设计</h1>
   <ul class="tag_box inline">
   
   
 
 
   
-     
-    	<li><a href="/tags.html#centos-ref">centos <span>3</span></a></li>
-     
-    	<li><a href="/tags.html#redhat-ref">redhat <span>1</span></a></li>
     
   
 
@@ -62,53 +58,20 @@
 
   </ul>
 
-  <h2 id='id392'>配置文件</h2>
-
-<pre><code>/ect/hosts 配置主机名和IP地址的对应
-/etc/sysconfig/network 配置主机名和网关
-/etc/sysconfig/network-scripts/ifcfg-eth0 eth0配置文件，eth1则文件名为ifcfg-eth1，以此类推</code></pre>
-
-<p>IP配置</p>
-
-<p>假设我们要配置主机名为test，eth0的IP地址192.168.168.1/24，网关地址192.168.168.250</p>
-
-<p>则/etc/sysconfig/network文件内容如下：</p>
-
-<pre><code>NETWORKING=yes
-HOSTNAME=test
-GATEWAY=192.168.168.250</code></pre>
-
-<p>eth0对应的配置文件/etc/sysconfig/network-scripts/ifcfg-eth0内容如下：</p>
-
-<pre><code>DEVICE=eth0
-BOOTPROTO=static
-IPADDR=192.168.168.1
-NETMASK=255.255.255.0
-TYPE=Ethernet
-ONBOOT=yes</code></pre>
-
-<p>DNS配置</p>
-
-<p>修改/etc/reslov.conf</p>
-
-<pre><code>nameserver 8.8.8.8</code></pre>
-
-<h2 id='id393'>参考资料</h2>
-
-<p><a href='http://www.ningoo.net/html/2007/redhat_linux_network_configuration_and_bond.html'>Redhat Linux网卡配置与绑定</a></p>
+  
 
   <address class="signature">
     <a class="author" href="/">litsand</a> 
-    <span class="date">28 August 2013</span>
+    <span class="date">14 February 2014</span>
     <span class="location"></span>
   </address>
   
   <div class="prev-next">
   
-    <a href="/渗透测试/2013/08/28/reverse-shell-cheat-sheet" class="next" title="reverse shell cheat sheet">Next Post &rarr;</a>
+    <a href="/2014/02/14/private--" class="next" title="private  漏洞对比的设计">Next Post &rarr;</a>
   
   
-    <a href="/渗透测试/2013/08/28/jynx_rootkit20" class="prev" title="Jynx_Rootkit/2.0安装测试">&larr; Earlier Post</a>
+    <a href="/2014/02/11/cert-polska-detected-large-scale-dns-hacking-on-home-routers" class="prev" title="CERT POLSKA detected large scale DNS hacking on home routers">&larr; Earlier Post</a>
   
   </div>
   

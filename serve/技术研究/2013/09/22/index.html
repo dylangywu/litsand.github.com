@@ -64,7 +64,7 @@
 
   </ul>
 
-  <h2 id='id2601'>参考资料</h2>
+  <h2 id='id417'>参考资料</h2>
 
 <p>http://blog.markloiseau.com/2012/04/hello-world-loadable-kernel-module-tutorial/</p>
 
@@ -76,7 +76,7 @@
 
 <p>1, 安装module-assistant包 2, 创建主文件hello.c和Makefile 3, 编译hello.c 4, 将编译好的模块插入到当前内核中 5, 测试完成后移除相关的内核模块</p>
 
-<h2 id='id2602'>安装内核头文件等准备工作</h2>
+<h2 id='id418'>安装内核头文件等准备工作</h2>
 
 <p>Debian和Ubuntu都提供了moddule-assistant的包,包括了编写LKM需要的所有包.可以通过一下方式安装:</p>
 
@@ -131,7 +131,7 @@ $(MAKE) -C $(KDIR) M=$(PWD) modules
 clean:
 $(MAKE) -C $(KDIR) M=$(PWD) clean</code></pre>
 
-<h2 id='id2603'>编译源码</h2>
+<h2 id='id419'>编译源码</h2>
 
 <p>到工作目录下执行make就可以了</p>
 
@@ -144,7 +144,7 @@ MODPOST 1 modules
 CC /var/www/lkm/hello.mod.o
 LD [M] /var/www/lkm/hello.ko</code></pre>
 
-<h2 id='id2604'>加载编译好的内核模块到内核</h2>
+<h2 id='id420'>加载编译好的内核模块到内核</h2>
 
 <p>使用insmod命令:</p>
 
@@ -158,7 +158,7 @@ Apr 20 16:27:39 laptop kernel: [19486.347191] Hello world!</code></pre>
 
 <p>有一些发行版,内核信息会记录到别的文件,比如/var/log/messages.这个也要看syslog的配置.</p>
 
-<h2 id='id2605'>卸载模块</h2>
+<h2 id='id421'>卸载模块</h2>
 
 <p>使用rmmod 命令</p>
 

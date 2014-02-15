@@ -8,6 +8,8 @@ http://username.github.io/sitemap.txt
 http://username.github.io/atom.xml
 http://username.github.io/categories.html
 
+http://username.github.io/2014/02/14/private--
+http://username.github.io/2014/02/14/
 http://username.github.io/2014/02/11/cert-polska-detected-large-scale-dns-hacking-on-home-routers
 http://username.github.io/2014/02/09/web
 http://username.github.io/2014/02/09/7ddos--

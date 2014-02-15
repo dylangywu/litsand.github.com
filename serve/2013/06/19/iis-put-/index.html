@@ -76,19 +76,19 @@
 
 <p><img alt='webDAV' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/webdav.png' /> <img alt='webDAV' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/write1.png' /> <img alt='webDAV' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/write2.png' /></p>
 
-<h3 id='id2526'>测试过程</h3>
+<h3 id='id342'>测试过程</h3>
 
 <p>使用桂林老兵的写权限利用工具和winsock expert抓包分析。 <img alt='webDAV' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/winsock.png' /></p>
 
 <p>如果服务器没有开webdav扩展，put请求返回501 not implemented ,如果开了webdav，目录没有给写入权限，返回403 forbidden,如果目录有写入权限，用户没有给写权限，返回 401 unauthorized,如果条件都满足，返回201 created,表明文件成功上传。如果文件已经存在，则更新文件，返回 200.</p>
 
-<h3 id='id2527'>利用思路</h3>
+<h3 id='id343'>利用思路</h3>
 
 <ul>
 <li>上传txt，move改名为asp或者利用iis的解析漏洞。</li>
 </ul>
 
-<h3 id='id2528'>一次完整攻击的日志记录</h3>
+<h3 id='id344'>一次完整攻击的日志记录</h3>
 
 <p>2013-06-20 03:02:30 W3SVC1 192.168.100.22 PUT /yanshi.txt - 80 - 192.168.100.33 - 201 0 0 2013-06-20 03:02:49 W3SVC1 192.168.100.22 MOVE /yanshi.txt - 80 - 192.168.100.33 - 201 0 0 2013-06-20 03:03:23 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:23 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:31 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:33 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:58 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:59 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:04:00 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:04:00 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:04:03 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0</p>
 
@@ -98,7 +98,7 @@
 
 <p>关于move操作的时候返回207 的问题，参考资料里有提到。解决方案就是利用iis的解析漏洞。经过一番测试发现，之所以会出现这个问题，是由于服务器的配置问题。如果目录权限没有给脚本资源访问的权限，那么会返回207 同时body里面会说明是 403 forbidden，可以通过iis的解析漏洞解决。还有一种情况是匿名用户没有文件修改权限，这是body里说明是401 unauthorized，这种情况就没有办法了。</p>
 
-<h3 id='id2529'>参考资料</h3>
+<h3 id='id345'>参考资料</h3>
 
 <p><a href='http://4ngel.net/article/33.htm'>协议级别的分析</a></p>
 
