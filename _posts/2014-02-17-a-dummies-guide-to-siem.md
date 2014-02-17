@@ -15,19 +15,20 @@ tags: []
 SIEM是一种为企业的信息的安全提供全面评估的安全管理方式。它把SIM（security information management）和SEM(security event management)整合进了一个统一的安全管理系统。
 
 SEM和SIM基本功能的区别
-<table>
-    <tr>
-        <td>Security Information  Event Management (SIEM)</td>
-    </tr>
-    <tr>
-        <td>Security Event Management(SEM)</td><td>Security Information management(SIM)</td>
-    </tr>
-    <tr><td>Event Management </td><td>Centralized Log Collection</td></tr>
-    <tr><td>Real-time Threat Analysis</td><td>Long term Log Storage</td></tr>
-    <tr><td>Incident detection  Response</td><td>Log Search  Reporting</td></tr>
-    <tr><td>Basic Ticketing capabilities</td><td></td></tr>
-    <tr><td>Security Operations</td><td></td></tr>
-</table>
+
+	<table>
+	    <tr>
+	        <td>Security Information  Event Management (SIEM)</td>
+	    </tr>
+	    <tr>
+	        <td>Security Event Management(SEM)</td><td>Security Information management(SIM)</td>
+	    </tr>
+	    <tr><td>Event Management </td><td>Centralized Log Collection</td></tr>
+	    <tr><td>Real-time Threat Analysis</td><td>Long term Log Storage</td></tr>
+	    <tr><td>Incident detection  Response</td><td>Log Search  Reporting</td></tr>
+	    <tr><td>Basic Ticketing capabilities</td><td></td></tr>
+	    <tr><td>Security Operations</td><td></td></tr>
+	</table>
 
 	| Security Information & Event Management (SIEM) ||
 	|Security Event Management(SEM)| Security Information management(SIM)| 
