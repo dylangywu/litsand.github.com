@@ -1,0 +1,161 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>raspberry pi 搭建tor网络 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">raspberry pi 搭建tor网络</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#raspberry-ref">raspberry <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tor-ref">tor <span>1</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <p>https://www.idontplaydarts.com/2013/01/raspberry-pi-and-tor-for-slightly-easier-opsec/</p>
+
+<p>为了更好的保护自己我在树莓派上安装了一个tor客户端.笔记本通过树莓派上网,把树莓派设置成所有的流量通过tor网络传输.这个方案的成本不超过50美金,但是可以极大的降低真实ip地址泄漏的风险.</p>
+
+<p>即使笔记本被入侵控制了,这样一个物理隔离的硬件设备也可以保护你的身份不被识别出来.(当然,你的笔记本上不能保存着自己的身份信息)</p>
+
+<h2 id='id440'>软件安装</h2>
+
+<p>即使对熟悉linux的人来说,设置树莓派也是一个漫长的过程.我选择了&#8221;Raspbian&#8221;这个基于Debian的系统.然后就是安装一系列软件.</p>
+
+<p>sshd-管理树莓派用,监听eth0</p>
+
+<p>iptables-控制设备的访问</p>
+
+<p>macchanger-连接互联网的网卡随机生成mac地址</p>
+
+<p>wireless-tools and wpa_supplicant-连接无线网</p>
+
+<p>因为树莓派只有一个以太网卡所以我们需要一个额外的usb以太网卡或者usb无线网卡.我用的是<a href='http://www.amazon.com/Alfa-Wireless-Original-Screw-On-9dBi/dp/B001O9X9EU'>Alpha Card</a>,它的兼容性比较好.</p>
+
+<p>Tor和Polipo(一个代理程序)会占用比较多的内存,所以选用B型号的树莓派(512内存)性能会好一点.</p>
+
+<p>整个网络的拓扑如下图:</p>
+
+<p><img alt='network' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/berry.png' /></p>
+
+<p>如果需要socks方式代理,可以在eth0上开放Tor socks proxy的端口(TCP/9050)</p>
+
+<h2 id='id441'>系统设置</h2>
+
+<p>树莓派的所以服务都配置成不保存日志.此外SSH设置成keys密钥对登录的方式.私钥不要保存在笔记本上!硬盘进行加密.</p>
+
+<h2 id='id442'>电源</h2>
+
+<p>树莓派通过笔记本的USB供电,所以便携性非常好.树莓派启动的过程大概需要一分钟.</p>
+
+<p><img alt='pic' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/berry2.jpg' /></p>
+
+<h2 id='id443'>总结</h2>
+
+<p>这个设备可以比较好的保护你在网络上的匿名性.如果是通过免费的wifi连接上互联网,那么别人识别你的身份会更加困难.</p>
+
+<h2 id='id444'>扩展阅读</h2>
+
+<p><a href='http://learn.adafruit.com/onion-pi/overview'>Onion Pi</a></p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">12 October 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/10/15/-kernel-26" class="next" title="劫持系统调用 kernel 2.6">Next Post &rarr;</a>
+  
+  
+    <a href="/技术研究/2013/10/11/xml" class="prev" title="xml学习笔记">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

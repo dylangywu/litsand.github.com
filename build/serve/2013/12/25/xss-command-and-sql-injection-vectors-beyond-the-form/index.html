@@ -1,0 +1,161 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>XSS, Command and SQL Injection vectors: Beyond the Form &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">XSS, Command and SQL Injection vectors: Beyond the Form</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+    
+  
+
+
+
+  </ul>
+
+  <p>这不是一篇介绍介绍技术的文章，只是一种开放思维的尝试。主要着重于当遇到输入过滤的情况下，如何找到可以利用的输入点。</p>
+
+<p><img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input1.png' /></p>
+
+<p>本质上来说如果要进行xss攻击，只要找到一个未过滤的输入点。输入的数据在支持脚本的软件（不仅限于浏览器）里解析就可以了。sqli也是类似的道理。而输入点并不仅仅是网页里的表单，只要去发现，输入点无处不在。下面介绍一些抛砖引玉的想法，也欢迎大家分享自己的思路。</p>
+
+<h1 id='user_agent_'>user agent 字段</h1>
+
+<p><img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input2.png' /></p>
+
+<p>不仅仅是useragent字段，还包括头部的其他字段。比如把useragent改成</p>
+
+<pre><code>&quot;&lt;script&gt;window.location = &quot;http://www.freebuf.com/&quot;&lt;/script&gt;&quot; </code></pre>
+
+<p>很多日志分析工具都是生成html格式的报告，如果这个字段没有合适的过滤编码就输出在html里，管理员查看的时候就会执行插入的js了。</p>
+
+<h1 id='ssids'>SSIDs</h1>
+
+<p><img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input3.png' /></p>
+
+<p>这只是一个假想的攻击方式，SSIDs可以有32个字符甚至看可以包含不能打印的ASCII，SSID可能出现在某些记录wifi连接记录的日志里。</p>
+
+<h1 id='id483'>事件日志</h1>
+
+<p><img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input4.png' /></p>
+
+<p>很多人分析日志都会用第三方的日志查看工具。如果我们用</p>
+
+<pre><code>&lt;script&gt;alert(&quot;XSS&quot;);&lt;/script&gt;</code></pre>
+
+<p>作为用户名尝试登陆，登陆失败后会记录在日志中。第三方工具如果没有合适的过滤编码字符串，管理员查看工具生成的html格式的报告时就可能受到xss攻击。</p>
+
+<h1 id='id484'>计算机名和描述</h1>
+
+<p><img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input5.png' /></p>
+
+<p>这个场景我在Softperfect&#8217;s NetScan实践过。在这里插入xss代码，当渗透测试人员查看扫描报告的时候。。。。。</p>
+
+<p><img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input6.png' /></p>
+
+<h1 id='id485'>应用的名字和元数据</h1>
+
+<p><img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input7.png' /></p>
+
+<p>一些管理软件会列出来电脑上安装的软件信息，如果是用html来实现。。。</p>
+
+<h1 id='banners'>Banners</h1>
+
+<p>大多网络扫描器都可以识别banner，而且可以输出多种格式，html，xml等。</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">25 December 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/12/26/oraclewebloigc" class="next" title="搭建oracle和webloigc环境遇到的一些小问题">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/12/25/svn-" class="prev" title="svn 常用命令">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

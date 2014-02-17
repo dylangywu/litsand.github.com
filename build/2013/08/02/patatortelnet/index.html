@@ -1,0 +1,155 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>patator使用指南之破解telnet &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">patator使用指南之破解telnet</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+    
+  
+
+
+
+  </ul>
+
+  <p><a href='http://code.google.com/p/patator/'>项目主页</a></p>
+
+<p>话说真的十分的强大和灵活。</p>
+
+<h2 id='telnet'>破解telnet</h2>
+
+<p>无参数执行 python patator_v0.5.py 列出所有可用的模块。</p>
+
+<p>加模块名字，列出该模块的主要参数和用法：</p>
+
+<pre><code>python patator_v0.5.py telnet_login
+Patator v0.5 (http://code.google.com/p/patator/)
+Usage: telnet_login &lt;module-options ...&gt; [global-options ...]
+Examples:
+telnet_login host=10.0.0.1 inputs=&#39;FILE0\nFILE1&#39; 0=logins.txt 1=passwords.txt persistent=0 prompt_re=&#39;Username:|Password:&#39; -x ignore:egrep=&#39;Login incorrect.+Username:&#39;
+
+Module options:
+host          : target host
+port          : target port [23]
+inputs        : list of values to input
+prompt_re     : regular expression to match prompts [\w+]
+timeout       : seconds to wait for a response and for prompt_re to match received data [20]
+persistent    : use persistent connections [1|0] 
+
+ERROR: wrong usage. Please read the README inside for more information.</code></pre>
+
+<p>prompt_re可以自定义提示输入用户名和密码的文字。ignort:egrep可以自定义密码错误时的回显。timeout定义超时，也很有用。</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">02 August 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/08/05/mysql-sql" class="next" title="mysql sql语法备忘">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/08/02/burp-suite--ssl" class="prev" title="burp suite 之 ssl证书">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+</body>
+</html>
+

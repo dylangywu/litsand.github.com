@@ -1,0 +1,330 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>syslog 协议简介 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">syslog 协议简介</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#syslog-ref">syslog <span>3</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h2 id='0x00_what_is_syslog'>0x00 what is syslog</h2>
+
+<p><a href='http://en.wikipedia.org/wiki/Syslog'>维基百科syslog</a></p>
+
+<p><a href='http://www.monitorware.com/common/en/articles/syslog-described.php'>introduction to syslog</a></p>
+
+<p>syslog是这样一种协议，它允许一台机器通过网络将自己的日志信息发送到日志接受服务器上。syslog消息是基于UDP协议的，消息的长度通常不超过1024个字节。因为基于UDP，所以信息的传输是不可靠的。</p>
+
+<h2 id='bsd_syslog'>BSD syslog格式</h2>
+
+<p>有3个独立的部分：</p>
+
+<ol>
+<li>PRI</li>
+
+<li>HEADER</li>
+
+<li>MSG</li>
+</ol>
+
+<h1 id='pri'>PRI</h1>
+
+<p>pri部分是一个8bit的数字。用尖括号包裹。前3位代表优先级，共有8个优先级。</p>
+<table class='table table-bordered table-striped table-condensed'>
+   <tr>
+      <td>Numerical Code </td>
+      <td>Severity</td>
+   </tr>
+   <tr>
+      <td>0 </td>
+      <td>Emergency: system is unusable</td>
+   </tr>
+   <tr>
+      <td>1 </td>
+      <td>Alert: action must be taken immediately</td>
+   </tr>
+   <tr>
+      <td>2 </td>
+      <td>Critical: critical conditions</td>
+   </tr>
+   <tr>
+      <td>3 </td>
+      <td>Error: error conditions</td>
+   </tr>
+   <tr>
+      <td>4 </td>
+      <td>Warning: warning conditions</td>
+   </tr>
+   <tr>
+      <td>5 </td>
+      <td>Notice: normal but significant condition</td>
+   </tr>
+   <tr>
+      <td>6 </td>
+      <td>Informational: informational messages</td>
+   </tr>
+   <tr>
+      <td>7 </td>
+      <td>Debug: debug-level messages</td>
+   </tr>
+</table>
+<p>后5位代表发送消息的设施（应用程序或产生日志的操作系统组件</p>
+<table>
+   <tr>
+      <td>Numerical Code </td>
+      <td>Facility</td>
+   </tr>
+   <tr>
+      <td>0 </td>
+      <td>kernel messages</td>
+   </tr>
+   <tr>
+      <td>1 </td>
+      <td>user-level messages</td>
+   </tr>
+   <tr>
+      <td>2 </td>
+      <td>mail system</td>
+   </tr>
+   <tr>
+      <td>3 </td>
+      <td>system daemons</td>
+   </tr>
+   <tr>
+      <td>4 </td>
+      <td>security/authorization messages</td>
+   </tr>
+   <tr>
+      <td>5 </td>
+      <td>messages generated internally by syslogd</td>
+   </tr>
+   <tr>
+      <td>6 </td>
+      <td>line printer subsystem</td>
+   </tr>
+   <tr>
+      <td>7 </td>
+      <td>network news subsystem</td>
+   </tr>
+   <tr>
+      <td>8 </td>
+      <td>UUCP subsystem</td>
+   </tr>
+   <tr>
+      <td>9 </td>
+      <td>clock daemon</td>
+   </tr>
+   <tr>
+      <td>10 </td>
+      <td>security/authorization messages</td>
+   </tr>
+   <tr>
+      <td>11 </td>
+      <td>FTP daemon</td>
+   </tr>
+   <tr>
+      <td>12 </td>
+      <td>NTP subsystem</td>
+   </tr>
+   <tr>
+      <td>13 </td>
+      <td>log audit</td>
+   </tr>
+   <tr>
+      <td>14 </td>
+      <td>log alert</td>
+   </tr>
+   <tr>
+      <td>15 </td>
+      <td>clock daemon</td>
+   </tr>
+   <tr>
+      <td>16 </td>
+      <td>local use 0</td>
+   </tr>
+   <tr>
+      <td>17 </td>
+      <td>local use 1</td>
+   </tr>
+   <tr>
+      <td>18 </td>
+      <td>local use 2</td>
+   </tr>
+   <tr>
+      <td>19 </td>
+      <td>local use 3</td>
+   </tr>
+   <tr>
+      <td>20 </td>
+      <td>local use 4</td>
+   </tr>
+   <tr>
+      <td>21 </td>
+      <td>local use 5</td>
+   </tr>
+   <tr>
+      <td>22 </td>
+      <td>local use 6</td>
+   </tr>
+   <tr>
+      <td>23 </td>
+      <td>local use 7</td>
+   </tr>
+</table>
+<h1 id='header'>header</h1>
+
+<p>包括时间戳和和设备的主机名或IP。时间戳是设备发送消息时设备自身配置的时间，不是server端接受到的时间。时间戳格式为MMM DD HH:MM:SS</p>
+
+<h1 id='msg'>msg</h1>
+
+<p>a）tag field 产生这个消息的程序或进程的名字。</p>
+
+<p>b) content field 消息的详细信息。</p>
+
+<h2 id='id363'>扩展阅读</h2>
+
+<p>cisco设备的syslog格式,跟unix格式有些小的不同。<a href='http://www.ciscopress.com/articles/article.asp?p=426638'>参考</a></p>
+
+<p><a href='http://www.faqs.org/rfcs/rfc3164.html'>bsd syslog protocol</a> 更全面更广泛的syslog格式 参考<a href='http://tools.ietf.org/html/rfc5424'>rfc5424</a></p>
+
+<h2 id='rfc'>相关rfc</h2>
+<table>
+   <tr>
+      <td />
+   </tr>
+   <tr>
+      <td>    RFC 3164 The BSD syslog Protocol (obsoleted by RFC 5424)</td>
+   </tr>
+   <tr>
+      <td>    RFC 3195 Reliable Delivery for syslog</td>
+   </tr>
+   <tr>
+      <td>    RFC 5424 The Syslog Protocol</td>
+   </tr>
+   <tr>
+      <td>    RFC 5425 TLS Transport Mapping for Syslog</td>
+   </tr>
+   <tr>
+      <td>    RFC 5426 Transmission of Syslog Messages over UDP</td>
+   </tr>
+   <tr>
+      <td>    RFC 5427 Textual Conventions for Syslog Management</td>
+   </tr>
+   <tr>
+      <td>    RFC 5848 Signed Syslog Messages</td>
+   </tr>
+   <tr>
+      <td>    RFC 6012 Datagram Transport Layer Security (DTLS) Transport Mapping for Syslog</td>
+   </tr>
+   <tr>
+      <td>    RFC 6587 Transmission of Syslog Messages over TCP</td>
+   </tr>
+   <tr>
+      <td />
+   </tr>
+</table>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">06 August 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/技术研究/2013/08/07/linux" class="next" title="linux用户管理(读私房菜笔记)">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/08/05/mysql-sql" class="prev" title="mysql sql语法备忘">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

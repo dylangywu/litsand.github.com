@@ -1,0 +1,158 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>zsh配置使用 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">zsh配置使用</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+    
+  
+
+
+
+  </ul>
+
+  <h2 id='id336'>参考资料</h2>
+
+<p>最早是在mactalk上看到的。中文能找到的资料不多。不过这几篇质量都很高。足够了。</p>
+
+<p>http://macshuo.com/?p=676</p>
+
+<p>http://lostjs.com/2012/09/27/zsh/</p>
+
+<p>http://leeiio.me/bash-to-zsh-for-mac/#</p>
+
+<p>https://github.com/robbyrussell/oh-my-zsh</p>
+
+<h2 id='id337'>安装配置</h2>
+
+<p>基本的安装配置这些文章都说的比较明确，就不重复了。按照github上的说明来也行。autojump安装也方便。</p>
+
+<p>这次安装遇到的问题是自动纠错的功能没法默认没开。记得之前在12.04安装是可以的。看了下配置文件，</p>
+
+<pre><code># Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION=&quot;true&quot;</code></pre>
+
+<p>看这个意思应该是需要关闭自动纠错的话再打开这个开关。为什么没打开这个，还是没开启自动纠错呢。</p>
+
+<p>稍微搜了一下，资料太少。果断上github看issue，其实应该一开始就上github看，这种小众的东西，中文资料基本没多少。</p>
+
+<p>发现了这个issue</p>
+
+<p>https://github.com/robbyrussell/oh-my-zsh/issues/534</p>
+
+<p>很多人抱怨说是自动纠错就是个唐僧，太婆婆妈妈的了。所以现在自动纠错默认关闭了。但是配置文件还是旧的，没有修改。所以造成了这个困惑。果断提交个pull request。</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">07 January 2014</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2014/01/08/" class="next" title="[科普]点击劫持">Next Post &rarr;</a>
+  
+  
+    <a href="/2014/01/06/ubuntu1310" class="prev" title="ubuntu13.10">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>关于系统维护盘的思考 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">关于系统维护盘的思考</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+    
+  
+
+
+
+  </ul>
+
+  <p>之前把硬盘换成了SSD，原配的硬盘放到了光驱位。不得不说SSD却是效率高多了。不过带来一个问题就是原先装在hd0的windows系统没法使用了。具体原因也没有研究过。本来觉得重新装一个很简单。</p>
+
+<p>用ghost恢复了一个电脑城装机版。然后引导记录变成windows的。这些都在意料之中。本来准备用easybcd 本地引导ununtu.iso然后修复grub2就可以了。结果死活引导不了。本来应该是（hd1，0），但是显示没有文件，用(hd0,0)才能家在内核，不过提示 mounting /dev/sda /cdrom invalid argument。感觉应该是系统识别硬盘混乱了。然后尝试用easybcd和其他的工具修复引导记录，没有成功。前后花了几个小时。好久没有遇到这么绝望的感觉了。大部分的技术问题，google之后，自己测试下一般都会有答案。这次小小绝望了一下。不过问题总是得解决也总是能解决的。我就把bios恢复默认设置了。恢复默认设置之后，开机的画面不一样了。提示硬盘。。。而且貌似设置启动顺序不管用了。不过让人欣慰的是无意中发现这时候配置的easybcd引导可以成功引导ubuntu.iso。看来果然是添加硬盘之后，系统对硬盘号的识别问题。</p>
+
+<p>其实这个问题主要是自己就一个winpe来维护系统。应该准备一个安装grub2引导的移动硬盘。然后上面放几个iso。直接usb引导，可以引导任何自己需要的iso。应该就不会花这么时间了。</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">26 November 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/技术研究/2013/11/26/csscsrf-token" class="next" title="利用css伪类暴力破解csrf token">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/11/22/syslog" class="prev" title="syslog发送文本文件">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

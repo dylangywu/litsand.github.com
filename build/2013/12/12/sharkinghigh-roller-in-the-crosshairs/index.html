@@ -1,0 +1,165 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>sharking:high roller in the crosshairs &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">sharking:high roller in the crosshairs</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+    
+  
+
+
+
+  </ul>
+
+  <p>我们（F-secure）的实验室会收到很多样本，大部分是来自于网上。但是有时候也会有人自己带着电脑来实验室让我们做分析。</p>
+
+<p>今天早些时候,有个20出头的小伙子开着一辆奥迪R8来到了我们赫尔辛基的总部。他叫Jens Kyllönen是一个职业扑克牌玩家,经常参加现场的比赛和一些线上的比赛。他在这个领域很厉害,去年赢了250万美元。</p>
+
+<p><img alt='pic' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/poke.png' /></p>
+
+<p>为什么这么牛逼的扑克高手回来我们实验室呢.听一下他的故事:</p>
+
+<p>去年九月份Jens在巴塞罗那参加欧洲扑克巡回赛。他住在一个五星级酒店里，白天在酒店比赛,中间休息他回房间发现自己的笔记本不见了。然后他就去朋友那边看看是不是朋友借走了，回来的时候发现笔记本又出现了。所以就觉得事情有些不对劲，而且电脑启动有点不正常。</p>
+
+<p>Jens在当时论坛里发帖子讲述了这个事情：</p>
+
+<p><img alt='pic' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/poke2.png' /></p>
+
+<p>他觉得自己的电脑会不会有问题，让我们给分析一下。对于那些利用利用电脑进行线上比赛的扑克玩家来说，电脑的安全当然非常重要。所以我们接受了这个调查，做了一个完整的镜像备份之后，开始了深入的分析。</p>
+
+<p>很明显他的直觉是非常正确的。没过多久我们就发现他的笔记本被安装了一个木马（RAT），木马安装的时间跟笔记本失踪的时间很吻合。攻击者应该是通过usb存储设备来安装木马的而且设置成了开机自动启动。木马是一种允许攻击者远程控制和监控电脑的程序，可以看到电脑屏幕以及任何被感染电脑上发生的事情。</p>
+
+<p>下面通过图片说明一下这个木马的工作方式。第一个截图是攻击者看到的自己的比赛屏幕。跟其他比赛选手一样，只能看到自己的牌型。</p>
+
+<p><img alt='pic' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/poke3.png' /></p>
+
+<p>受害者感染了木马之后，攻击者就可以看到对手的配型，这里是两个Q。</p>
+
+<p><img alt='pic' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/poke4.png' /></p>
+
+<p>据我们所知这种攻击很常见，而且任何在线扑克比赛都有效。这个木马是用java写的，可以运行在多个平台（windows，Mac OS，Linux）。下图是截取受害者屏幕的代码片段。</p>
+
+<p><img alt='pic' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/poke5.png' /></p>
+
+<p>分析完Jens的笔记本之后，我们看是寻找看看是不是有其他人的电脑也被感染了。不出所料，另外一个专业扑克玩家Henri，跟Jens在一个房间比赛的，也感染了同样的木马。</p>
+
+<p>这不是第一例针对职业扑克玩家的定制木马。我们调查过几个案例，曾经成功窃取了几十万欧元。值得注意的是这些案例都不是在线的攻击，而是通过物理的方式攻击了受害者的电脑。</p>
+
+<p>这种状况也来越多，所以我们给这种攻击起了一个名字叫白鲨攻击（Sharking）。用来代表针对高端扑克玩家的攻击。</p>
+
+<p>那么最后，我们从这个故事中得到的启发是什么呢。如果你有一个笔记本用来操作大量的钱，那么一定要好好看好它。如果要暂时离开，首先要锁定电脑。硬盘最好加密，避免离线访问。不要用它来上网打游戏，单独买一个笔记本吧。现在笔记本那么便宜。不管你是职业扑克玩家还是商业领袖，采取这些措施还有还是必要的。</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">12 December 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/12/12/whatweb" class="next" title="whatweb手册">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/12/11/xss" class="prev" title="一个xss点的分析">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+</body>
+</html>
+

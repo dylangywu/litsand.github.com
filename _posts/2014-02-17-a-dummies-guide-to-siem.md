@@ -16,7 +16,7 @@ SIEM是一种为企业的信息的安全提供全面评估的安全管理方式�
 
 SEM和SIM基本功能的区别
 
-| Security Information & Event Management (SIEM) |
+| Security Information & Event Management (SIEM) ||
 | ------------- |:-------------:| 
 |Security Event Management(SEM)| Security Information management(SIM)| 
 |Event Management   |Centralized Log Collection|

@@ -1,0 +1,227 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>auth.log 详细分析 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">auth.log 详细分析</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#日志分析-ref">日志分析 <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#log-ref">log <span>5</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h1 id='id357'>文件基本信息</h1>
+
+<p>Under CentOS / RHEL / Fedora file name is /var/log/secure.Under ubuntu the file name is /var/log auth.log.</p>
+
+<p>Cent OS release 5.4 文件权限是600.Ubuntu 12.04里权限是640.可见这个文件对权限要求较高。</p>
+
+<h2 id='id358'>日志内容分析</h2>
+
+<p><a href='http://unix.stackexchange.com/questions/27662/making-sense-of-auth-log'>make sense of auth.log</a></p>
+
+<pre><code>Jul 11 04:39:01 kali CRON[12434]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jul 11 04:39:01 kali CRON[12434]: pam_unix(cron:session): session closed for user root</code></pre>
+
+<p>每次crond执行一次，会产生这样一条记录。</p>
+
+<pre><code>Jul 11 04:59:42 kali sshd[12473]: Server listening on 0.0.0.0 port 22.
+Jul 11 04:59:42 kali sshd[12473]: Server listening on :: port 22.</code></pre>
+
+<p>sshd启动，监听端口</p>
+
+<pre><code>Aug 21 14:40:10 litsand-VirtualBox su[4533]: Successful su for root by litsand
+Aug 21 14:40:10 litsand-VirtualBox su[4533]: + /dev/pts/6 litsand:root
+Aug 21 14:40:10 litsand-VirtualBox su[4533]: pam_unix(su:session): session opened for user root by litsand(uid=1000)</code></pre>
+
+<p>执行su命令,切换到root用户,产生上面的日志.</p>
+
+<pre><code>Aug 21 14:42:39 litsand-VirtualBox su[4551]: pam_unix(su:session): session closed for user root</code></pre>
+
+<p>exit推出root,日志.</p>
+
+<pre><code>Aug 21 14:44:27 litsand-VirtualBox sudo:  litsand : TTY=pts/6 ; PWD=/home/litsand ; USER=root ; COMMAND=/bin/ls
+Aug 21 14:44:27 litsand-VirtualBox sudo: pam_unix(sudo:session): session opened for user root by litsand(uid=1000)
+Aug 21 14:44:27 litsand-VirtualBox sudo: pam_unix(sudo:session): session closed for user root</code></pre>
+
+<p>执行sudo ls命令.产生的日志.</p>
+
+<pre><code>Aug 21 14:46:48 litsand-VirtualBox su[4608]: pam_unix(su:auth): authentication failure; logname=litsand uid=1000 euid=0 tty=/dev/pts/6 ruser=litsand rhost=  user=root
+Aug 21 14:46:50 litsand-VirtualBox su[4608]: pam_authenticate: Authentication failure
+Aug 21 14:46:50 litsand-VirtualBox su[4608]: FAILED su for root by litsand
+Aug 21 14:46:50 litsand-VirtualBox su[4608]: - /dev/pts/6 litsand:root</code></pre>
+
+<p>su切换到root用户失败日志.</p>
+
+<pre><code>Aug 21 14:48:12 litsand-VirtualBox sudo: pam_unix(sudo:auth): authentication failure; logname=litsand uid=1000 euid=0 tty=/dev/pts/7 ruser=litsand rhost=  user=litsand
+Aug 21 14:48:33 litsand-VirtualBox sudo:  litsand : 3 incorrect password attempts ; TTY=pts/7 ; PWD=/home/litsand ; USER=root ; COMMAND=/bin/ls
+Aug 21 14:48:33 litsand-VirtualBox sudo: unable to execute /usr/sbin/sendmail: No such file or directory</code></pre>
+
+<p>sudo密码错误产生的日志.</p>
+
+<pre><code>Aug 21 14:59:50 litsand-VirtualBox useradd[4815]: new group: name=test, GID=1002
+Aug 21 14:59:50 litsand-VirtualBox useradd[4815]: new user: name=test, UID=1002, GID=1002, home=/home/test, shell=/bin/sh</code></pre>
+
+<p>执行 useradd test 产生的日志.</p>
+
+<pre><code>Aug 21 15:06:00 litsand-VirtualBox passwd[4835]: pam_unix(passwd:chauthtok): password changed for test
+Aug 21 15:06:00 litsand-VirtualBox passwd[4835]: gkr-pam: couldn&#39;t update the login keyring password: no old password was entered</code></pre>
+
+<p>给新建的用户test添加密码的日志.</p>
+
+<pre><code>Aug 21 15:52:06 litsand-VirtualBox userdel[4845]: delete user &#39;test&#39;
+Aug 21 15:52:06 litsand-VirtualBox userdel[4845]: removed group &#39;test&#39; owned by &#39;test&#39;</code></pre>
+
+<p>执行userdel test的日志.</p>
+
+<pre><code>Aug 21 18:07:44 litsand-VirtualBox chpasswd[5248]: pam_unix(chpasswd:chauthtok): password changed for test
+Aug 21 18:07:44 litsand-VirtualBox chpasswd[5248]: gkr-pam: couldn&#39;t update the login keyring password: no old password was entered</code></pre>
+
+<p>使用chpasswd命令修改密码的日志</p>
+
+<pre><code>Aug 21 18:18:42 litsand-VirtualBox chage[5279]: changed password expiry for root</code></pre>
+
+<p>chage修改账户过期时间</p>
+
+<pre><code>Aug 22 10:59:12 litsand-VirtualBox chsh[2999]: changed user &#39;root&#39; shell to &#39;/bin/bash&#39;</code></pre>
+
+<p>chsh修改登录shell的日志</p>
+
+<pre><code>Aug 22 11:03:12 litsand-VirtualBox groupadd[3014]: group added to /etc/group: name=group1, GID=1002
+Aug 22 11:03:12 litsand-VirtualBox groupadd[3014]: group added to /etc/gshadow: name=group1
+Aug 22 11:03:12 litsand-VirtualBox groupadd[3014]: new group: name=group1, GID=1002</code></pre>
+
+<p>groupadd group1产生的日志</p>
+
+<pre><code>Aug 22 11:04:41 litsand-VirtualBox groupmod[3019]: group changed in /etc/group (group group1/1002, new name: mygroup, new gid: 201)
+Aug 22 11:04:41 litsand-VirtualBox groupmod[3019]: group changed in /etc/gshadow (group group1, new name: mygroup)
+Aug 22 11:04:41 litsand-VirtualBox groupmod[3019]: group changed in /etc/passwd (group group1/1002, new name: mygroup, new gid: 201)</code></pre>
+
+<p>groupmod -g 201 -n mygroup group1产生的日志</p>
+
+<pre><code>Aug 22 11:13:13 litsand-VirtualBox groupdel[3031]: group &#39;mygroup&#39; removed from /etc/group
+Aug 22 11:13:13 litsand-VirtualBox groupdel[3031]: group &#39;mygroup&#39; removed from /etc/gshadow
+Aug 22 11:13:13 litsand-VirtualBox groupdel[3031]: group &#39;mygroup&#39; removed</code></pre>
+
+<p>groupdel mygroup 命令</p>
+
+<pre><code>Aug 22 11:17:53 litsand-VirtualBox gpasswd[3067]: password of group group1 changed by root</code></pre>
+
+<p>gpasswd group1命令,创建群组口令.</p>
+
+<pre><code>Aug 22 11:19:04 litsand-VirtualBox gpasswd[3072]: administrators of group group1 set by root to user1</code></pre>
+
+<p>gpasswd -A user1 group1 设置群组管理员.</p>
+
+<pre><code>Aug 22 11:21:41 litsand-VirtualBox gpasswd[3085]: user user1 added by user1 to group group1</code></pre>
+
+<p>gpasswd -a user1 group1命令把用户加入群组.</p>
+
+<pre><code>Aug 22 15:07:41 litsand-VirtualBox sudo:    user1 : user NOT in sudoers ; TTY=pts/8 ; PWD=/home/litsand/test ; USER=root ; COMMAND=/bin/su -
+Aug 22 15:07:41 litsand-VirtualBox sudo: unable to execute /usr/sbin/sendmail: No such file or directory</code></pre>
+
+<p>用户不再sudoer列表中.</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">30 July 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2013/07/30/snmp" class="next" title="天融信防火墙配置snmp服务">Next Post &rarr;</a>
+  
+  
+    <a href="/2013/07/30/" class="prev" title="天融信防火墙配置网络">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+

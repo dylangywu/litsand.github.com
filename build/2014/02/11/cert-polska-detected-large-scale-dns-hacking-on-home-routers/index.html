@@ -1,0 +1,147 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>CERT POLSKA detected large scale DNS hacking on home routers &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">CERT POLSKA detected large scale DNS hacking on home routers</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+    
+  
+
+
+
+  </ul>
+
+  <p>波兰计算机应急中心检测到大量家用路由器的DNS配置被修改。黑客对大量网上银行的用户实施了中间人攻击。</p>
+
+<p>波兰CERT在<a href='https://www.cert.pl/news/8019/langswitch_lang/en'>公告</a>中写到: ”很多家用路由器存在未授权的远程修改配置漏洞导致了这次事件。这次中间人攻击中，黑客在多个网上银行的页面中注入了恶意的javascript代码欺骗用户输入账号密码和交易确认码。最后窃取了用户银行里的钱“ 攻击的流程原理可用下图表示：</p>
+
+<p>！<a href='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/dnspolar2.png'>pic</a></p>
+
+<p>为了绕过HTTPS，黑客采用了SSL剥离的技术。攻击者阻止用户和银行之间建立SSL连接，使用户和代理服务器之间使用未加密的http通信。</p>
+
+<p>唯一不同的是浏览器会提醒用户连接没有使用SSL加密。攻击者为了迷惑用户，重写了url，在域名前加了个“ssl-.&#8221;的前缀。当然这个域名是不存在的，只能在黑客的恶意DNS才能解析。</p>
+
+<p><img alt='pic' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/dnsploar.png' /></p>
+
+<p>更多关于SSL stripping的技术可以参考<a href='http://www.freebuf.com/articles/web/5929.html'>利用sslstrip和ettercap突破ssl嗅探密码</a></p>
+
+<p>根据波兰IT安全组织Niebezpiecznik.pl的调查，攻击者很可能利用的是ZyNOS路由器固件的漏洞，利用这个漏洞，攻击者可以未授权的情况下下载到路由器的配置信息，从而获取路由器的登陆密码。</p>
+
+<p>波兰CERT的负责人Przemyslaw Jaroszewski提到，修改家用路由器的DNS记录有很多方法，有些已经存在很多年了。这次让我们吃惊的是第一次有如此大规模的，目的是窃取金钱的利用。这种针对网上银行用户的DNS劫持也许会越来越多。</p>
+
+<p>防御的建议是家用路由器不要开启任何的远程管理功能，不要使用默认的管理密码。去年国内也曾爆发过一次大规模的家用路由器DNS劫持攻击。相关的技术和防御方法可以参考<a href='http://www.freebuf.com/articles/web/9723.html'>说说“史上最大规模的DNS劫持”</a></p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">11 February 2014</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/2014/02/14/" class="next" title="漏洞对比的设计">Next Post &rarr;</a>
+  
+  
+    <a href="/2014/02/09/web" class="prev" title="web扫描器扫描报告分析">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+</body>
+</html>
+

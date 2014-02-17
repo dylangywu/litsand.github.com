@@ -1,0 +1,194 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>DNS域传送漏洞 &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">DNS域传送漏洞</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#dns-ref">dns <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#域传送-ref">域传送 <span>1</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h2 id='id251'>相关资料</h2>
+
+<p>http://drops.wooyun.org/papers/64</p>
+
+<h2 id='id252'>检测方式</h2>
+
+<p>dig命令</p>
+
+<pre><code>dig @194.143.123.123 gov.com axfr
+dig @dnsserver-ip domain-name axfr</code></pre>
+
+<p>输出样例:</p>
+
+<pre><code># dig @1.1.1.1 wooyun.org axfr  #就可以看到返回结果类似如下：  
+; &lt;&lt;&gt;&gt; DiG 9.7.3 &lt;&lt;&gt;&gt; @1.1.1.1 wooyun.org axfr
+
+; (1 server found)  
+;; global options: +cmd  
+wooyun.org. 86400 IN SOA wooyun.org. rname.invalid. 0 86400 3600 604800 10800  
+wooyun.org. 86400 IN NS wooyun.org.  
+wooyun.org. 86400 IN A 127.0.0.1  
+wooyun.org. 86400 IN AAAA ::1  
+test.wooyun.org. 86400 IN A 1.1.1.1  
+xxx.wooyun.org. 86400 IN A 2.2.2.2  
+wooyun.org. 86400 IN SOA wooyun.org. rname.invalid. 0 86400 3600 604800 10800</code></pre>
+
+<p>nslookup命令</p>
+
+<p>遇到一个问题就是linux下的nslookup,用ls的时候说没有实现这个命令&#8230;..</p>
+
+<pre><code>C:\Users\litsand&gt;nslookup
+默认服务器:  google-public-dns-a.google.com
+Address:  8.8.8.8
+
+&gt; set type=NS
+&gt; wahaha.com.cn
+服务器:  google-public-dns-a.google.com
+Address:  8.8.8.8
+
+非权威应答:
+wahaha.com.cn   nameserver = sanweb.wahaha.com.cn
+wahaha.com.cn   nameserver = ns.wahaha.com.cn
+&gt; server ns.wahaha.com.cn
+默认服务器:  ns.wahaha.com.cn
+Address:  60.12.5.28
+
+&gt; ls wahaha.com.cn
+[ns.wahaha.com.cn]
+wahaha.com.cn.                 NS     server = ns.wahaha.com.cn
+wahaha.com.cn.                 NS     server = sanweb.wahaha.com.cn
+2013oa                         A      192.200.8.86
+aerla                          A      192.200.1.41
+audit                          A      192.200.8.220
+clothing                       A      202.107.206.214
+clothingtest                   A      192.200.1.113
+dns.itcitc.wahaha.com.cn       A      192.200.10.8
+cproject                       A      192.200.1.178
+cus                            A      192.200.4.21</code></pre>
+
+<p>http://www.wooyun.org/bugs/wooyun-2010-025344 dnsenum 工具</p>
+
+<pre><code>dnsenum domain.com</code></pre>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">18 September 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/工具使用/2013/09/18/kalivbox-tools" class="next" title="kali安装vbox tools">Next Post &rarr;</a>
+  
+  
+    <a href="/工具使用/2013/09/16/ssh" class="prev" title="ssh转发端口">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+</body>
+</html>
+

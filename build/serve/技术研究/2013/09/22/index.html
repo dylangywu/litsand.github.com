@@ -1,0 +1,225 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>可加载内核模块的简单示例(翻译) &larr; </title>
+   <meta name="author" content="litsand" />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/feedname" title="RSS feed" />
+	
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/mark-reid/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+  
+  <div id="header">
+    <h1>
+    	<a href="/" title="normal world">normal world</a>
+    	<span class="byline">&larr; <a href="/">litsand</a></span>
+    </h1>
+    <ul class="nav">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a  href="/archive.html">Archive</a></li>
+      <li><a  href="/pages.html">Pages</a></li>
+      <li><a  href="/categories.html">Categories</a></li>
+      <li><a  href="/tags.html">Tags</a></li>
+    </ul>
+  </div>
+
+  
+<div id="page">
+	
+  <h1 class="emphnext">可加载内核模块的简单示例(翻译)</h1>
+  <ul class="tag_box inline">
+  
+  
+
+
+  
+     
+    	<li><a href="/tags.html#linux-ref">linux <span>8</span></a></li>
+     
+    	<li><a href="/tags.html#kernel-ref">kernel <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#lkm-ref">lkm <span>1</span></a></li>
+    
+  
+
+
+
+  </ul>
+
+  <h2 id='id417'>参考资料</h2>
+
+<p>http://blog.markloiseau.com/2012/04/hello-world-loadable-kernel-module-tutorial/</p>
+
+<p>可加载内核模块(Loadable Kernel Module,LKM允许在不重编译内核和重启系统的条件下对类Unix系统的系统内核进行修改和扩展.大多数的Unix派生系统,包括Linux,BSD,OSX等都支持这个特性.</p>
+
+<p>本文着重描述编译执行一个&#8221;hello world&#8221;LKM的过程.相关的代码可以匆匆这里<a href='http://blog.markloiseau.com/wp-content/uploads/2012/04/hello.zip'>下载</a>.下面的命令和代码都在Ubuntu 11.10和12.10上测试通过了.在其他的Linux发行版上也许需要做一些细微的修改.</p>
+
+<h1 id='lkm'>怎样打造一个LKM</h1>
+
+<p>1, 安装module-assistant包 2, 创建主文件hello.c和Makefile 3, 编译hello.c 4, 将编译好的模块插入到当前内核中 5, 测试完成后移除相关的内核模块</p>
+
+<h2 id='id418'>安装内核头文件等准备工作</h2>
+
+<p>Debian和Ubuntu都提供了moddule-assistant的包,包括了编写LKM需要的所有包.可以通过一下方式安装:</p>
+
+<pre><code>sudo -i
+apt-get install module-assistant
+m-a prepare</code></pre>
+
+<p>module-assistant做的事情并没有多么高端.它仅仅是一个安装内核源码包的工具.下面的命令也可以安装我们编译需要的l依赖包:</p>
+
+<pre><code>sudo apt-get install build-essential linux-headers-$(uname -r)</code></pre>
+
+<h2 id='lkmmakefile'>创建LKM源码文件和Makefile</h2>
+
+<p>这是一个hello world的源码&#8230;在本文提供的压缩包里有.作用是加载内核模块和卸载内核模块的时候输出一个hello world</p>
+
+<pre><code>// Defining __KERNEL__ and MODULE allows us to access kernel-level code not usually available to userspace programs.
+#undef __KERNEL__
+#define __KERNEL__
+ 
+#undef MODULE
+#define MODULE
+ 
+// Linux Kernel/LKM headers: module.h is needed by all modules and kernel.h is needed for KERN_INFO.
+#include &lt;linux/module.h&gt;    // included for all kernel modules
+#include &lt;linux/kernel.h&gt;    // included for KERN_INFO
+#include &lt;linux/init.h&gt;        // included for __init and __exit macros
+ 
+static int __init hello_init(void)
+{
+    printk(KERN_INFO &quot;Hello world!\n&quot;);
+    return 0;    // Non-zero return means that the module couldn&#39;t be loaded.
+}
+ 
+static void __exit hello_cleanup(void)
+{
+    printk(KERN_INFO &quot;Cleaning up module.\n&quot;);
+}
+ 
+module_init(hello_init);
+module_exit(hello_cleanup);
+ </code></pre>
+
+<p>Makefile的代码:</p>
+
+<pre><code>obj-m := hello.o
+KDIR := /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
+ 
+all:
+$(MAKE) -C $(KDIR) M=$(PWD) modules
+ 
+clean:
+$(MAKE) -C $(KDIR) M=$(PWD) clean</code></pre>
+
+<h2 id='id419'>编译源码</h2>
+
+<p>到工作目录下执行make就可以了</p>
+
+<pre><code>$ make
+make -C /lib/modules/3.0.0-17-generic/build M=/var/www/lkm modules
+make[1]: Entering directory `/usr/src/linux-headers-3.0.0-17-generic&#39;
+CC [M] /var/www/lkm/hello.o
+Building modules, stage 2.
+MODPOST 1 modules
+CC /var/www/lkm/hello.mod.o
+LD [M] /var/www/lkm/hello.ko</code></pre>
+
+<h2 id='id420'>加载编译好的内核模块到内核</h2>
+
+<p>使用insmod命令:</p>
+
+<pre><code>sudo insmod hello.ko</code></pre>
+
+<p>我们使用了printk()函数.会在syslog中打印.用tail /var/log/syslog查看</p>
+
+<pre><code>$ tail /var/log/syslog
+&lt;snip&gt;
+Apr 20 16:27:39 laptop kernel: [19486.347191] Hello world!</code></pre>
+
+<p>有一些发行版,内核信息会记录到别的文件,比如/var/log/messages.这个也要看syslog的配置.</p>
+
+<h2 id='id421'>卸载模块</h2>
+
+<p>使用rmmod 命令</p>
+
+<pre><code>sudo rmmod hello</code></pre>
+
+<p>查看syslog,可以看到模块卸载时候的输出:</p>
+
+<pre><code>$ tail /var/log/syslog
+&lt;snip&gt;
+Apr 20 16:29:23 laptop kernel: [19486.347191] Cleaning up module.</code></pre>
+
+<p>恭喜!你已经成功创建并使用了一个可加载内核模块.</p>
+
+  <address class="signature">
+    <a class="author" href="/">litsand</a> 
+    <span class="date">22 September 2013</span>
+    <span class="location"></span>
+  </address>
+  
+  <div class="prev-next">
+  
+    <a href="/工具使用/2013/09/22/snmp" class="next" title="中兴交换机配置snmp服务">Next Post &rarr;</a>
+  
+  
+    <a href="/工具使用/2013/09/18/kalivbox-tools" class="prev" title="kali安装vbox tools">&larr; Earlier Post</a>
+  
+  </div>
+  
+</div><!-- End Page -->
+
+
+
+
+  
+  <div id="footer">
+  	<address>
+  		<span class="copyright">
+  			Content by <a href="/info/site.html">litsand</a>. Design by 
+  			<a href="http://mark.reid.name/">Mark Reid</a>
+  			<br/>
+  			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+  		</span>
+  		<span class="engine">
+  			Powered by <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+  		</span>
+  	</address>
+  </div>
+  
+</div>
+
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+
+  
+</body>
+</html>
+
