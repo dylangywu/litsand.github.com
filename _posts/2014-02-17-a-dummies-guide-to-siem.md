@@ -24,7 +24,7 @@ SEM和SIM基本功能的区别
     </tr>
     <tr><td>Event Management </td><td>Centralized Log Collection</td></tr>
     <tr><td>Real-time Threat Analysis</td><td>Long term Log Storage</td></tr>
-    <tr><td>Incident detection & Response</td><td>Log Search  Reporting</td></tr>
+    <tr><td>Incident detection  Response</td><td>Log Search  Reporting</td></tr>
     <tr><td>Basic Ticketing capabilities</td><td></td></tr>
     <tr><td>Security Operations</td><td></td></tr>
 </table>

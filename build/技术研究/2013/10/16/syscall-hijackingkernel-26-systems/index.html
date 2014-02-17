@@ -62,7 +62,7 @@
 
   <p>这篇文章会详细的介绍如何劫持系统调用.文章中讨论的重点是如何绕过内核的保护和cpu的&#8221;保护模式&#8221;.</p>
 
-<h2 id='id1667'>访问系统调用表</h2>
+<h2 id='id2013'>访问系统调用表</h2>
 
 <p>内核版本2.4以前的rootkit在2.6及以上的内核里是无法运行的.这是因为2.6以后,&#8221;sys_call_table&#8221;无法导出了,也就没有办法直接访问到.而且&#8221;sys_call_table&#8221;所在的内存页具有写保护,下面这种方式也是没法访问的:</p>
 
@@ -96,7 +96,7 @@ c018e640 t pidlist_array_load
 <pre><code>spaccio@spaccio-laptop:~$ cat /boot/System.map-2.6.35-23-generic | grep sys_call_table
 c05d2180 R sys_call_table</code></pre>
 
-<h2 id='id1668'>绕过内核的写保护</h2>
+<h2 id='id2014'>绕过内核的写保护</h2>
 
 <p>现在我们得到了系统调用表的地址,不过如果大家细心的话会发现&#8221;grep&#8221;命令的输出中有一个&#8221;R&#8221;的标志,它代表了这个地址是&#8221;只读的&#8221;.</p>
 
@@ -349,7 +349,7 @@ default:
 <pre><code>spaccio@spaccio-laptop:~$ sudo insmod hijack2
 spaccio@spaccio-laptop:~$</code></pre>
 
-<h2 id='id1669'>隐藏内核模块</h2>
+<h2 id='id2015'>隐藏内核模块</h2>
 
 <p>隐藏我们的模块很简单.把它从模块列表中去掉就可以了.(lsmod 和/proc/modules). 下面是源代码:</p>
 
@@ -434,7 +434,7 @@ static inline void INIT_LIST_HEAD (struct list_head * list)
 
 <p>所以 &#8220;list_del_init()&#8221;函数把我们模块的名字从管理模块列表的双向链表中删掉了.这样我们用lsmod命令(或者在/proc/modules文件中)就看不到这个模块了.</p>
 
-<h2 id='id1670'>参考资料</h2>
+<h2 id='id2016'>参考资料</h2>
 
 <p><a href='http://memset.wordpress.com/2010/12/03/syscall-hijacking-kernel-2-6-systems/'>memset</a></p>
 
