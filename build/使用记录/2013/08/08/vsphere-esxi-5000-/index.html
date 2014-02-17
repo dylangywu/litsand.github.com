@@ -60,13 +60,13 @@
 
   </ul>
 
-  <h2 id='id25809'>克隆机器</h2>
+  <h2 id='id23560'>克隆机器</h2>
 
 <p>文件菜单中没有找到模板的菜单项。探索了一番，用先导出，再部署OVF模板的方式实现了克隆。。。要是一台一台装可让人怎么活啊。</p>
 
 <p>今天再次使用的发现备份ovf只能备份到本地，然后从本地还原。这样子因为从网络走，效率就很低了。采用了另外一种方法。在vsphere的数据存储中把整个虚拟机的文件复制一份，然后新建虚拟机，使用现有虚拟磁盘就可以了。速度很快～～</p>
 
-<h2 id='id25810'>磁盘置备选项</h2>
+<h2 id='id23561'>磁盘置备选项</h2>
 
 <p>在VMware vSphere 中创建虚拟机，在创建磁盘部分，会出现“磁盘置备”的选项，有三个选择：厚置备延迟置零，厚置备置零，精简置备。</p>
 
@@ -122,6 +122,22 @@
 <![endif]-->
 
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

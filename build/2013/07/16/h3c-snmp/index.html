@@ -58,13 +58,13 @@
 
   </ul>
 
-  <h3 id='id25789'>参考资料</h3>
+  <h3 id='id23540'>参考资料</h3>
 
 <p><a href='http://www.wooyun.org/bugs/wooyun-2010-021877'>h3c获取管理员密码</a> <a href='http://www.wooyun.org/bugs/wooyun-2010-021964'>华为交换机获取管理员密码</a></p>
 
 <p>测试型号：h3c SecPath F5000-A5</p>
 
-<h3 id='id25790'>漏洞详情</h3>
+<h3 id='id23541'>漏洞详情</h3>
 
 <p>管理员用户名和密码可以通过snmp读取，从而获得管理权限。h3c的私有mib有两种，一种是2011（huawei h3c),一种是25506（hh3c)。经过测试发现，有些设备只支持一种。如果一种获取不到数据，可以两种都尝试下。相关的oid为：</p>
 
@@ -98,7 +98,7 @@
 P.KG0&gt;5&amp;YV3;5#)%#Z[VS1!!: Zjyd_h3c_10
 如上，可以直接得到明文的密码。然后就可以在web登录了。</code></pre>
 
-<h3 id='id25791'>实例测试</h3>
+<h3 id='id23542'>实例测试</h3>
 
 <p><img alt='test' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/h3c.png' /></p>
 
@@ -152,6 +152,22 @@ P.KG0&gt;5&amp;YV3;5#)%#Z[VS1!!: Zjyd_h3c_10
 <![endif]-->
 
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 
