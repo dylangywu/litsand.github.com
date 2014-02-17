@@ -62,7 +62,7 @@
 
 <p>最近不少新闻说FBI能够不开摄像头led灯的情况下打开摄像头。一些研究人员也发表文章称在一些老版本的Macbook上测试成功了。可以参考<a href='http://www.freebuf.com/news/21579.html'>破解苹果MacBook摄像头进行秘密监控</a>。不过苹果是高富帅玩的啊，我们吊丝还是搞搞windows吧。</p>
 
-<h1 id='id323'>硬件，固件，驱动，软件</h1>
+<h1 id='id25927'>硬件，固件，驱动，软件</h1>
 
 <p>理论上来说，指示灯应该是一个硬件功能。当电源提供给摄像头的时候，也会提供电力到指示灯上。这样的话要想黑指示灯几乎是不可能的了。不过我不认为有人会这样来设计。</p>
 
@@ -70,7 +70,7 @@
 
 <p>在有些情况下，是驱动控制着指示灯。可能是直接控制硬件的底层内核模式驱动，也可能是面向软件的高层的DLL文件。</p>
 
-<h1 id='id324'>逆向工程</h1>
+<h1 id='id25928'>逆向工程</h1>
 
 <p>作为逆向工程师，我们收集了这些可能控制指示灯的软件/固件/驱动，然后在IDApro中调试，很快就发现了一些关键的地方。</p>
 
@@ -94,7 +94,7 @@
 
 <p>这个可以通过设备固件升级（Device Firmware Update，DFU）标准来实现。这意味着大多数情况下，没有管理员权限的用户可以更新摄像头的固件。文章开头提到的研究人员在2008 Macbook上就使用了这种方式。理论上来说，在现在的大部分windows 7笔记本上也是可行的。问题在于这种方式需要事先修改好各种摄像头芯片的固件。</p>
 
-<h1 id='id325'>结论</h1>
+<h1 id='id25929'>结论</h1>
 
 <p>上面的视频可以证明至少我们已经在一台windows机器上实现了不开指示灯的情况下录像。而我们的研究表明，在常见操作系统上的大部分不同厂家的摄像头都可以实现秘密录像。</p>
 
@@ -150,22 +150,6 @@
 <![endif]-->
 
   
-
-
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-123-12']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
 </body>
 </html>
 

@@ -62,7 +62,7 @@
 
   <p>windows2012R2采用了新版的远程桌面协议(RDP).本文主要讨论一下新版协议中的&#8221;受限管理员&#8221;(<a href='http://blogs.technet.com/b/kfalde/archive/2013/08/14/restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx'>Restricted Admin</a>)这个特性.相信渗透测试人员和系统管理员都会对这个特性有足够的兴趣,通过这个特性,我们可以实现<a href='http://en.wikipedia.org/wiki/Pass_the_hash'>哈希传递攻击</a>(Pass-the_Hash attacks).下面会先简要介绍一下哈希传递攻击,然后在windows2012R2上演示如何实现这样一种攻击.测试工具是我们在<a href='http://www.freerdp.com/'>FreeRDP</a>的基础上修改的,可以在这里<a href='http://labs.portcullis.co.uk/tools/freerdp-pth/'>下载</a>.</p>
 
-<h2 id='id291'>哈希传递攻击简介</h2>
+<h2 id='id25895'>哈希传递攻击简介</h2>
 
 <p>简单点说,哈希传递就是用户登录的时候使用密码的哈希值代替密码来完成认证.很多windows的协议都是需要用户提供他们的密码哈希值,并不一定非得需要用户提供密码.这一点在渗透测试过程中非常重要,因为发现用户的密码哈希比发现用户的密码容易多了.</p>
 
@@ -70,7 +70,7 @@
 
 <p>微软发布过<a href='http://www.microsoft.com/en-gb/download/details.aspx?id=36036'>防御哈希传递攻击的指南</a>.</p>
 
-<h2 id='id292'>受限管理员模式</h2>
+<h2 id='id25896'>受限管理员模式</h2>
 
 <p>在windows2012R2运行&#8221;mstsc /?&#8221;命令,会给出如下对受限管理员模式的说明:</p>
 
@@ -96,7 +96,7 @@
 </li>
 </ol>
 
-<h2 id='id293'>概念证明:场景</h2>
+<h2 id='id25897'>概念证明:场景</h2>
 
 <p>想象我们正在一个内网环境中进行渗透测试.我们的目标是登录一台Windows2012R2的远程桌面.这台服务器是一个独立的系统,而且开了防火墙,只允许RDP协议登录.</p>
 
@@ -106,7 +106,7 @@
 
 <p>我们假设这个密码是一个非常变态的强密码,无法破解它.这在以前是没有办法确实这个test账户是否能登录我们的目标服务器的.不过在windows2012R2上,我们可以使用哈希传递攻击,使用这个密码hash来登录服务器.</p>
 
-<h2 id='id294'>概念证明:实现</h2>
+<h2 id='id25898'>概念证明:实现</h2>
 
 <p>测试工具是我们在最新版的<a href='https://github.com/FreeRDP/FreeRDP'>FreeRDP</a>的基础上修改的.最新版的FreeRDP支持了很多新的特性,比如:SSL和CredSSP(NLA),只需要稍微做一些修改就可以支持&#8221;受限管理员&#8221;模式了.</p>
 
@@ -124,13 +124,13 @@
 
 <p>是的,就是这么简单.不过这个可能要等2012R2普及之后才能显示出它巨大的威力.</p>
 
-<h2 id='id295'>限制条件</h2>
+<h2 id='id25899'>限制条件</h2>
 
 <p>受限管理员模式顾名思义,只对管理员组有效.所以如果你获取到的用户属于远程桌面用户组,那么是无法通过hash登录的.会提示如下的错误:</p>
 
 <p><img alt='restricted admin' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/hash4.jpg' /></p>
 
-<h3 id='id296'>测试心得</h3>
+<h3 id='id25900'>测试心得</h3>
 
 <p>原版的工具使用使用说明如下:</p>
 
@@ -207,22 +207,6 @@ make</code></pre>
 <![endif]-->
 
   
-
-
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-123-12']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
 </body>
 </html>
 

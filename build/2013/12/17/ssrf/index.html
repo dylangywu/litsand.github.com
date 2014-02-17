@@ -78,7 +78,7 @@
 <li>利用file协议读取本地文件等。</li>
 </ol>
 
-<h1 id='id311'>常用的后端实现</h1>
+<h1 id='id25915'>常用的后端实现</h1>
 
 <p>ssrf攻击可能存在任何语言编写的应用，我们通过一些php实现的代码来作为样例分析。代码的大部分来自于真实的应用源码。</p>
 
@@ -145,13 +145,13 @@ echo $result;
 
 <p>这是另外一个很常见的实现。使用curl获取数据。</p>
 
-<h1 id='id312'>攻击场景</h1>
+<h1 id='id25916'>攻击场景</h1>
 
 <p>大部分的web服务器架构中，web服务器自身都可以访问互联网和服务器所在的内网。下图展示了web服务器的请求可以到达的地方。</p>
 
 <p><img alt='baidu' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/ssrf/ssrf2.png' /></p>
 
-<h2 id='id313'>端口扫描</h2>
+<h2 id='id25917'>端口扫描</h2>
 
 <p>大多数社交网站都提供了通过用户指定的url上传图片的功能。如果用户输入的url是无效的。大部分的web应用都会返回错误信息。攻击者可以输入一些不常见的但是有效的URI，比如</p>
 
@@ -226,7 +226,7 @@ echo $result;
 
 <p><img alt='baidu' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/ssrf/ssrf9.png' /></p>
 
-<h2 id='id314'>攻击应用程序</h2>
+<h2 id='id25918'>攻击应用程序</h2>
 
 <p>内网的安全通常都很薄弱,溢出,弱口令等一般都是存在的。通过ssrf攻击,可以实现对内网的访问,从而可以攻击内网或者本地机器,获得shell等。</p>
 
@@ -290,7 +290,7 @@ Request: http://127.0.0.1:8082/profiles/minimal/translations/README.txt</code></
 
 <p>实战中一半不会有回显，类似于盲打只能。</p>
 
-<h2 id='id315'>读取本地文件</h2>
+<h2 id='id25919'>读取本地文件</h2>
 
 <p>上面提到的案例都是基于http请求的。如果我们指定file协议，也可能读到服务器上的文件。如下的请求会让应用读取本地文件：</p>
 
@@ -302,7 +302,7 @@ Request: http://127.0.0.1:8082/profiles/minimal/translations/README.txt</code></
 
 <p><img alt='baidu' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/ssrf/ssrf20.png' /></p>
 
-<h1 id='id316'>如何防御</h1>
+<h1 id='id25920'>如何防御</h1>
 
 <p>通常有以下5个思路：</p>
 
@@ -326,7 +326,7 @@ Request: http://127.0.0.1:8082/profiles/minimal/translations/README.txt</code></
 </li>
 </ol>
 
-<h1 id='id317'>参考资料</h1>
+<h1 id='id25921'>参考资料</h1>
 
 <p>http://www.riyazwalikar.com/2012/11/cross-site-port-attacks-xspa-part-3.html</p>
 
@@ -380,22 +380,6 @@ Request: http://127.0.0.1:8082/profiles/minimal/translations/README.txt</code></
 <![endif]-->
 
   
-
-
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-123-12']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
 </body>
 </html>
 

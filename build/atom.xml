@@ -4,7 +4,7 @@
  <title>normal world</title>
  <link href="http://username.github.io/" rel="self"/>
  <link href="http://username.github.io"/>
- <updated>2014-02-17T17:22:08+08:00</updated>
+ <updated>2014-02-17T17:35:59+08:00</updated>
  <id>http://username.github.io</id>
  <author>
    <name>litsand</name>
@@ -19,7 +19,7 @@
    <id>http://username.github.io/2014/02/17/a-dummies-guide-to-siem</id>
    <content type="html">&lt;h1 id='security_information__event_managementsiem'&gt;security information &amp;amp; event management(siem)&lt;/h1&gt;
 
-&lt;h2 id='id344'&gt;概述&lt;/h2&gt;
+&lt;h2 id='id25948'&gt;概述&lt;/h2&gt;
 
 &lt;p&gt;SIEM是一种为企业的信息的安全提供全面评估的安全管理方式。它把SIM（security information management）和SEM(security event management)整合进了一个统一的安全管理系统。&lt;/p&gt;
 
@@ -45,7 +45,7 @@
 
 &lt;p&gt;政策，安全，规范等要求安全监控，告警，报表和管理。（PCI,SOX,HIPAA,TRMG,ISO27K1）&lt;/p&gt;
 
-&lt;h2 id='id345'&gt;一次基本的攻击流程&lt;/h2&gt;
+&lt;h2 id='id25949'&gt;一次基本的攻击流程&lt;/h2&gt;
 
 &lt;p&gt;1,攻击者扫描，试图寻找网络的漏洞&lt;/p&gt;
 
@@ -57,7 +57,7 @@
 
 &lt;p&gt;&lt;img alt='' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/attacker1.png' /&gt;&lt;/p&gt;
 
-&lt;h2 id='id346'&gt;怎样检测这次攻击&lt;/h2&gt;
+&lt;h2 id='id25950'&gt;怎样检测这次攻击&lt;/h2&gt;
 
 &lt;p&gt;1,防火墙日志会有扫描相关的日志等&lt;/p&gt;
 
@@ -172,11 +172,11 @@ php_value error_reporting       2039&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/2014/02/15/2014"/>
    <updated>2014-02-15T00:00:00+08:00</updated>
    <id>http://username.github.io/2014/02/15/2014</id>
-   <content type="html">&lt;h1 id='id342'&gt;具备的技术能力&lt;/h1&gt;
+   <content type="html">&lt;h1 id='id25946'&gt;具备的技术能力&lt;/h1&gt;
 
 &lt;p&gt;1,php代码审计 2,python程序编码 3,js代码审计&lt;/p&gt;
 
-&lt;h1 id='id343'&gt;达到的目标&lt;/h1&gt;
+&lt;h1 id='id25947'&gt;达到的目标&lt;/h1&gt;
 
 &lt;p&gt;1,freebuf文章数超过120 2,wooyun rank 超过800 3,通用型漏洞提交20个&lt;/p&gt;</content>
  </entry>
@@ -281,7 +281,7 @@ post-down iptables-restore &amp;lt; /etc/iptables.down.rules&lt;/code&gt;&lt;/pr
    <link href="http://username.github.io/2014/02/09/web"/>
    <updated>2014-02-09T00:00:00+08:00</updated>
    <id>http://username.github.io/2014/02/09/web</id>
-   <content type="html">&lt;h1 id='id339'&gt;测试网站&lt;/h1&gt;
+   <content type="html">&lt;h1 id='id25943'&gt;测试网站&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href='http://demo.aisec.cn/demo/'&gt;http://demo.aisec.cn/demo/&lt;/a&gt;&lt;/p&gt;
 
@@ -289,7 +289,7 @@ post-down iptables-restore &amp;lt; /etc/iptables.down.rules&lt;/code&gt;&lt;/pr
 
 &lt;h1 id='netsparker_2300'&gt;netsparker 2.3.0.0&lt;/h1&gt;
 
-&lt;h2 id='id340'&gt;报告类型&lt;/h2&gt;
+&lt;h2 id='id25944'&gt;报告类型&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;comparison report 报告比较&lt;/li&gt;
@@ -477,7 +477,7 @@ Date: Mon, 10 Feb 2014 05:48:24 GM
 
 &lt;h1 id='burpsuipt_pro_1401'&gt;burpsuipt pro 1.4.01&lt;/h1&gt;
 
-&lt;h2 id='id341'&gt;报告类型&lt;/h2&gt;
+&lt;h2 id='id25945'&gt;报告类型&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;screen-friendly html&lt;/li&gt;
@@ -538,7 +538,7 @@ Date: Mon, 10 Feb 2014 05:48:24 GM
 
 &lt;pre&gt;&lt;code&gt;%     *     +     ,     –     /     ;     &amp;lt;     =     &amp;gt;     ^     |     `(反单引号，IE会认为它是单引号)&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id='id338'&gt;输出在&lt;/h1&gt;</content>
+&lt;h1 id='id25942'&gt;输出在&lt;/h1&gt;</content>
  </entry>
  
  <entry>
@@ -610,7 +610,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/2014/01/07/zsh"/>
    <updated>2014-01-07T00:00:00+08:00</updated>
    <id>http://username.github.io/2014/01/07/zsh</id>
-   <content type="html">&lt;h2 id='id336'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25940'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;最早是在mactalk上看到的。中文能找到的资料不多。不过这几篇质量都很高。足够了。&lt;/p&gt;
 
@@ -622,7 +622,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;https://github.com/robbyrussell/oh-my-zsh&lt;/p&gt;
 
-&lt;h2 id='id337'&gt;安装配置&lt;/h2&gt;
+&lt;h2 id='id25941'&gt;安装配置&lt;/h2&gt;
 
 &lt;p&gt;基本的安装配置这些文章都说的比较明确，就不重复了。按照github上的说明来也行。autojump安装也方便。&lt;/p&gt;
 
@@ -663,33 +663,33 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;本文会先介绍企业员工可能导致的安全风险以及常用的防御方法。最后会从SIEM的角度尝试一种可能的解决方案。&lt;/p&gt;
 
-&lt;h1 id='id326'&gt;风险类型&lt;/h1&gt;
+&lt;h1 id='id25930'&gt;风险类型&lt;/h1&gt;
 
-&lt;h2 id='id327'&gt;社会工程学&lt;/h2&gt;
+&lt;h2 id='id25931'&gt;社会工程学&lt;/h2&gt;
 
 &lt;p&gt;这个大家都很熟悉了。钓鱼，社工库，丢优盘，送路由之类的。利用人性的一些特点来实现攻击。&lt;/p&gt;
 
 &lt;p&gt;缓解的方法通常就是进行用户安全意识培训，尤其通过一些实例，比如模拟钓鱼，然后公开钓鱼的成果，这样用户印象会比较深刻。下次遇到类似的情况就会考虑多一些。&lt;/p&gt;
 
-&lt;h2 id='id328'&gt;用户的密码&lt;/h2&gt;
+&lt;h2 id='id25932'&gt;用户的密码&lt;/h2&gt;
 
 &lt;p&gt;首先是弱密码，尽管可能有各种防止弱密码的策略。但是工作中首先考虑的是更好更快的完成工作。所以弱密码还是很常见的。此外还可能有很多别的途径可能泄露了密码，像工作中临时提供给需要的第三方没有及时修改等等。&lt;/p&gt;
 
 &lt;p&gt;降低风险的方式就是实行严格的密码设置策略。不过包含数字字母符号的密码可能依然是字典里存在的弱密码。&lt;/p&gt;
 
-&lt;h2 id='id329'&gt;用户资产存在漏洞&lt;/h2&gt;
+&lt;h2 id='id25933'&gt;用户资产存在漏洞&lt;/h2&gt;
 
 &lt;p&gt;大公司可能会对所有的办公电脑统一管理，按时升级各种补丁。但是现在有越来越多的设备类型，笔记本，手机，平板等都可能在工作中用到。而这些设备是否存在漏洞，是否安装补丁是用户自己负责的。办公电脑上用户自己安装的第三方软件，比如浏览器等等可能也没有统一的补丁升级策略。&lt;/p&gt;
 
 &lt;p&gt;降低风险的方法可以通过定期的漏洞扫描来降低风险。&lt;/p&gt;
 
-&lt;h2 id='id330'&gt;使用各种云服务&lt;/h2&gt;
+&lt;h2 id='id25934'&gt;使用各种云服务&lt;/h2&gt;
 
 &lt;p&gt;云服务的应用越来越广泛，就拿网盘来说，大家都在用。假如把公司的资料放在网盘上是否存在风险呢。如果一些大的网盘提供商被入侵或是数据泄露，那么后果是不堪设想的。其实敏感资料放在第三方之后，就已经不是自己可控的了。&lt;/p&gt;
 
 &lt;p&gt;降低风险的方法可以培训用户安全意识，尽量选择靠谱的大公司的服务，一些非常重要的资料不要放到第三方那里。&lt;/p&gt;
 
-&lt;h2 id='id331'&gt;移动设备&lt;/h2&gt;
+&lt;h2 id='id25935'&gt;移动设备&lt;/h2&gt;
 
 &lt;p&gt;移动互联网今天已经如此火爆了。手机中通常也会有工作的资料，比如手机登陆了工作邮箱，手机联系人，甚至邮箱密码等。&lt;/p&gt;
 
@@ -699,19 +699,19 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;因为这个是用户自己控制的设备。所以我能想到的降低风险方法可能就是所谓的制定安全策略，进行安全意识培训。&lt;/p&gt;
 
-&lt;h2 id='id332'&gt;解决方案的探讨&lt;/h2&gt;
+&lt;h2 id='id25936'&gt;解决方案的探讨&lt;/h2&gt;
 
 &lt;p&gt;从SIEM的角度来说可以进行用户活动监控，管控风险。&lt;a href='http://en.wikipedia.org/wiki/Security_information_and_event_management'&gt;SIEM&lt;/a&gt;简单来说就是收集环境内的各种设备和应用的安全事件，进行统一解析和关联分析从而进行风险管理和告警的产品。&lt;/p&gt;
 
 &lt;p&gt;用户活动监控的概念其实我们都很常用。就是QQ账号异地登陆会有风险提示或者高危操作会锁定账号。把这个概念扩展到用户登陆公司邮箱，登陆服务器等等账号的活动。下面通过两个场景看一下这个解决方案的思想。&lt;/p&gt;
 
-&lt;h2 id='id333'&gt;场景一：社工邮箱密码&lt;/h2&gt;
+&lt;h2 id='id25937'&gt;场景一：社工邮箱密码&lt;/h2&gt;
 
 &lt;p&gt;攻击者先用awvs扫描公司主页，一番尝试没有发现可以利用的漏洞。然后通过whois查询到网站管理员的工作邮箱。通过一些简单社工和查询社工库获得了该管理员的常用密码，很不幸的是这个常用密码恰好也是管理员工作邮箱的密码。所以攻击者顺利登陆了管理员的邮箱。&lt;/p&gt;
 
 &lt;p&gt;那么这个过程中，SIEM看到的是什么过程呢。首先awvs扫描网站，siem获取到这些网站日志之后，认为这个来源ip在进行尝试攻击的行为，会把这个ip加入一个黑名单当中。当攻击者登陆邮箱的时候，这时候是从一个黑名单IP登陆了高级别的管理员邮箱（可以对不同人员的账号进行风险评级，就跟对资产进行分级一样）。系统会发出告警。甚至可以临时禁用这个邮箱账号。&lt;/p&gt;
 
-&lt;h2 id='id334'&gt;场景二：控制员工笔记本获取到敏感信息&lt;/h2&gt;
+&lt;h2 id='id25938'&gt;场景二：控制员工笔记本获取到敏感信息&lt;/h2&gt;
 
 &lt;p&gt;公司员工由于在社交网站上点击了一个链接导致个人笔记本被控制。攻击者在笔记本上发现了一个公司服务器的ssh账号。那么攻击者在登陆服务器的时候SIEM可以做些什么呢。&lt;/p&gt;
 
@@ -719,7 +719,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;不恰当的地方还请大家多多指正。&lt;/p&gt;
 
-&lt;h2 id='id335'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25939'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://www.wooyun.org/bugs/wooyun-2013-036551'&gt;从一个司机的邮箱开始测试新网&lt;/a&gt;&lt;/p&gt;
 
@@ -749,7 +749,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;最近不少新闻说FBI能够不开摄像头led灯的情况下打开摄像头。一些研究人员也发表文章称在一些老版本的Macbook上测试成功了。可以参考&lt;a href='http://www.freebuf.com/news/21579.html'&gt;破解苹果MacBook摄像头进行秘密监控&lt;/a&gt;。不过苹果是高富帅玩的啊，我们吊丝还是搞搞windows吧。&lt;/p&gt;
 
-&lt;h1 id='id323'&gt;硬件，固件，驱动，软件&lt;/h1&gt;
+&lt;h1 id='id25927'&gt;硬件，固件，驱动，软件&lt;/h1&gt;
 
 &lt;p&gt;理论上来说，指示灯应该是一个硬件功能。当电源提供给摄像头的时候，也会提供电力到指示灯上。这样的话要想黑指示灯几乎是不可能的了。不过我不认为有人会这样来设计。&lt;/p&gt;
 
@@ -757,7 +757,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;在有些情况下，是驱动控制着指示灯。可能是直接控制硬件的底层内核模式驱动，也可能是面向软件的高层的DLL文件。&lt;/p&gt;
 
-&lt;h1 id='id324'&gt;逆向工程&lt;/h1&gt;
+&lt;h1 id='id25928'&gt;逆向工程&lt;/h1&gt;
 
 &lt;p&gt;作为逆向工程师，我们收集了这些可能控制指示灯的软件/固件/驱动，然后在IDApro中调试，很快就发现了一些关键的地方。&lt;/p&gt;
 
@@ -781,7 +781,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;这个可以通过设备固件升级（Device Firmware Update，DFU）标准来实现。这意味着大多数情况下，没有管理员权限的用户可以更新摄像头的固件。文章开头提到的研究人员在2008 Macbook上就使用了这种方式。理论上来说，在现在的大部分windows 7笔记本上也是可行的。问题在于这种方式需要事先修改好各种摄像头芯片的固件。&lt;/p&gt;
 
-&lt;h1 id='id325'&gt;结论&lt;/h1&gt;
+&lt;h1 id='id25929'&gt;结论&lt;/h1&gt;
 
 &lt;p&gt;上面的视频可以证明至少我们已经在一台windows机器上实现了不开指示灯的情况下录像。而我们的研究表明，在常见操作系统上的大部分不同厂家的摄像头都可以实现秘密录像。&lt;/p&gt;
 
@@ -865,7 +865,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;这只是一个假想的攻击方式，SSIDs可以有32个字符甚至看可以包含不能打印的ASCII，SSID可能出现在某些记录wifi连接记录的日志里。&lt;/p&gt;
 
-&lt;h1 id='id320'&gt;事件日志&lt;/h1&gt;
+&lt;h1 id='id25924'&gt;事件日志&lt;/h1&gt;
 
 &lt;p&gt;&lt;img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input4.png' /&gt;&lt;/p&gt;
 
@@ -875,7 +875,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;作为用户名尝试登陆，登陆失败后会记录在日志中。第三方工具如果没有合适的过滤编码字符串，管理员查看工具生成的html格式的报告时就可能受到xss攻击。&lt;/p&gt;
 
-&lt;h1 id='id321'&gt;计算机名和描述&lt;/h1&gt;
+&lt;h1 id='id25925'&gt;计算机名和描述&lt;/h1&gt;
 
 &lt;p&gt;&lt;img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input5.png' /&gt;&lt;/p&gt;
 
@@ -883,7 +883,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input6.png' /&gt;&lt;/p&gt;
 
-&lt;h1 id='id322'&gt;应用的名字和元数据&lt;/h1&gt;
+&lt;h1 id='id25926'&gt;应用的名字和元数据&lt;/h1&gt;
 
 &lt;p&gt;&lt;img alt='input' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/.input7.png' /&gt;&lt;/p&gt;
 
@@ -909,7 +909,7 @@ var log = [];&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/2013/12/23/data-uri-scheme"/>
    <updated>2013-12-23T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/12/23/data-uri-scheme</id>
-   <content type="html">&lt;h1 id='id318'&gt;参考资料&lt;/h1&gt;
+   <content type="html">&lt;h1 id='id25922'&gt;参考资料&lt;/h1&gt;
 
 &lt;p&gt;http://dataurl.net/#dataurlmaker&lt;/p&gt;
 
@@ -1029,7 +1029,7 @@ exit;
 
 &lt;h1 id='data_uri'&gt;data uri钓鱼&lt;/h1&gt;
 
-&lt;h2 id='id319'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25923'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://www.gnucitizen.org/blog/self-contained-xss-attacks/'&gt;self-contained-xss-attacks&lt;/a&gt;&lt;/p&gt;
 
@@ -1111,7 +1111,7 @@ exit;
 &lt;li&gt;利用file协议读取本地文件等。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id='id311'&gt;常用的后端实现&lt;/h1&gt;
+&lt;h1 id='id25915'&gt;常用的后端实现&lt;/h1&gt;
 
 &lt;p&gt;ssrf攻击可能存在任何语言编写的应用，我们通过一些php实现的代码来作为样例分析。代码的大部分来自于真实的应用源码。&lt;/p&gt;
 
@@ -1178,13 +1178,13 @@ echo $result;
 
 &lt;p&gt;这是另外一个很常见的实现。使用curl获取数据。&lt;/p&gt;
 
-&lt;h1 id='id312'&gt;攻击场景&lt;/h1&gt;
+&lt;h1 id='id25916'&gt;攻击场景&lt;/h1&gt;
 
 &lt;p&gt;大部分的web服务器架构中，web服务器自身都可以访问互联网和服务器所在的内网。下图展示了web服务器的请求可以到达的地方。&lt;/p&gt;
 
 &lt;p&gt;&lt;img alt='baidu' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/ssrf/ssrf2.png' /&gt;&lt;/p&gt;
 
-&lt;h2 id='id313'&gt;端口扫描&lt;/h2&gt;
+&lt;h2 id='id25917'&gt;端口扫描&lt;/h2&gt;
 
 &lt;p&gt;大多数社交网站都提供了通过用户指定的url上传图片的功能。如果用户输入的url是无效的。大部分的web应用都会返回错误信息。攻击者可以输入一些不常见的但是有效的URI，比如&lt;/p&gt;
 
@@ -1259,7 +1259,7 @@ echo $result;
 
 &lt;p&gt;&lt;img alt='baidu' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/ssrf/ssrf9.png' /&gt;&lt;/p&gt;
 
-&lt;h2 id='id314'&gt;攻击应用程序&lt;/h2&gt;
+&lt;h2 id='id25918'&gt;攻击应用程序&lt;/h2&gt;
 
 &lt;p&gt;内网的安全通常都很薄弱,溢出,弱口令等一般都是存在的。通过ssrf攻击,可以实现对内网的访问,从而可以攻击内网或者本地机器,获得shell等。&lt;/p&gt;
 
@@ -1323,7 +1323,7 @@ Request: http://127.0.0.1:8082/profiles/minimal/translations/README.txt&lt;/code
 
 &lt;p&gt;实战中一半不会有回显，类似于盲打只能。&lt;/p&gt;
 
-&lt;h2 id='id315'&gt;读取本地文件&lt;/h2&gt;
+&lt;h2 id='id25919'&gt;读取本地文件&lt;/h2&gt;
 
 &lt;p&gt;上面提到的案例都是基于http请求的。如果我们指定file协议，也可能读到服务器上的文件。如下的请求会让应用读取本地文件：&lt;/p&gt;
 
@@ -1335,7 +1335,7 @@ Request: http://127.0.0.1:8082/profiles/minimal/translations/README.txt&lt;/code
 
 &lt;p&gt;&lt;img alt='baidu' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/ssrf/ssrf20.png' /&gt;&lt;/p&gt;
 
-&lt;h1 id='id316'&gt;如何防御&lt;/h1&gt;
+&lt;h1 id='id25920'&gt;如何防御&lt;/h1&gt;
 
 &lt;p&gt;通常有以下5个思路：&lt;/p&gt;
 
@@ -1359,7 +1359,7 @@ Request: http://127.0.0.1:8082/profiles/minimal/translations/README.txt&lt;/code
 &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id='id317'&gt;参考资料&lt;/h1&gt;
+&lt;h1 id='id25921'&gt;参考资料&lt;/h1&gt;
 
 &lt;p&gt;http://www.riyazwalikar.com/2012/11/cross-site-port-attacks-xspa-part-3.html&lt;/p&gt;
 
@@ -1371,11 +1371,11 @@ Request: http://127.0.0.1:8082/profiles/minimal/translations/README.txt&lt;/code
    <link href="http://username.github.io/2013/12/16/xsspayload"/>
    <updated>2013-12-16T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/12/16/xsspayload</id>
-   <content type="html">&lt;h1 id='id309'&gt;相关文章&lt;/h1&gt;
+   <content type="html">&lt;h1 id='id25913'&gt;相关文章&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href='http://www.freebuf.com/articles/web/10121.html'&gt;浏览器是如何解码的&lt;/a&gt; &lt;a href='http://xss1.com/?p=19'&gt;XSS与字符编码的那些事儿&lt;/a&gt; &lt;a href='http://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#Resources'&gt;网络浏览器的工作原理&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id='id310'&gt;编码工具&lt;/h1&gt;
+&lt;h1 id='id25914'&gt;编码工具&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href='http://app.baidu.com/app/enter?appid=280383'&gt;Xss安全测试字符转换工具&lt;/a&gt;&lt;/p&gt;
 
@@ -1896,7 +1896,7 @@ $InputFilePollInterval 10&lt;/code&gt;&lt;/pre&gt;</content>
    <link href="http://username.github.io/2013/11/22/cors"/>
    <updated>2013-11-22T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/11/22/cors</id>
-   <content type="html">&lt;h1 id='id308'&gt;参考资料&lt;/h1&gt;
+   <content type="html">&lt;h1 id='id25912'&gt;参考资料&lt;/h1&gt;
 
 &lt;p&gt;http://drops.wooyun.org/tips/188&lt;/p&gt;
 
@@ -2131,7 +2131,7 @@ f4 96 e8 06  cc 05 79 90  20 9b 09 a4  33 b6 6c 1b&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img alt='img' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/groupp3.png' /&gt;&lt;/p&gt;
 
-&lt;h1 id='id307'&gt;工具使用&lt;/h1&gt;
+&lt;h1 id='id25911'&gt;工具使用&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href='http://carnal0wnage.attackresearch.com/2012/10/group-policy-preferences-and-getting.html'&gt;下载地址&lt;/a&gt;&lt;/p&gt;
 
@@ -2314,7 +2314,7 @@ uploadImageCallback&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/技术研究/2013/11/12/csrf"/>
    <updated>2013-11-12T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/11/12/csrf</id>
-   <content type="html">&lt;h2 id='id306'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25910'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://blog.kotowicz.net/2011/05/invisible-arbitrary-csrf-file-upload-in.html&lt;/p&gt;
 
@@ -2477,7 +2477,7 @@ Done! &amp;lt;a href=&amp;quot;http://weibo.com&amp;quot;&amp;gt;see for yoursel
    <link href="http://username.github.io/技术研究/2013/11/11/windows"/>
    <updated>2013-11-11T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/11/11/windows</id>
-   <content type="html">&lt;h1 id='id305'&gt;参考资料&lt;/h1&gt;
+   <content type="html">&lt;h1 id='id25909'&gt;参考资料&lt;/h1&gt;
 
 &lt;p&gt;http://blogs.splunk.com/2013/07/08/audit-file-access-and-change-in-windows/&lt;/p&gt;
 
@@ -2495,7 +2495,7 @@ Done! &amp;lt;a href=&amp;quot;http://weibo.com&amp;quot;&amp;gt;see for yoursel
 
 &lt;p&gt;10月24日到25日期间,我们检测到两起来自&amp;#8221;admin@338&amp;#8221;(根据攻击的特征,给攻击者起的代号)的鱼叉式网络钓鱼攻击.攻击目标针对多个组织,而且意图非常明显,是为了获取国际贸易,金融,经济政策等方面的资料.这两起攻击使用了不同的恶意软件并且表现出了快速调整技术,策略,流程(TTPs)的能力.&lt;/p&gt;
 
-&lt;h1 id='id300'&gt;使用投资者指南和联系人列表作为诱饵&lt;/h1&gt;
+&lt;h1 id='id25904'&gt;使用投资者指南和联系人列表作为诱饵&lt;/h1&gt;
 
 &lt;p&gt;2013年10月25日.星期五.检测到对下列目标的攻击:&lt;/p&gt;
 
@@ -2552,7 +2552,7 @@ Connection servers = www.microsoft.mrbasic.com, microsoft.mrbasic.com&lt;/code&g
 
 &lt;p&gt;从抓包中分析除了远控的连接密码为&amp;#8221;wwwst@Admin&amp;#8221;&lt;/p&gt;
 
-&lt;h1 id='id301'&gt;确认攻击源头&lt;/h1&gt;
+&lt;h1 id='id25905'&gt;确认攻击源头&lt;/h1&gt;
 
 &lt;p&gt;我们认为这次攻击来自于&amp;#8221;admin@338&amp;#8221;,关于这个攻击者的特征,在&amp;#171;Assessing Damage and Extracting Intelligence&amp;#187;的报告中有详细的描述.admin@338在之前的攻击中也使用过&amp;#8221;wwwst@Admin&amp;#8221;作为密码.&lt;/p&gt;
 
@@ -2612,7 +2612,7 @@ www.webserver.freetcp.com&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;我们之前检测到admin@338在1月6日的攻击中也使用了Bozok,在那次攻击中,他使用邮件发送了一个恶意的&amp;#8221;EcoMissionList.xls&amp;#8221;的表格.攻击的目标跟这次一样,也是贸易,经济,金融政策等领域的组织机构.使用的CnC服务器是www.microsoftupdate.dynssl.com,密码是&amp;#8221;gwxpass&amp;#8221;.&lt;/p&gt;
 
-&lt;h1 id='id302'&gt;亚太地区投资人联系方式诱饵&lt;/h1&gt;
+&lt;h1 id='id25906'&gt;亚太地区投资人联系方式诱饵&lt;/h1&gt;
 
 &lt;p&gt;我们分析最近用投资人联系方式做诱饵的Bozok样本,发现在10月24日有一起相似的攻击.就在这次攻击的前一天.攻击者使用了同样的方式给同一个美国智囊团发送了钓鱼邮件.&lt;/p&gt;
 
@@ -2620,11 +2620,11 @@ www.webserver.freetcp.com&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;www.dpmc.dynssl.com和www.dataupdate.dynssl.com分别在10月24日和21日解析到了58.64.153.157.&lt;/p&gt;
 
-&lt;h1 id='id303'&gt;结论&lt;/h1&gt;
+&lt;h1 id='id25907'&gt;结论&lt;/h1&gt;
 
 &lt;p&gt;这一系列连续的事件,从24日的Backdoor.APT.FakeWinHTTPHelper到25日的Bozok反映了admin@338具有快速调整技术,策略和流程(TTPs)的能力.而且,admin@338把公开获取到的远控(Poison Ivy,Bozok)和自己编写的远控(Backdoor.APT.FakeWinHTTPHelper)都整合进了自己的兵器库.&lt;/p&gt;
 
-&lt;h1 id='id304'&gt;扩展阅读&lt;/h1&gt;
+&lt;h1 id='id25908'&gt;扩展阅读&lt;/h1&gt;
 
 &lt;p&gt;&lt;span&gt;1&lt;/span&gt; For more on admin@338, see our previous blog entry on Poision Ivy at http://www.fireeye.com/blog/technical/targeted-attack/2013/08/pivy-assessing-damage-and-extracting-intel.html&lt;/p&gt;
 
@@ -2661,7 +2661,7 @@ www.webserver.freetcp.com&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/2013/11/02/grub2gentoolivecd"/>
    <updated>2013-11-02T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/11/02/grub2gentoolivecd</id>
-   <content type="html">&lt;h1 id='id299'&gt;参考资料&lt;/h1&gt;
+   <content type="html">&lt;h1 id='id25903'&gt;参考资料&lt;/h1&gt;
 
 &lt;p&gt;https://bugs.gentoo.org/show_bug.cgi?id=294268&lt;/p&gt;
 
@@ -2829,7 +2829,7 @@ your customized boot entry
 &lt;/dd&gt;
 &lt;/dl&gt;
 
-&lt;h1 id='id298'&gt;更新&lt;/h1&gt;
+&lt;h1 id='id25902'&gt;更新&lt;/h1&gt;
 
 &lt;p&gt;参考 eselect news list 2013-03-29 Upgrading udev to version &amp;gt;=200&lt;/p&gt;
 
@@ -2909,7 +2909,7 @@ your customized boot entry
 
 &lt;pre&gt;&lt;code&gt;mkfs -t vfat /dev/hdc6&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id='id297'&gt;参考鸟哥私房菜&lt;/h1&gt;
+&lt;h1 id='id25901'&gt;参考鸟哥私房菜&lt;/h1&gt;
 
 &lt;p&gt;http://vbird.dic.ksu.edu.tw/linux_basic/0230filesystem_3.php&lt;/p&gt;</content>
  </entry>
@@ -2968,7 +2968,7 @@ XVNRV-9HTX4-TH2JD-HVJQD-QRQWG&lt;/code&gt;&lt;/pre&gt;</content>
    <id>http://username.github.io/技术研究/2013/10/29/hastwindows2012</id>
    <content type="html">&lt;p&gt;windows2012R2采用了新版的远程桌面协议(RDP).本文主要讨论一下新版协议中的&amp;#8221;受限管理员&amp;#8221;(&lt;a href='http://blogs.technet.com/b/kfalde/archive/2013/08/14/restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx'&gt;Restricted Admin&lt;/a&gt;)这个特性.相信渗透测试人员和系统管理员都会对这个特性有足够的兴趣,通过这个特性,我们可以实现&lt;a href='http://en.wikipedia.org/wiki/Pass_the_hash'&gt;哈希传递攻击&lt;/a&gt;(Pass-the_Hash attacks).下面会先简要介绍一下哈希传递攻击,然后在windows2012R2上演示如何实现这样一种攻击.测试工具是我们在&lt;a href='http://www.freerdp.com/'&gt;FreeRDP&lt;/a&gt;的基础上修改的,可以在这里&lt;a href='http://labs.portcullis.co.uk/tools/freerdp-pth/'&gt;下载&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id='id291'&gt;哈希传递攻击简介&lt;/h2&gt;
+&lt;h2 id='id25895'&gt;哈希传递攻击简介&lt;/h2&gt;
 
 &lt;p&gt;简单点说,哈希传递就是用户登录的时候使用密码的哈希值代替密码来完成认证.很多windows的协议都是需要用户提供他们的密码哈希值,并不一定非得需要用户提供密码.这一点在渗透测试过程中非常重要,因为发现用户的密码哈希比发现用户的密码容易多了.&lt;/p&gt;
 
@@ -2976,7 +2976,7 @@ XVNRV-9HTX4-TH2JD-HVJQD-QRQWG&lt;/code&gt;&lt;/pre&gt;</content>
 
 &lt;p&gt;微软发布过&lt;a href='http://www.microsoft.com/en-gb/download/details.aspx?id=36036'&gt;防御哈希传递攻击的指南&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id='id292'&gt;受限管理员模式&lt;/h2&gt;
+&lt;h2 id='id25896'&gt;受限管理员模式&lt;/h2&gt;
 
 &lt;p&gt;在windows2012R2运行&amp;#8221;mstsc /?&amp;#8221;命令,会给出如下对受限管理员模式的说明:&lt;/p&gt;
 
@@ -3002,7 +3002,7 @@ XVNRV-9HTX4-TH2JD-HVJQD-QRQWG&lt;/code&gt;&lt;/pre&gt;</content>
 &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id='id293'&gt;概念证明:场景&lt;/h2&gt;
+&lt;h2 id='id25897'&gt;概念证明:场景&lt;/h2&gt;
 
 &lt;p&gt;想象我们正在一个内网环境中进行渗透测试.我们的目标是登录一台Windows2012R2的远程桌面.这台服务器是一个独立的系统,而且开了防火墙,只允许RDP协议登录.&lt;/p&gt;
 
@@ -3012,7 +3012,7 @@ XVNRV-9HTX4-TH2JD-HVJQD-QRQWG&lt;/code&gt;&lt;/pre&gt;</content>
 
 &lt;p&gt;我们假设这个密码是一个非常变态的强密码,无法破解它.这在以前是没有办法确实这个test账户是否能登录我们的目标服务器的.不过在windows2012R2上,我们可以使用哈希传递攻击,使用这个密码hash来登录服务器.&lt;/p&gt;
 
-&lt;h2 id='id294'&gt;概念证明:实现&lt;/h2&gt;
+&lt;h2 id='id25898'&gt;概念证明:实现&lt;/h2&gt;
 
 &lt;p&gt;测试工具是我们在最新版的&lt;a href='https://github.com/FreeRDP/FreeRDP'&gt;FreeRDP&lt;/a&gt;的基础上修改的.最新版的FreeRDP支持了很多新的特性,比如:SSL和CredSSP(NLA),只需要稍微做一些修改就可以支持&amp;#8221;受限管理员&amp;#8221;模式了.&lt;/p&gt;
 
@@ -3030,13 +3030,13 @@ XVNRV-9HTX4-TH2JD-HVJQD-QRQWG&lt;/code&gt;&lt;/pre&gt;</content>
 
 &lt;p&gt;是的,就是这么简单.不过这个可能要等2012R2普及之后才能显示出它巨大的威力.&lt;/p&gt;
 
-&lt;h2 id='id295'&gt;限制条件&lt;/h2&gt;
+&lt;h2 id='id25899'&gt;限制条件&lt;/h2&gt;
 
 &lt;p&gt;受限管理员模式顾名思义,只对管理员组有效.所以如果你获取到的用户属于远程桌面用户组,那么是无法通过hash登录的.会提示如下的错误:&lt;/p&gt;
 
 &lt;p&gt;&lt;img alt='restricted admin' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/hash4.jpg' /&gt;&lt;/p&gt;
 
-&lt;h3 id='id296'&gt;测试心得&lt;/h3&gt;
+&lt;h3 id='id25900'&gt;测试心得&lt;/h3&gt;
 
 &lt;p&gt;原版的工具使用使用说明如下:&lt;/p&gt;
 
@@ -3071,13 +3071,13 @@ make&lt;/code&gt;&lt;/pre&gt;</content>
    <link href="http://username.github.io/技术研究/2013/10/29/hashwindows"/>
    <updated>2013-10-29T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/10/29/hashwindows</id>
-   <content type="html">&lt;h2 id='id289'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25893'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://zone.wooyun.org/content/2230&lt;/p&gt;
 
 &lt;p&gt;http://drops.wooyun.org/tips/24&lt;/p&gt;
 
-&lt;h2 id='id290'&gt;测试过程&lt;/h2&gt;
+&lt;h2 id='id25894'&gt;测试过程&lt;/h2&gt;
 
 &lt;p&gt;在2003 原版未升级,测试成功.win7测试失败.看过程应该是权限不足.&lt;/p&gt;
 
@@ -3131,7 +3131,7 @@ make&lt;/code&gt;&lt;/pre&gt;</content>
    <link href="http://username.github.io/技术研究/2013/10/22/win32kankan-"/>
    <updated>2013-10-22T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/10/22/win32kankan-</id>
-   <content type="html">&lt;h2 id='id287'&gt;概述&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25891'&gt;概述&lt;/h2&gt;
 
 &lt;p&gt;最近ESET杀毒软件检测到一款名为Win32/KanKan的恶意软件.它有一下3个重要特征:&lt;/p&gt;
 
@@ -3143,7 +3143,7 @@ make&lt;/code&gt;&lt;/pre&gt;</content>
 
 &lt;p&gt;3. 这款恶意软件拥有迅雷网络技术有限公司的签名.&lt;/p&gt;
 
-&lt;h2 id='id288'&gt;详细分析&lt;/h2&gt;
+&lt;h2 id='id25892'&gt;详细分析&lt;/h2&gt;
 
 &lt;p&gt;恶意软件的签名信息如下:&lt;/p&gt;
 
@@ -3265,7 +3265,7 @@ done &amp;lt; wooyun.org.txt  #厂商列表&lt;/code&gt;&lt;/pre&gt;</content>
    <id>http://username.github.io/技术研究/2013/10/16/syscall-hijackingkernel-26-systems</id>
    <content type="html">&lt;p&gt;这篇文章会详细的介绍如何劫持系统调用.文章中讨论的重点是如何绕过内核的保护和cpu的&amp;#8221;保护模式&amp;#8221;.&lt;/p&gt;
 
-&lt;h2 id='id283'&gt;访问系统调用表&lt;/h2&gt;
+&lt;h2 id='id25887'&gt;访问系统调用表&lt;/h2&gt;
 
 &lt;p&gt;内核版本2.4以前的rootkit在2.6及以上的内核里是无法运行的.这是因为2.6以后,&amp;#8221;sys_call_table&amp;#8221;无法导出了,也就没有办法直接访问到.而且&amp;#8221;sys_call_table&amp;#8221;所在的内存页具有写保护,下面这种方式也是没法访问的:&lt;/p&gt;
 
@@ -3299,7 +3299,7 @@ c018e640 t pidlist_array_load
 &lt;pre&gt;&lt;code&gt;spaccio@spaccio-laptop:~$ cat /boot/System.map-2.6.35-23-generic | grep sys_call_table
 c05d2180 R sys_call_table&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id284'&gt;绕过内核的写保护&lt;/h2&gt;
+&lt;h2 id='id25888'&gt;绕过内核的写保护&lt;/h2&gt;
 
 &lt;p&gt;现在我们得到了系统调用表的地址,不过如果大家细心的话会发现&amp;#8221;grep&amp;#8221;命令的输出中有一个&amp;#8221;R&amp;#8221;的标志,它代表了这个地址是&amp;#8221;只读的&amp;#8221;.&lt;/p&gt;
 
@@ -3552,7 +3552,7 @@ default:
 &lt;pre&gt;&lt;code&gt;spaccio@spaccio-laptop:~$ sudo insmod hijack2
 spaccio@spaccio-laptop:~$&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id285'&gt;隐藏内核模块&lt;/h2&gt;
+&lt;h2 id='id25889'&gt;隐藏内核模块&lt;/h2&gt;
 
 &lt;p&gt;隐藏我们的模块很简单.把它从模块列表中去掉就可以了.(lsmod 和/proc/modules). 下面是源代码:&lt;/p&gt;
 
@@ -3637,7 +3637,7 @@ static inline void INIT_LIST_HEAD (struct list_head * list)
 
 &lt;p&gt;所以 &amp;#8220;list_del_init()&amp;#8221;函数把我们模块的名字从管理模块列表的双向链表中删掉了.这样我们用lsmod命令(或者在/proc/modules文件中)就看不到这个模块了.&lt;/p&gt;
 
-&lt;h2 id='id286'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25890'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://memset.wordpress.com/2010/12/03/syscall-hijacking-kernel-2-6-systems/'&gt;memset&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
@@ -3699,7 +3699,7 @@ static inline void INIT_LIST_HEAD (struct list_head * list)
    <link href="http://username.github.io/代码人生/2013/10/15/extern"/>
    <updated>2013-10-15T00:00:00+08:00</updated>
    <id>http://username.github.io/代码人生/2013/10/15/extern</id>
-   <content type="html">&lt;h2 id='id282'&gt;转载&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25886'&gt;转载&lt;/h2&gt;
 
 &lt;p&gt;http://www.chsi.com.cn/xy/com/201001/20100118/62031919.html&lt;/p&gt;
 
@@ -3837,7 +3837,7 @@ static inline void INIT_LIST_HEAD (struct list_head * list)
 
 &lt;p&gt;即使笔记本被入侵控制了,这样一个物理隔离的硬件设备也可以保护你的身份不被识别出来.(当然,你的笔记本上不能保存着自己的身份信息)&lt;/p&gt;
 
-&lt;h2 id='id277'&gt;软件安装&lt;/h2&gt;
+&lt;h2 id='id25881'&gt;软件安装&lt;/h2&gt;
 
 &lt;p&gt;即使对熟悉linux的人来说,设置树莓派也是一个漫长的过程.我选择了&amp;#8221;Raspbian&amp;#8221;这个基于Debian的系统.然后就是安装一系列软件.&lt;/p&gt;
 
@@ -3859,21 +3859,21 @@ static inline void INIT_LIST_HEAD (struct list_head * list)
 
 &lt;p&gt;如果需要socks方式代理,可以在eth0上开放Tor socks proxy的端口(TCP/9050)&lt;/p&gt;
 
-&lt;h2 id='id278'&gt;系统设置&lt;/h2&gt;
+&lt;h2 id='id25882'&gt;系统设置&lt;/h2&gt;
 
 &lt;p&gt;树莓派的所以服务都配置成不保存日志.此外SSH设置成keys密钥对登录的方式.私钥不要保存在笔记本上!硬盘进行加密.&lt;/p&gt;
 
-&lt;h2 id='id279'&gt;电源&lt;/h2&gt;
+&lt;h2 id='id25883'&gt;电源&lt;/h2&gt;
 
 &lt;p&gt;树莓派通过笔记本的USB供电,所以便携性非常好.树莓派启动的过程大概需要一分钟.&lt;/p&gt;
 
 &lt;p&gt;&lt;img alt='pic' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/berry2.jpg' /&gt;&lt;/p&gt;
 
-&lt;h2 id='id280'&gt;总结&lt;/h2&gt;
+&lt;h2 id='id25884'&gt;总结&lt;/h2&gt;
 
 &lt;p&gt;这个设备可以比较好的保护你在网络上的匿名性.如果是通过免费的wifi连接上互联网,那么别人识别你的身份会更加困难.&lt;/p&gt;
 
-&lt;h2 id='id281'&gt;扩展阅读&lt;/h2&gt;
+&lt;h2 id='id25885'&gt;扩展阅读&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://learn.adafruit.com/onion-pi/overview'&gt;Onion Pi&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
@@ -3946,7 +3946,7 @@ yum install kernel-headers&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;从content的角度以及soc类产品对数据的主要处理流程的分析和对比.&lt;/p&gt;
 
-&lt;h1 id='id269'&gt;数据来源&lt;/h1&gt;
+&lt;h1 id='id25873'&gt;数据来源&lt;/h1&gt;
 
 &lt;p&gt;日志收集:支持更多种协议.SNMP, Syslog, WMI, Cisco SDEE,Checkpoint LEA, JDBC, VMWare VI-SDK, JMX, Telnet, SSH, network flow,and HTTP(S)&lt;/p&gt;
 
@@ -3954,31 +3954,31 @@ yum install kernel-headers&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;相对我们的综合日志审计,accelops支持了更多一些的小众的协议,资产管理采用自动发现,自动分类.&lt;/p&gt;
 
-&lt;h1 id='id270'&gt;数据处理&lt;/h1&gt;
+&lt;h1 id='id25874'&gt;数据处理&lt;/h1&gt;
 
 &lt;p&gt;数据解析归一化:尝试接入几台设备的日志信息没有成功.暂时还没有查到accelops具体是如何解析日志数据的.&lt;/p&gt;
 
-&lt;h1 id='id271'&gt;数据统计&lt;/h1&gt;
+&lt;h1 id='id25875'&gt;数据统计&lt;/h1&gt;
 
 &lt;p&gt;统计模板:统计模板从多个角度分类,合规报表就有PCI,COBIT,SOC,ISO,HIPAA,GLBA,FISMA,NERC,等.这块我们可以借鉴的比较多.主要的困难还是工作量比较大.做一个新的统计报表可能需要修改解析规则.&lt;/p&gt;
 
-&lt;h1 id='id272'&gt;知识积累&lt;/h1&gt;
+&lt;h1 id='id25876'&gt;知识积累&lt;/h1&gt;
 
 &lt;p&gt;漏洞库等:我们有弱点管理,漏洞库,三维关联.这块是accelops没有的.&lt;/p&gt;
 
-&lt;h1 id='id273'&gt;数据分析&lt;/h1&gt;
+&lt;h1 id='id25877'&gt;数据分析&lt;/h1&gt;
 
 &lt;p&gt;关联规则:accelops的优势有很多性能,可用性方面的规则.我们重点还是安全方面的规则.&lt;/p&gt;
 
 &lt;p&gt;数据挖掘:我们具有数据挖掘的模块.accelops没有.&lt;/p&gt;
 
-&lt;h1 id='id274'&gt;告警和阻断&lt;/h1&gt;
+&lt;h1 id='id25878'&gt;告警和阻断&lt;/h1&gt;
 
 &lt;p&gt;告警方式:都可以通过多种方式发送告警信息.(消息提醒,email等)&lt;/p&gt;
 
-&lt;h2 id='id275'&gt;详细对比&lt;/h2&gt;
+&lt;h2 id='id25879'&gt;详细对比&lt;/h2&gt;
 
-&lt;h1 id='id276'&gt;概述&lt;/h1&gt;
+&lt;h1 id='id25880'&gt;概述&lt;/h1&gt;
 
 &lt;p&gt;accelops跟splunk一样,都定位自己为数据中心.对比我们的综合日志审计,它有一些很有特色的功能.比如它可以自动画出管理资产的网络拓扑图.(这是跟它的资产管理方式相关的,跟我们的资产管理方式不太一样).有一个配置管理的库,可以监控配置变更.数据统计方面,它的模板的分类和数量非常丰富.尤其突出了运维监控,业务管理等方面.而我们的报表重点是依托于日志审计的安全合规方面.&lt;/p&gt;</content>
  </entry>
@@ -3988,7 +3988,7 @@ yum install kernel-headers&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/技术研究/2013/10/08/win7psutil-access-denied"/>
    <updated>2013-10-08T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/10/08/win7psutil-access-denied</id>
-   <content type="html">&lt;h2 id='id267'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25871'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://www.blog.pythonlibrary.org/2010/10/03/how-to-find-and-list-all-running-processes-with-python/&lt;/p&gt;
 
@@ -3998,7 +3998,7 @@ yum install kernel-headers&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;UPDATE (10/09/2010) – The psutil folks don’t know why it doesn’t work, but one of their developers has confirmed the issue. You can follow along on their Google Groups list.&lt;/p&gt;
 
-&lt;h2 id='id268'&gt;测试环境&lt;/h2&gt;
+&lt;h2 id='id25872'&gt;测试环境&lt;/h2&gt;
 
 &lt;p&gt;win7 64bit&lt;/p&gt;
 
@@ -4102,7 +4102,7 @@ README   vminjector32-exe.rar  vminjector-src&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/技术研究/2013/10/08/cmdsystem"/>
    <updated>2013-10-08T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/10/08/cmdsystem</id>
-   <content type="html">&lt;h2 id='id266'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25870'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://hi.baidu.com/darks00n/item/22212cc397faf627ee466528&lt;/p&gt;
 
@@ -4152,7 +4152,7 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc&lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id265'&gt;配置&lt;/h2&gt;
+&lt;h2 id='id25869'&gt;配置&lt;/h2&gt;
 
 &lt;p&gt;配置主要参考mactalk的配置.其中autojump的插件,原文评论也有人提到,oh-my-zsh已经有这个插件了.为什么还要单独安装.经过测试发现,在.zshrc中开始plugins(autojump) 使用j命令会提示找不到命令.&lt;/p&gt;
 
@@ -4252,7 +4252,7 @@ Change: 2013-09-29 16:13:35.663211109 +0800&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;a href='http://hi.baidu.com/saiafgdyshbbehq/item/07c19cae0b45db736dd45573'&gt;linux配置nat&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id='id264'&gt;安装过程&lt;/h2&gt;
+&lt;h2 id='id25868'&gt;安装过程&lt;/h2&gt;
 
 &lt;p&gt;参考10.04的安装 步骤完成安装.&lt;/p&gt;
 
@@ -4290,7 +4290,7 @@ push &amp;quot;dhcp-option DNS 10.1.0.2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/工具使用/2013/09/25/ircepic"/>
    <updated>2013-09-25T00:00:00+08:00</updated>
    <id>http://username.github.io/工具使用/2013/09/25/ircepic</id>
-   <content type="html">&lt;h2 id='id261'&gt;安装&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25865'&gt;安装&lt;/h2&gt;
 
 &lt;p&gt;gentoo&lt;/p&gt;
 
@@ -4304,11 +4304,11 @@ push &amp;quot;dhcp-option DNS 10.1.0.2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;启动命令 epic5&lt;/p&gt;
 
-&lt;h2 id='id262'&gt;配置和命令&lt;/h2&gt;
+&lt;h2 id='id25866'&gt;配置和命令&lt;/h2&gt;
 
 &lt;p&gt;配置默认server&lt;/p&gt;
 
-&lt;h2 id='id263'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25867'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://www.epicsol.org/doku.php &lt;a href='http://en.wikipedia.org/wiki/List_of_Internet_Relay_Chat_commands'&gt;irc命令列表&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
@@ -4330,13 +4330,13 @@ push &amp;quot;dhcp-option DNS 10.1.0.2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/工具使用/2013/09/24/sh2log"/>
    <updated>2013-09-24T00:00:00+08:00</updated>
    <id>http://username.github.io/工具使用/2013/09/24/sh2log</id>
-   <content type="html">&lt;h2 id='id259'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25863'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://fuzzexp.org/linuxsh2log_keylogger.html&lt;/p&gt;
 
 &lt;p&gt;http://packetstormsecurity.com/files/51780/sh2log-1.0.tgz.html&lt;/p&gt;
 
-&lt;h2 id='id260'&gt;安装步骤&lt;/h2&gt;
+&lt;h2 id='id25864'&gt;安装步骤&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;wget http://packetstormsecurity.com/files/download/51780/sh2log-1.0.tgz
 
@@ -4460,7 +4460,7 @@ zxr5124-A(cfg-snmp)#show snmp&lt;/code&gt;&lt;/pre&gt;</content>
    <link href="http://username.github.io/技术研究/2013/09/22/"/>
    <updated>2013-09-22T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/09/</id>
-   <content type="html">&lt;h2 id='id254'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25858'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://blog.markloiseau.com/2012/04/hello-world-loadable-kernel-module-tutorial/&lt;/p&gt;
 
@@ -4472,7 +4472,7 @@ zxr5124-A(cfg-snmp)#show snmp&lt;/code&gt;&lt;/pre&gt;</content>
 
 &lt;p&gt;1, 安装module-assistant包 2, 创建主文件hello.c和Makefile 3, 编译hello.c 4, 将编译好的模块插入到当前内核中 5, 测试完成后移除相关的内核模块&lt;/p&gt;
 
-&lt;h2 id='id255'&gt;安装内核头文件等准备工作&lt;/h2&gt;
+&lt;h2 id='id25859'&gt;安装内核头文件等准备工作&lt;/h2&gt;
 
 &lt;p&gt;Debian和Ubuntu都提供了moddule-assistant的包,包括了编写LKM需要的所有包.可以通过一下方式安装:&lt;/p&gt;
 
@@ -4527,7 +4527,7 @@ $(MAKE) -C $(KDIR) M=$(PWD) modules
 clean:
 $(MAKE) -C $(KDIR) M=$(PWD) clean&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id256'&gt;编译源码&lt;/h2&gt;
+&lt;h2 id='id25860'&gt;编译源码&lt;/h2&gt;
 
 &lt;p&gt;到工作目录下执行make就可以了&lt;/p&gt;
 
@@ -4540,7 +4540,7 @@ MODPOST 1 modules
 CC /var/www/lkm/hello.mod.o
 LD [M] /var/www/lkm/hello.ko&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id257'&gt;加载编译好的内核模块到内核&lt;/h2&gt;
+&lt;h2 id='id25861'&gt;加载编译好的内核模块到内核&lt;/h2&gt;
 
 &lt;p&gt;使用insmod命令:&lt;/p&gt;
 
@@ -4554,7 +4554,7 @@ Apr 20 16:27:39 laptop kernel: [19486.347191] Hello world!&lt;/code&gt;&lt;/pre&
 
 &lt;p&gt;有一些发行版,内核信息会记录到别的文件,比如/var/log/messages.这个也要看syslog的配置.&lt;/p&gt;
 
-&lt;h2 id='id258'&gt;卸载模块&lt;/h2&gt;
+&lt;h2 id='id25862'&gt;卸载模块&lt;/h2&gt;
 
 &lt;p&gt;使用rmmod 命令&lt;/p&gt;
 
@@ -4592,7 +4592,7 @@ Apr 20 16:29:23 laptop kernel: [19486.347191] Cleaning up module.&lt;/code&gt;&l
 
 &lt;p&gt;搞定.&lt;/p&gt;
 
-&lt;h2 id='id253' /&gt;
+&lt;h2 id='id25857' /&gt;
 
 &lt;p&gt;https://forums.kali.org/showthread.php?5804-Kernel-headers-problem&lt;/p&gt;</content>
  </entry>
@@ -4602,11 +4602,11 @@ Apr 20 16:29:23 laptop kernel: [19486.347191] Cleaning up module.&lt;/code&gt;&l
    <link href="http://username.github.io/技术研究/2013/09/18/dns"/>
    <updated>2013-09-18T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/09/18/dns</id>
-   <content type="html">&lt;h2 id='id251'&gt;相关资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25855'&gt;相关资料&lt;/h2&gt;
 
 &lt;p&gt;http://drops.wooyun.org/papers/64&lt;/p&gt;
 
-&lt;h2 id='id252'&gt;检测方式&lt;/h2&gt;
+&lt;h2 id='id25856'&gt;检测方式&lt;/h2&gt;
 
 &lt;p&gt;dig命令&lt;/p&gt;
 
@@ -4707,7 +4707,7 @@ cus                            A      192.200.4.21&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;这样可以把socks5代理弹到123.123.123.123的18080端口，可以用proxychains和其他支持socks5代理的工具最大限度的窥探内网&lt;/p&gt;
 
-&lt;h2 id='id250'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25854'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://drops.wooyun.org/tips/411&lt;/p&gt;
 
@@ -4719,7 +4719,7 @@ cus                            A      192.200.4.21&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/渗透测试/2013/09/13/offensive-security-pentest-report-"/>
    <updated>2013-09-13T00:00:00+08:00</updated>
    <id>http://username.github.io/渗透测试/2013/09/13/offensive-security-pentest-report-</id>
-   <content type="html">&lt;h2 id='id243'&gt;摘要&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25847'&gt;摘要&lt;/h2&gt;
 
 &lt;p&gt;Offensive security已经被授权对Archmake的外部网站进行一次渗透测试.测试评估的方式是模拟恶意的攻击者对公司进行目的明确的渗透.主要测试目标包括:&lt;/p&gt;
 
@@ -4727,7 +4727,7 @@ cus                            A      192.200.4.21&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;2, 评估安全攻击对公司的订单系统,客户的保密信息以及Archmake其他信息系统可能造成的影响.&lt;/p&gt;
 
-&lt;h2 id='id244'&gt;结果概述&lt;/h2&gt;
+&lt;h2 id='id25848'&gt;结果概述&lt;/h2&gt;
 
 &lt;p&gt;在初期的信息搜集阶段,发现Archmake公司仅仅只有一个web网站和一个邮件服务器.可供攻击的目标比较少.&lt;/p&gt;
 
@@ -4735,7 +4735,7 @@ cus                            A      192.200.4.21&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;获取了网站服务器的权限之后,开始对内网进行渗透,经过一番尝试,成功获取到了域管理员的权限.之后对内网进行拓扑分析,发现了内网的公司数据库并成功控制.这个数据库不仅存储了订单信息和客户资料,还保存了交易的相关信息.通过控制这个系统,攻击者可以直接提取现金.&lt;/p&gt;
 
-&lt;h2 id='id245'&gt;测试过程&lt;/h2&gt;
+&lt;h2 id='id25849'&gt;测试过程&lt;/h2&gt;
 
 &lt;h1 id='wordpress'&gt;WordPress漏洞利用&lt;/h1&gt;
 
@@ -4850,7 +4850,7 @@ c45e798ae5ada;%20wp-settings-
 
 &lt;p&gt;现在,这个网站服务器已经可以作为一个恶意攻击者进行内网渗透的跳板了.如果这是一次真实的攻击,那么这台网站服务器上的任何数据都已经不可信了,因为攻击者可以随意修改控制.&lt;/p&gt;
 
-&lt;h1 id='id246'&gt;长期驻守服务器&lt;/h1&gt;
+&lt;h1 id='id25850'&gt;长期驻守服务器&lt;/h1&gt;
 
 &lt;p&gt;获得了服务器的管理权限之后,就需要维护一个更加稳定的连接来进行后续的渗透.&lt;/p&gt;
 
@@ -4886,7 +4886,7 @@ c45e798ae5ada;%20wp-settings-
 
 &lt;p&gt;现在我们又控制了内网一台win服务器.&lt;/p&gt;
 
-&lt;h2 id='id247'&gt;获得域管理权限&lt;/h2&gt;
+&lt;h2 id='id25851'&gt;获得域管理权限&lt;/h2&gt;
 
 &lt;p&gt;内网渗透,而且是windows主机.下一步一般就是要获取域管理员的权限了.我们把WCE(Windows Credential Editor)上传到splunk服务器上.WCE可以从内存中读取认证信息,然后利用这些认证信息来做一些有用的事情.&lt;/p&gt;
 
@@ -4902,7 +4902,7 @@ c45e798ae5ada;%20wp-settings-
 
 &lt;p&gt;&lt;img alt='offensive6' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/offensive18.png' /&gt;&lt;/p&gt;
 
-&lt;h2 id='id248'&gt;数据库数据利用&lt;/h2&gt;
+&lt;h2 id='id25852'&gt;数据库数据利用&lt;/h2&gt;
 
 &lt;p&gt;控制splunk服务器之后,在它的本地文件系统中发现了一个csv文件.&lt;/p&gt;
 
@@ -4942,7 +4942,7 @@ c45e798ae5ada;%20wp-settings-
 
 &lt;p&gt;交易的类型一确定,相关的信息就会插入到这个表里.我们发现如果插入一个有效的用户ID,用户信息卡信息填攻击者自己控制的信用卡,交易类型选4(4是退款).就可以退任意数额的钱到攻击者的信用卡账户了.这个已经在可控的环境下被证实了.&lt;/p&gt;
 
-&lt;h2 id='id249'&gt;结论&lt;/h2&gt;</content>
+&lt;h2 id='id25853'&gt;结论&lt;/h2&gt;</content>
  </entry>
  
  <entry>
@@ -4976,7 +4976,7 @@ c45e798ae5ada;%20wp-settings-
    <link href="http://username.github.io/工具使用/2013/09/10/emacs"/>
    <updated>2013-09-10T00:00:00+08:00</updated>
    <id>http://username.github.io/工具使用/2013/09/10/emacs</id>
-   <content type="html">&lt;h2 id='id241'&gt;替换&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25845'&gt;替换&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;M-% (然后会出现Query replace的字样)
 
@@ -4998,7 +4998,7 @@ n 或者 Del 键 取消替换搜索到的字符串
 
 ESC 键 退出本次查询搜索&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id242'&gt;复制&lt;/h2&gt;
+&lt;h2 id='id25846'&gt;复制&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;M+w  复制
 C+y  粘贴&lt;/code&gt;&lt;/pre&gt;</content>
@@ -5009,7 +5009,7 @@ C+y  粘贴&lt;/code&gt;&lt;/pre&gt;</content>
    <link href="http://username.github.io/工具使用/2013/09/06/nessus"/>
    <updated>2013-09-06T00:00:00+08:00</updated>
    <id>http://username.github.io/工具使用/2013/09/06/nessus</id>
-   <content type="html">&lt;h2 id='id239'&gt;报告样例&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25843'&gt;报告样例&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;ReportItem port=&amp;quot;445&amp;quot; svc_name=&amp;quot;cifs&amp;quot; protocol=&amp;quot;tcp&amp;quot; severity=&amp;quot;4&amp;quot; pluginID=&amp;quot;34477&amp;quot; pluginName=&amp;quot;MS08-067: Microsoft Windows Server Service Crafted RPC Request Handling Remote Code Execution (958644) (uncredentialed check)&amp;quot; pluginFamily=&amp;quot;Windows&amp;quot;&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 
@@ -5116,7 +5116,7 @@ C+y  粘贴&lt;/code&gt;&lt;/pre&gt;</content>
 
 &lt;p&gt;参考资料. &amp;lt;/ReportItem&amp;gt;&lt;/p&gt;
 
-&lt;h2 id='id240'&gt;字段详情&lt;/h2&gt;
+&lt;h2 id='id25844'&gt;字段详情&lt;/h2&gt;
 
 &lt;p&gt;svc name是端口对应的服务名称&lt;/p&gt;</content>
  </entry>
@@ -5130,7 +5130,7 @@ C+y  粘贴&lt;/code&gt;&lt;/pre&gt;</content>
 
 &lt;p&gt;比较老的文章了.国内几个大牛的博客都见到过转载原文的,貌似没见到有翻译版.&lt;/p&gt;
 
-&lt;h2 id='id238'&gt;翻译&lt;/h2&gt;
+&lt;h2 id='id25842'&gt;翻译&lt;/h2&gt;
 
 &lt;p&gt;最近有个朋友让我去帮他看一下他的linux服务器.说是apache启动不了,有很多诡异的情况.后来证明绝不是apache启动不了这么简单.&lt;/p&gt;
 
@@ -5607,7 +5607,7 @@ p.h.e.e.r  S.H.c.r.e.w&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/渗透测试/2013/09/04/rkhunter"/>
    <updated>2013-09-04T00:00:00+08:00</updated>
    <id>http://username.github.io/渗透测试/2013/09/04/rkhunter</id>
-   <content type="html">&lt;h2 id='id236'&gt;安装步骤&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25840'&gt;安装步骤&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;wget http://sourceforge.net/projects/rkhunter/files/latest/download
 tar zxvf download
@@ -5615,7 +5615,7 @@ cd rk~~
 ./install --install
 rkhunter --check&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id237'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25841'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://www.rootkit.nl/projects/rootkit_hunter.html&lt;/p&gt;</content>
  </entry>
@@ -5629,7 +5629,7 @@ rkhunter --check&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;结果:日志接受界面显示中文部分是乱码,存储采用sqlite本地存储的.没有txt格式.&lt;/p&gt;
 
-&lt;h2 id='id235'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25839'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://www.snmpsoft.com/syslogwatcher/syslog-server.html&lt;/p&gt;</content>
  </entry>
@@ -5639,7 +5639,7 @@ rkhunter --check&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/渗透测试/2013/09/03/shv5shv4-rootkit"/>
    <updated>2013-09-03T00:00:00+08:00</updated>
    <id>http://username.github.io/渗透测试/2013/09/03/shv5shv4-rootkit</id>
-   <content type="html">&lt;h2 id='id233'&gt;发现痕迹&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25837'&gt;发现痕迹&lt;/h2&gt;
 
 &lt;p&gt;On RHEL or Centos 4 or 5, If you run the linux command top and you see something like:&lt;/p&gt;
 
@@ -5658,7 +5658,7 @@ tar zxvf shv5.tar.gz
 cd shv5
 ./setup pass port&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id234'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25838'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://www.kentoyer.com/2009/12/21/removing-the-shv5-rootkit/&lt;/p&gt;
 
@@ -5796,7 +5796,7 @@ cp modules/pam_unix/.libs/pam_unix.so /lib/security/  覆盖&lt;/code&gt;&lt;/pr
 
 &lt;pre&gt;&lt;code&gt;touch -t 200909091108 pam_unix.so&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id232'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25836'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://www.linux-pam.org/library/&lt;/p&gt;
 
@@ -5846,7 +5846,7 @@ cp modules/pam_unix/.libs/pam_unix.so /lib/security/  覆盖&lt;/code&gt;&lt;/pr
 
 &lt;h1 id='python'&gt;python&lt;/h1&gt;
 
-&lt;h2 id='id231'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25835'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet'&gt;翻译自&lt;/a&gt;&lt;/p&gt;
 
@@ -5860,7 +5860,7 @@ cp modules/pam_unix/.libs/pam_unix.so /lib/security/  覆盖&lt;/code&gt;&lt;/pr
    <link href="http://username.github.io/工具使用/2013/08/28/redhat-centos-ip"/>
    <updated>2013-08-28T00:00:00+08:00</updated>
    <id>http://username.github.io/工具使用/2013/08/28/redhat-centos-ip</id>
-   <content type="html">&lt;h2 id='id229'&gt;配置文件&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25833'&gt;配置文件&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;/ect/hosts 配置主机名和IP地址的对应
 /etc/sysconfig/network 配置主机名和网关
@@ -5891,7 +5891,7 @@ ONBOOT=yes&lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;nameserver 8.8.8.8&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id230'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25834'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://www.ningoo.net/html/2007/redhat_linux_network_configuration_and_bond.html'&gt;Redhat Linux网卡配置与绑定&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
@@ -5901,7 +5901,7 @@ ONBOOT=yes&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/渗透测试/2013/08/28/jynx_rootkit20"/>
    <updated>2013-08-28T00:00:00+08:00</updated>
    <id>http://username.github.io/渗透测试/2013/08/28/jynx_rootkit20</id>
-   <content type="html">&lt;h2 id='id226'&gt;安装&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25830'&gt;安装&lt;/h2&gt;
 
 &lt;p&gt;下载地址:&lt;/p&gt;
 
@@ -5910,7 +5910,7 @@ tar zxvf jynx2.tgz&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;配置config.h&lt;/p&gt;
 
-&lt;h2 id='id227'&gt;尝试过程&lt;/h2&gt;
+&lt;h2 id='id25831'&gt;尝试过程&lt;/h2&gt;
 
 &lt;p&gt;直接centos 5.4 final make &amp;amp;&amp;amp; make install 机器重启都起不来了&amp;#8230;&lt;/p&gt;
 
@@ -5947,7 +5947,7 @@ ubuntu 上apt-get install libssl-dev  解决找不到头文件的问题.&lt;/cod
 &lt;pre&gt;&lt;code&gt;rm: cannot remove `/var/run/apache2/*ssl_scache*&amp;#39;
 /usr/sbin/apache2ctl: line 93: 16120 Segmentation fault      $HTTPD ${APACHE_ARGUMENTS} -k $ARGV&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id228'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25832'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://www.blackhatlibrary.net/Jynx_Rootkit/2.0&lt;/p&gt;
 
@@ -5967,7 +5967,7 @@ ubuntu 上apt-get install libssl-dev  解决找不到头文件的问题.&lt;/cod
    <link href="http://username.github.io/工具使用/2013/08/27/zmap-"/>
    <updated>2013-08-27T00:00:00+08:00</updated>
    <id>http://username.github.io/工具使用/2013/08/27/zmap-</id>
-   <content type="html">&lt;h2 id='id224'&gt;安装环境&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25828'&gt;安装环境&lt;/h2&gt;
 
 &lt;p&gt;ubuntu10.04 32位安装失败.bt5 32位,可以安装,使用的时候提示compile filter error.在64位的centos 5.4上安装提示了一个Wno-unused-but-set-variable变量无法识别的问题.搜索了下发现是低版本的gcc的问题.github上最新的版本已经解决了这个问题.&lt;/p&gt;
 
@@ -5977,7 +5977,7 @@ ubuntu 上apt-get install libssl-dev  解决找不到头文件的问题.&lt;/cod
 
 &lt;p&gt;获取1000000个结果,发包速率150K,需要6个小时左右.&lt;/p&gt;
 
-&lt;h2 id='id225'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25829'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='https://github.com/zmap/zmap'&gt;github&lt;/a&gt;&lt;/p&gt;
 
@@ -6022,11 +6022,11 @@ sudo apt-get update --fix-missing&lt;/code&gt;&lt;/pre&gt;</content>
    <link href="http://username.github.io/技术研究/2013/08/22/linux"/>
    <updated>2013-08-22T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/08/22/linux</id>
-   <content type="html">&lt;h2 id='id222'&gt;下载地址&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25826'&gt;下载地址&lt;/h2&gt;
 
 &lt;p&gt;wget http://packetstormsecurity.com/files/download/72410/logtamper_v1_1.tgz&lt;/p&gt;
 
-&lt;h2 id='id223'&gt;用法转载&lt;/h2&gt;
+&lt;h2 id='id25827'&gt;用法转载&lt;/h2&gt;
 
 &lt;p&gt;-f 选项：用于指定要修改的文件的路径的，是个可选项。由于不同系统的日志存放路径不一样，可以手工指定。 默认的日志存放地点是：&lt;/p&gt;
 
@@ -6127,7 +6127,7 @@ Last login: Tue Jan 1 01:01:01 2008 from 1.2.3.4
 
 &lt;p&gt;解压之后,放到家目录就可以了.注意这个包解压之后名字是以点开头的隐藏的文件名.需要用ls -a 查看.&lt;/p&gt;
 
-&lt;h2 id='id220'&gt;遇到的问题&lt;/h2&gt;
+&lt;h2 id='id25824'&gt;遇到的问题&lt;/h2&gt;
 
 &lt;p&gt;之前按照在centos上安装的经验,直接下载&lt;a href='http://www.dropbox.com/download?plat=lnx.x86'&gt;tar&lt;/a&gt;包解压.运行dropboxd提示connection close 之类的错误.&lt;/p&gt;
 
@@ -6135,7 +6135,7 @@ Last login: Tue Jan 1 01:01:01 2008 from 1.2.3.4
 
 &lt;p&gt;Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.&lt;/p&gt;
 
-&lt;h2 id='id221'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25825'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='https://www.dropbox.com/help/247/en'&gt;2&lt;/a&gt;&lt;/p&gt;
 
@@ -6166,7 +6166,7 @@ $ git init&lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;git add . &amp;amp;&amp;amp; git commit -m &amp;quot;auto&amp;quot; &amp;amp;&amp;amp; git push&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id219'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25823'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://jetheis.com/blog/2013/02/17/using-dropbox-as-a-private-github/http://jetheis.com/blog/2013/02/17/using-dropbox-as-a-private-github/'&gt;Using Dropbox as a Private GitHub&lt;/a&gt;&lt;/p&gt;
 
@@ -6178,7 +6178,7 @@ $ git init&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/渗透测试/2013/08/20/mysql-mof-"/>
    <updated>2013-08-20T00:00:00+08:00</updated>
    <id>http://username.github.io/渗透测试/2013/08/20/mysql-mof-</id>
-   <content type="html">&lt;h2 id='id216'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25820'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://zone.wooyun.org/content/2273'&gt;mof运行远控&lt;/a&gt;&lt;/p&gt;
 
@@ -6188,7 +6188,7 @@ $ git init&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;a href='http://www.exploit-db.com/exploits/23083/'&gt;exploitdb&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id='id217'&gt;利用代码&lt;/h2&gt;
+&lt;h2 id='id25821'&gt;利用代码&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;找个可写目录，我这里是C:\recycler\，把如下代码写到nullevt.mof文件里（也就是他源码里的payload）：&lt;/li&gt;
@@ -6224,7 +6224,7 @@ Filter = $EventFilter;
 
 &lt;pre&gt;&lt;code&gt;select load_file(&amp;#39;C:\\RECYCLER\\nullevt.mof&amp;#39;) into dumpfile &amp;#39;c:/windows/system32/wbem/mof/nullevt.mof&amp;#39;;&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id218'&gt;分析&lt;/h2&gt;
+&lt;h2 id='id25822'&gt;分析&lt;/h2&gt;
 
 &lt;p&gt;本质上是写权限变可执行权限,将mof文件写入特定目录,导致其被执行.&lt;/p&gt;</content>
  </entry>
@@ -6256,7 +6256,7 @@ inurl:phpmyadmin inurl:phpmyadmin/sql.php&lt;/code&gt;&lt;/pre&gt;</content>
 
 &lt;p&gt;&lt;a href='http://www.lizard-labs.net/log_parser_lizard.aspx'&gt;log parser lizard&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id='id214'&gt;实战案例&lt;/h2&gt;
+&lt;h2 id='id25818'&gt;实战案例&lt;/h2&gt;
 
 &lt;p&gt;目标:在windows的安全事件中找出用户admin登录的ip来源.并按照ip出现的次数排序.&lt;/p&gt;
 
@@ -6284,7 +6284,7 @@ inurl:phpmyadmin inurl:phpmyadmin/sql.php&lt;/code&gt;&lt;/pre&gt;</content>
 
 &lt;p&gt;这样子得到了所有登录过的ip以及相应的次数.没有考虑到用户名.算是完成了60%吧.&lt;/p&gt;
 
-&lt;h2 id='id215'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25819'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://blogs.technet.com/b/gcrsec/archive/2009/04/23/conficker.aspx'&gt;如何快速查找感染 Conficker 的客户端&lt;/a&gt;&lt;/p&gt;
 
@@ -6324,7 +6324,7 @@ Fields: date time action protocol src-ip dst-ip src-port dst-port size tcpflags 
 
 &lt;p&gt;还是包含了不少信息的.&lt;/p&gt;
 
-&lt;h2 id='id213'&gt;华丽的分割线&lt;/h2&gt;
+&lt;h2 id='id25817'&gt;华丽的分割线&lt;/h2&gt;
 
 &lt;p&gt;说起windows的日志,大家最熟悉的就是系统日志了,网上也有很多现成的工具来清除windows的系统事件.而对于windows系统防火墙的日志,可能都没怎么重视.也没有发现有专门清除防火墙日志的工具,虽然它只是一个txt文件.&lt;/p&gt;
 
@@ -6540,7 +6540,7 @@ CurrentCalSsl 	1.3.6.1.4.1.311.1.7.3.1.49.0
 MaxCalSsl 	1.3.6.1.4.1.311.1.7.3.1.50.0
 TotalFailedCalSsl 	1.3.6.1.4.1.311.1.7.3.1.51.0&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id212'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25816'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://www.grandcloud.cn/help/detail/553'&gt;Windows下如何启用snmp服务&lt;/a&gt;&lt;/p&gt;
 
@@ -6603,7 +6603,7 @@ Remove BROWSER from :
    <link href="http://username.github.io/编程语言/2013/08/10/python"/>
    <updated>2013-08-10T00:00:00+08:00</updated>
    <id>http://username.github.io/编程语言/2013/08/10/python</id>
-   <content type="html">&lt;h2 id='id211'&gt;相关资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25815'&gt;相关资料&lt;/h2&gt;
 
 &lt;p&gt;python&lt;a href='http://sebug.net/paper/python/index.html'&gt;简明教程&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
@@ -6613,11 +6613,11 @@ Remove BROWSER from :
    <link href="http://username.github.io/工具使用/2013/08/10/github"/>
    <updated>2013-08-10T00:00:00+08:00</updated>
    <id>http://username.github.io/工具使用/2013/08/10/github</id>
-   <content type="html">&lt;h1 id='id208'&gt;删除一个仓库&lt;/h1&gt;
+   <content type="html">&lt;h1 id='id25812'&gt;删除一个仓库&lt;/h1&gt;
 
 &lt;p&gt;右侧 setting 里面。&lt;/p&gt;
 
-&lt;h1 id='id209'&gt;撤销上一次的提交&lt;/h1&gt;
+&lt;h1 id='id25813'&gt;撤销上一次的提交&lt;/h1&gt;
 
 &lt;p&gt;http://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github&lt;/p&gt;
 
@@ -6632,7 +6632,7 @@ Successfully rebased and updated refs/heads/master.&lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;$ git push origin +master&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id210'&gt;安装&lt;/h2&gt;
+&lt;h2 id='id25814'&gt;安装&lt;/h2&gt;
 
 &lt;p&gt;ubuntu 使用&lt;/p&gt;
 
@@ -6776,7 +6776,7 @@ Aug  9 14:08:29 localhost sshd[7215]: pam_succeed_if(sshd:auth): error retrievin
    <link href="http://username.github.io/2013/08/09/inotifylinux"/>
    <updated>2013-08-09T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/08/09/inotifylinux</id>
-   <content type="html">&lt;h2 id='id207'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25811'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://www.infoq.com/cn/articles/inotify-linux-file-system-event-monitoring#anch61060'&gt;Inotify: 高效、实时的Linux文件系统事件监控框架&lt;/a&gt;&lt;/p&gt;
 
@@ -6816,13 +6816,13 @@ inotifywait -mrq -e modify,delete,create,attrib PATH
    <link href="http://username.github.io/使用记录/2013/08/08/vsphere-esxi-5000-"/>
    <updated>2013-08-08T00:00:00+08:00</updated>
    <id>http://username.github.io/使用记录/2013/08/08/vsphere-esxi-5000-</id>
-   <content type="html">&lt;h2 id='id205'&gt;克隆机器&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25809'&gt;克隆机器&lt;/h2&gt;
 
 &lt;p&gt;文件菜单中没有找到模板的菜单项。探索了一番，用先导出，再部署OVF模板的方式实现了克隆。。。要是一台一台装可让人怎么活啊。&lt;/p&gt;
 
 &lt;p&gt;今天再次使用的发现备份ovf只能备份到本地，然后从本地还原。这样子因为从网络走，效率就很低了。采用了另外一种方法。在vsphere的数据存储中把整个虚拟机的文件复制一份，然后新建虚拟机，使用现有虚拟磁盘就可以了。速度很快～～&lt;/p&gt;
 
-&lt;h2 id='id206'&gt;磁盘置备选项&lt;/h2&gt;
+&lt;h2 id='id25810'&gt;磁盘置备选项&lt;/h2&gt;
 
 &lt;p&gt;在VMware vSphere 中创建虚拟机，在创建磁盘部分，会出现“磁盘置备”的选项，有三个选择：厚置备延迟置零，厚置备置零，精简置备。&lt;/p&gt;
 
@@ -6940,7 +6940,7 @@ adm:x:4:and&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;共有4个部分。群组名称:群组密码（通常不需要设定）:GID:群组包含的用户名称&lt;/p&gt;
 
-&lt;h1 id='id201'&gt;有效群组和初始群组&lt;/h1&gt;
+&lt;h1 id='id25805'&gt;有效群组和初始群组&lt;/h1&gt;
 
 &lt;p&gt;这个概念之前确实没注意过。passwd里的GID是初始群组，group相关的组的行里不需要单独添加了。在group里添加的是次要群组。测试了用当前用户新建文件，群组是用户的初始群组。&lt;/p&gt;
 
@@ -6963,7 +6963,7 @@ lp:*::&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;共4栏。群组名称:群组密码:群组管理员:群组成员&lt;/p&gt;
 
-&lt;h1 id='id202'&gt;帐号管理&lt;/h1&gt;
+&lt;h1 id='id25806'&gt;帐号管理&lt;/h1&gt;
 
 &lt;p&gt;相关命令 useradd,usermod,userdel&lt;/p&gt;
 
@@ -7010,7 +7010,7 @@ other::r--&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;使用者或群组所配置的权限必须要存在于 mask 的权限配置范围内才会生效，此即有效权限 (effective permission),即最大的权限不会超过mask的权限.如果mask没有配置写权限,user配置了写权限也是无效的.&lt;/p&gt;
 
-&lt;h2 id='id203'&gt;使用者身份切换&lt;/h2&gt;
+&lt;h2 id='id25807'&gt;使用者身份切换&lt;/h2&gt;
 
 &lt;p&gt;切换的方式有两种 su和sudo&lt;/p&gt;
 
@@ -7040,7 +7040,7 @@ root                         ALL=(ALL)           ALL   &amp;lt;==这是默认值
 
 &lt;p&gt;用户聊天的命令:write, mesg, wall 很有意思啊.&lt;/p&gt;
 
-&lt;h2 id='id204'&gt;手动新增使用者&lt;/h2&gt;
+&lt;h2 id='id25808'&gt;手动新增使用者&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;pwck 检查passwd的工具&lt;/code&gt;&lt;/pre&gt;
 
@@ -7236,7 +7236,7 @@ root                         ALL=(ALL)           ALL   &amp;lt;==这是默认值
 
 &lt;p&gt;b) content field 消息的详细信息。&lt;/p&gt;
 
-&lt;h2 id='id200'&gt;扩展阅读&lt;/h2&gt;
+&lt;h2 id='id25804'&gt;扩展阅读&lt;/h2&gt;
 
 &lt;p&gt;cisco设备的syslog格式,跟unix格式有些小的不同。&lt;a href='http://www.ciscopress.com/articles/article.asp?p=426638'&gt;参考&lt;/a&gt;&lt;/p&gt;
 
@@ -7285,11 +7285,11 @@ root                         ALL=(ALL)           ALL   &amp;lt;==这是默认值
    <link href="http://username.github.io/2013/08/05/mysql-sql"/>
    <updated>2013-08-05T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/08/05/mysql-sql</id>
-   <content type="html">&lt;h2 id='id197'&gt;修改数据记录&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25801'&gt;修改数据记录&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;UPDATE &amp;lt;表名&amp;gt; SET &amp;lt;列名&amp;gt;=&amp;lt;表达式&amp;gt; [,&amp;lt;列名&amp;gt;=&amp;lt;表达式&amp;gt;]… [WHERE &amp;lt;条件&amp;gt;]&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id='id198'&gt;案例&lt;/h1&gt;
+&lt;h1 id='id25802'&gt;案例&lt;/h1&gt;
 
 &lt;p&gt;遇到一个字段名是interval,老是出现sql语法错误，原来是interval是mysql的关键字。用&lt;/p&gt;
 
@@ -7297,7 +7297,7 @@ root                         ALL=(ALL)           ALL   &amp;lt;==这是默认值
 
 &lt;p&gt;来修改。&lt;/p&gt;
 
-&lt;h2 id='id199'&gt;清空表的内容&lt;/h2&gt;
+&lt;h2 id='id25803'&gt;清空表的内容&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;DELETE FROM&amp;lt;表名&amp;gt; [WHERE &amp;lt;条件&amp;gt;]
 delete from &amp;lt;tablename&amp;gt; where 1=1;&lt;/code&gt;&lt;/pre&gt;</content>
@@ -7370,7 +7370,7 @@ ERROR: wrong usage. Please read the README inside for more information.&lt;/code
    <id>http://username.github.io/2013/07/30/snmp</id>
    <content type="html">&lt;p&gt;测试型号:天融信NGFW 4000&lt;/p&gt;
 
-&lt;h2 id='id196'&gt;配置过程&lt;/h2&gt;
+&lt;h2 id='id25800'&gt;配置过程&lt;/h2&gt;
 
 &lt;p&gt;吐槽：拿到的是一台崭新的机器，一开始觉得天融信的文档做的不错啊，mib的说明文档做的很好。然后开始看光盘里带的手册，怎么开启snmp服务。先添加管理主机呀，然后停止，在启动snmp啊，测试了好几次。都是161端口没响应。重启了两次也没效果。果断google了一下发现要先在配置里开放服务啊。哎呀，这是个防火墙嘛，都防住了怎么访问的到。。。&lt;/p&gt;
 
@@ -7392,13 +7392,13 @@ ERROR: wrong usage. Please read the README inside for more information.&lt;/code
    <link href="http://username.github.io/技术研究/2013/07/30/authlog-"/>
    <updated>2013-07-30T00:00:00+08:00</updated>
    <id>http://username.github.io/技术研究/2013/07/30/authlog-</id>
-   <content type="html">&lt;h1 id='id194'&gt;文件基本信息&lt;/h1&gt;
+   <content type="html">&lt;h1 id='id25798'&gt;文件基本信息&lt;/h1&gt;
 
 &lt;p&gt;Under CentOS / RHEL / Fedora file name is /var/log/secure.Under ubuntu the file name is /var/log auth.log.&lt;/p&gt;
 
 &lt;p&gt;Cent OS release 5.4 文件权限是600.Ubuntu 12.04里权限是640.可见这个文件对权限要求较高。&lt;/p&gt;
 
-&lt;h2 id='id195'&gt;日志内容分析&lt;/h2&gt;
+&lt;h2 id='id25799'&gt;日志内容分析&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://unix.stackexchange.com/questions/27662/making-sense-of-auth-log'&gt;make sense of auth.log&lt;/a&gt;&lt;/p&gt;
 
@@ -7510,7 +7510,7 @@ Aug 22 15:07:41 litsand-VirtualBox sudo: unable to execute /usr/sbin/sendmail: N
    <link href="http://username.github.io/2013/07/30/"/>
    <updated>2013-07-30T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/07/</id>
-   <content type="html">&lt;h2 id='id193'&gt;命令设计&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25797'&gt;命令设计&lt;/h2&gt;
 
 &lt;p&gt;其实管理ddn网和atm网络的时候，就尝试总结过交换机设备的命令的设计思路。换一种设备，就有很多新的命令，实在令人忧伤。&lt;/p&gt;
 
@@ -7698,7 +7698,7 @@ tcp connection table  1.3.6.1.2.1.6.13 相当与netstat -t 命令
    <link href="http://username.github.io/2013/07/25/cve-2012-3268"/>
    <updated>2013-07-25T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/07/25/cve-2012-3268</id>
-   <content type="html">&lt;h2 id='id191'&gt;参考资料&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25795'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://grutztopia.jingojango.net/2012/10/hph3c-and-huawei-snmp-weak-access-to.html'&gt;Kurt Grutzmacher最早发布的文章&lt;/a&gt;&lt;/p&gt;
 
@@ -7712,7 +7712,7 @@ tcp connection table  1.3.6.1.2.1.6.13 相当与netstat -t 命令
 
 &lt;p&gt;让我产生疑问的地方在&lt;a href='http://www.wooyun.org/bugs/wooyun-2010-021964'&gt;wooyun的这个漏洞&lt;/a&gt;@s3cur1ty 这里用的这个oid显然不是Kurt Grutzmacher中提到的那两种。话说这个oid确实没看懂，CNVD的回复也提到向洞主请教所使用的指令。洞主自己在回复里提到说这是华为的0day，应该算是华为私有mib泄漏。而从华为的回复的安全预警中可以到，这也是cve-2012-3268的问题。本质上就是通过一个read权限的团体字读取帐号密码。而可以读取的oid不仅仅是Kurt Grutzmacher提到的两种，比如@s3cur1ty这里提到的就是另外一个。&lt;/p&gt;
 
-&lt;h2 id='id192'&gt;相关测试&lt;/h2&gt;
+&lt;h2 id='id25796'&gt;相关测试&lt;/h2&gt;
 
 &lt;p&gt;测试型号：ME60 V600R002C02SPC700&lt;/p&gt;
 
@@ -7814,7 +7814,7 @@ ifRcvFragPkts 拒绝和丢弃包的总数 5.1.47
 ifDropPkts 丢弃包总数 5.1.48
 ifColliPkts 冲突报总数 5.1.49&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id190'&gt;华为&lt;/h2&gt;
+&lt;h2 id='id25794'&gt;华为&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://www-2w.blog.163.com/blog/static/97931518200931371710192/'&gt;华为oid参考a资料&lt;/a&gt;&lt;/p&gt;
 
@@ -7854,7 +7854,7 @@ hwUsedMemory 1.3.6.1.4.1.2011.2.2.5.1.0 使用的内存&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;更新之后就可以用了。&lt;/p&gt;
 
-&lt;h1 id='id189'&gt;参考资料&lt;/h1&gt;
+&lt;h1 id='id25793'&gt;参考资料&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href='http://baoz.net/nessus-plugin-offline-download/'&gt;素包子的博客&lt;/a&gt; &lt;a href='http://plugins.nessus.org/get.php?f=all-2.0.tar.gz&amp;amp;u=48bae26f3c2b20452e6f2c1517e07206&amp;amp;p=bb2c6cbfc82746e66205f5634ef360ff'&gt;直接下载nessus插件包&lt;/a&gt;&lt;/p&gt;
 
@@ -7928,7 +7928,7 @@ hwUsedMemory 1.3.6.1.4.1.2011.2.2.5.1.0 使用的内存&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/2013/07/16/markdown-"/>
    <updated>2013-07-16T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/07/16/markdown-</id>
-   <content type="html">&lt;h2 id='id188'&gt;速查备忘&lt;/h2&gt;
+   <content type="html">&lt;h2 id='id25792'&gt;速查备忘&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://ued.taobao.com/blog/2012/07/getting-started-with-markdown/'&gt;开始使用markdown&lt;/a&gt; &lt;a href='http://jblevins.org/projects/markdown-mode/'&gt;emacs markdown插件&lt;/a&gt;&lt;/p&gt;
 
@@ -7944,13 +7944,13 @@ hwUsedMemory 1.3.6.1.4.1.2011.2.2.5.1.0 使用的内存&lt;/code&gt;&lt;/pre&gt;
    <link href="http://username.github.io/2013/07/16/h3c-snmp"/>
    <updated>2013-07-16T00:00:00+08:00</updated>
    <id>http://username.github.io/2013/07/16/h3c-snmp</id>
-   <content type="html">&lt;h3 id='id185'&gt;参考资料&lt;/h3&gt;
+   <content type="html">&lt;h3 id='id25789'&gt;参考资料&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href='http://www.wooyun.org/bugs/wooyun-2010-021877'&gt;h3c获取管理员密码&lt;/a&gt; &lt;a href='http://www.wooyun.org/bugs/wooyun-2010-021964'&gt;华为交换机获取管理员密码&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;测试型号：h3c SecPath F5000-A5&lt;/p&gt;
 
-&lt;h3 id='id186'&gt;漏洞详情&lt;/h3&gt;
+&lt;h3 id='id25790'&gt;漏洞详情&lt;/h3&gt;
 
 &lt;p&gt;管理员用户名和密码可以通过snmp读取，从而获得管理权限。h3c的私有mib有两种，一种是2011（huawei h3c),一种是25506（hh3c)。经过测试发现，有些设备只支持一种。如果一种获取不到数据，可以两种都尝试下。相关的oid为：&lt;/p&gt;
 
@@ -7984,7 +7984,7 @@ hwUsedMemory 1.3.6.1.4.1.2011.2.2.5.1.0 使用的内存&lt;/code&gt;&lt;/pre&gt;
 P.KG0&amp;gt;5&amp;amp;YV3;5#)%#Z[VS1!!: Zjyd_h3c_10
 如上，可以直接得到明文的密码。然后就可以在web登录了。&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id='id187'&gt;实例测试&lt;/h3&gt;
+&lt;h3 id='id25791'&gt;实例测试&lt;/h3&gt;
 
 &lt;p&gt;&lt;img alt='test' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/h3c.png' /&gt;&lt;/p&gt;
 
@@ -7998,7 +7998,7 @@ P.KG0&amp;gt;5&amp;amp;YV3;5#)%#Z[VS1!!: Zjyd_h3c_10
    <id>http://username.github.io/2013/07/08/github</id>
    <content type="html">&lt;p&gt;提交了文章之后，github不build了。经过搜索发现可能是插件文件或者post有语法错误等原因。本地用命令 jekyll build &amp;#8211;safe 测试，发现报错。说是什么没有闭合，原来是一句bash代码中的内容被当作markdown解释了。用tab键标记代码就可以了。&lt;/p&gt;
 
-&lt;h1 id='id184'&gt;内容引用图片&lt;/h1&gt;
+&lt;h1 id='id25788'&gt;内容引用图片&lt;/h1&gt;
 
 &lt;p&gt;采用的方式是在配置文件中添加了一个变量site.img_url，每次添加图片如下：&lt;/p&gt;
 
@@ -8038,7 +8038,7 @@ usermod -a -G groups loginname 把用户添加进入某个组(s）&lt;/code&gt;&
 killall -TERM mysqld
 kill -9 `cat /usr/local/apache2/logs/httpd.pid`&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='id183'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25787'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;http://shentar.me/?s=shell&amp;amp;searchsubmit=Search#post-966&lt;/p&gt;</content>
  </entry>
@@ -8070,19 +8070,19 @@ kill -9 `cat /usr/local/apache2/logs/httpd.pid`&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img alt='webDAV' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/webdav.png' /&gt; &lt;img alt='webDAV' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/write1.png' /&gt; &lt;img alt='webDAV' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/write2.png' /&gt;&lt;/p&gt;
 
-&lt;h3 id='id179'&gt;测试过程&lt;/h3&gt;
+&lt;h3 id='id25783'&gt;测试过程&lt;/h3&gt;
 
 &lt;p&gt;使用桂林老兵的写权限利用工具和winsock expert抓包分析。 &lt;img alt='webDAV' src='https://raw.github.com/litsand/litsand.github.com/master/_posts/pic/winsock.png' /&gt;&lt;/p&gt;
 
 &lt;p&gt;如果服务器没有开webdav扩展，put请求返回501 not implemented ,如果开了webdav，目录没有给写入权限，返回403 forbidden,如果目录有写入权限，用户没有给写权限，返回 401 unauthorized,如果条件都满足，返回201 created,表明文件成功上传。如果文件已经存在，则更新文件，返回 200.&lt;/p&gt;
 
-&lt;h3 id='id180'&gt;利用思路&lt;/h3&gt;
+&lt;h3 id='id25784'&gt;利用思路&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;上传txt，move改名为asp或者利用iis的解析漏洞。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id='id181'&gt;一次完整攻击的日志记录&lt;/h3&gt;
+&lt;h3 id='id25785'&gt;一次完整攻击的日志记录&lt;/h3&gt;
 
 &lt;p&gt;2013-06-20 03:02:30 W3SVC1 192.168.100.22 PUT /yanshi.txt - 80 - 192.168.100.33 - 201 0 0 2013-06-20 03:02:49 W3SVC1 192.168.100.22 MOVE /yanshi.txt - 80 - 192.168.100.33 - 201 0 0 2013-06-20 03:03:23 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:23 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:31 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:33 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:58 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:03:59 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:04:00 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:04:00 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0 2013-06-20 03:04:03 W3SVC1 192.168.100.22 POST /yanshi.asp - 80 - 192.168.100.33 Mozilla/5.0+(Windows;+Windows+NT+5.1;+en-US)+Firefox/3.5.0 200 0 0&lt;/p&gt;
 
@@ -8092,7 +8092,7 @@ kill -9 `cat /usr/local/apache2/logs/httpd.pid`&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;关于move操作的时候返回207 的问题，参考资料里有提到。解决方案就是利用iis的解析漏洞。经过一番测试发现，之所以会出现这个问题，是由于服务器的配置问题。如果目录权限没有给脚本资源访问的权限，那么会返回207 同时body里面会说明是 403 forbidden，可以通过iis的解析漏洞解决。还有一种情况是匿名用户没有文件修改权限，这是body里说明是401 unauthorized，这种情况就没有办法了。&lt;/p&gt;
 
-&lt;h3 id='id182'&gt;参考资料&lt;/h3&gt;
+&lt;h3 id='id25786'&gt;参考资料&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href='http://4ngel.net/article/33.htm'&gt;协议级别的分析&lt;/a&gt;&lt;/p&gt;
 
@@ -8112,7 +8112,7 @@ kill -9 `cat /usr/local/apache2/logs/httpd.pid`&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;ppt中关于正则运行原理的部分讲的很不错。写了很久，发现我还是没把回溯这个事情将清楚。最好自己用regexbuddy调试一下，可以加深理解。&lt;/p&gt;
 
-&lt;h3 id='id174'&gt;两种引擎&lt;/h3&gt;
+&lt;h3 id='id25778'&gt;两种引擎&lt;/h3&gt;
 
 &lt;p&gt;要分析正则表达式效率的问题首先需要了解正则表达式引擎运行的原理。简单的说，正则表达式的引擎主要有两种：&lt;/p&gt;
 
@@ -8142,7 +8142,7 @@ kill -9 `cat /usr/local/apache2/logs/httpd.pid`&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;本文对于正则表达式效率的讨论也是基于标准的NFA引擎。&lt;/p&gt;
 
-&lt;h3 id='id175'&gt;性能和回溯&lt;/h3&gt;
+&lt;h3 id='id25779'&gt;性能和回溯&lt;/h3&gt;
 
 &lt;p&gt;正则的语法就不介绍了。这里用一个例子稍微详细的介绍一下正则匹配的过程和回溯的概念。用正则&lt;/p&gt;
 
@@ -8201,7 +8201,7 @@ kill -9 `cat /usr/local/apache2/logs/httpd.pid`&lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;(.*?) 非贪婪匹配，匹配了零个字符。。。。。。&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id='id176'&gt;如何避免回溯&lt;/h3&gt;
+&lt;h3 id='id25780'&gt;如何避免回溯&lt;/h3&gt;
 
 &lt;p&gt;回溯可能产生的地方有两个，一个是分支结构，一个是量词。&lt;/p&gt;
 
@@ -8211,7 +8211,7 @@ kill -9 `cat /usr/local/apache2/logs/httpd.pid`&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;* 一个是元字符的精确化，就是尽量详细分析字符内容，慎重用点号星号。 * 另一个就是用原子组和占有优先量词避免回溯。 * 避免两个及以上使用了量词的元字符紧挨在一起，这样子会引起大量的回溯。&lt;/p&gt;
 
-&lt;h4 id='id177'&gt;实例测试&lt;/h4&gt;
+&lt;h4 id='id25781'&gt;实例测试&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;(已成功登录帐户。\s*主题:\s*安全 ID:\s*(.*?)\s*帐户名:\s*(.*?)\s*帐户域:\s*(.*?)\s*登录 ID:\s*(.*?)\s*登录类型:\s*(.*?)\s* 新登录:\s*安全 ID\s*(.*?)\s*帐户名:\s*(.*?)\s*帐户域:\s*(.*?)\s*登录 ID:\s*(.*?)\s*登录 GUID:\s*(.*?)\s*进程信息:\s*进程 ID:\s*(.*?)\s*进程名:\s*(.*?)\s*网络信息:\s*工作站名:\s*(.*?)\s*源网络地址:\s*(?:\-|(\S+))\s*源端口:\s*(?:(\d+)|\-)\s*详细身份验证信息:\s*登录进程:\s*(.*?)\s*身份验证数据包:\s*(.*?)\s*传递服务:\s*(.*?)\s*数据包名\(仅限 NTLM\):\s*(.*?)\s*密钥长度:\s*(.*?)\s*在创建登录会话后在被访问的计算机上生成此事件。\s*“主题”字段指明本地系统上请求登录的帐户。\s*这通常是一个服务\(例如 Server 服务\)或本地进程\(例如 Winlogon.exe 或 Services.exe\)。\s*“登录类型”字段指明发生的登录种类。\s*最常见的类型是 2 \(交互式\)和 3 \(网络\)。\s*“新登录”字段会指明新登录是为哪个帐户创建的，即登录的帐户。\s*“网络”字段指明远程登录请求来自哪里。\s*“工作站名”并非总是可用，而且在某些情况下可能会留为空白。\s*“身份验证信息”字段提供关于此特定登录请求的详细信息。\s*-“登录 GUID”是可以用于将此事件与一个 KDC 事件关联起来的唯一标识符。\s*-“传递服务”指明哪些直接服务参与了此登录请求。\s*- “数据包名”指明在 NTLM 协议之间使用了哪些子协议。\s*-“密钥长度”指明生成的会话密钥的长度。\s*如果没有请求会话密钥则此字段为 0。)&lt;/code&gt;&lt;/pre&gt;
 
@@ -8249,7 +8249,7 @@ kill -9 `cat /usr/local/apache2/logs/httpd.pid`&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;这里\s其实是用来净化捕获组的获取的字符串，去掉字符串首尾的空格。如果程序在存储或展示的时候有对字符串进行去掉首尾空格的处理，那么正则就可以省略这个步骤，就不存在性能问题了。日志相对来说还是比较短的，只要注意思路三，一般不会引起性能问题。&lt;/p&gt;
 
-&lt;h2 id='id178'&gt;参考资料&lt;/h2&gt;
+&lt;h2 id='id25782'&gt;参考资料&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://www.cnxct.com/regularexpressions-pptx-pdf-share/'&gt;全面的正则讲解PPT，因为只是PPT很多只是点到没有细讲&lt;/a&gt;&lt;/p&gt;
 

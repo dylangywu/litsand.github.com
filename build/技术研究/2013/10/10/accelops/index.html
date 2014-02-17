@@ -64,7 +64,7 @@
 
 <p>从content的角度以及soc类产品对数据的主要处理流程的分析和对比.</p>
 
-<h1 id='id269'>数据来源</h1>
+<h1 id='id25873'>数据来源</h1>
 
 <p>日志收集:支持更多种协议.SNMP, Syslog, WMI, Cisco SDEE,Checkpoint LEA, JDBC, VMWare VI-SDK, JMX, Telnet, SSH, network flow,and HTTP(S)</p>
 
@@ -72,31 +72,31 @@
 
 <p>相对我们的综合日志审计,accelops支持了更多一些的小众的协议,资产管理采用自动发现,自动分类.</p>
 
-<h1 id='id270'>数据处理</h1>
+<h1 id='id25874'>数据处理</h1>
 
 <p>数据解析归一化:尝试接入几台设备的日志信息没有成功.暂时还没有查到accelops具体是如何解析日志数据的.</p>
 
-<h1 id='id271'>数据统计</h1>
+<h1 id='id25875'>数据统计</h1>
 
 <p>统计模板:统计模板从多个角度分类,合规报表就有PCI,COBIT,SOC,ISO,HIPAA,GLBA,FISMA,NERC,等.这块我们可以借鉴的比较多.主要的困难还是工作量比较大.做一个新的统计报表可能需要修改解析规则.</p>
 
-<h1 id='id272'>知识积累</h1>
+<h1 id='id25876'>知识积累</h1>
 
 <p>漏洞库等:我们有弱点管理,漏洞库,三维关联.这块是accelops没有的.</p>
 
-<h1 id='id273'>数据分析</h1>
+<h1 id='id25877'>数据分析</h1>
 
 <p>关联规则:accelops的优势有很多性能,可用性方面的规则.我们重点还是安全方面的规则.</p>
 
 <p>数据挖掘:我们具有数据挖掘的模块.accelops没有.</p>
 
-<h1 id='id274'>告警和阻断</h1>
+<h1 id='id25878'>告警和阻断</h1>
 
 <p>告警方式:都可以通过多种方式发送告警信息.(消息提醒,email等)</p>
 
-<h2 id='id275'>详细对比</h2>
+<h2 id='id25879'>详细对比</h2>
 
-<h1 id='id276'>概述</h1>
+<h1 id='id25880'>概述</h1>
 
 <p>accelops跟splunk一样,都定位自己为数据中心.对比我们的综合日志审计,它有一些很有特色的功能.比如它可以自动画出管理资产的网络拓扑图.(这是跟它的资产管理方式相关的,跟我们的资产管理方式不太一样).有一个配置管理的库,可以监控配置变更.数据统计方面,它的模板的分类和数量非常丰富.尤其突出了运维监控,业务管理等方面.而我们的报表重点是依托于日志审计的安全合规方面.</p>
 
@@ -148,22 +148,6 @@
 <![endif]-->
 
   
-
-
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-123-12']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
 </body>
 </html>
 
