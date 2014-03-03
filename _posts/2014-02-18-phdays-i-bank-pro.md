@@ -5,7 +5,7 @@ description: ""
 category: 
 tags: []
 ---
-{{% include JB/setup %}
+{% include JB/setup %}
 
 #对虚拟银行系统的渗透测试
 
