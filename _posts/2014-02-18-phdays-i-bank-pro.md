@@ -18,21 +18,21 @@ tags: []
 
 结果在意料之中，除了登陆，找回密码页面，没有其他的信息了。
 
-![ibank1]({{{{site.img_url}}ibank2.png)
+![ibank1]({{site.img_url}}ibank2.png)
 
 先看一下找回密码页面，提供了一个应该是输入用户名的input框。
 
-![ibank1]({{{{site.img_url}}ibank3.png)
+![ibank1]({{site.img_url}}ibank3.png)
 
 随便输入一个admin，点击enter。提示为Identifier not found。聪明的小伙伴们肯定已经想到了。这是提示用户名不存在呀，很可能可以暴力猜解用户名。根据老外的介绍，Identifier代表这个字段应该是数字，进一步降低了暴力猜解的成本。当然这个地方经过测试，确实是可以猜解用户名的。不过为了说明验证码设计的一些问题，本文采用绕过登陆页面的验证码来暴力猜解。
 
-![ibank1]({{{{site.img_url}}ibank4.png)
+![ibank1]({{site.img_url}}ibank4.png)
 
 
 先看一下登陆页面验证码部分的源码。可以看到验证码是通过image.php结合code参数生成的。而且表单中还有一个隐藏的字段，值跟验证码的生成连接中是一样的。每生成一次验证码，这个值都会变化。显然是跟验证码密切相关的，这个字符串看起来很像是base64编码过的。
 
 
-![ibank1]({{{{site.img_url}}ibank6.png)
+![ibank1]({{site.img_url}}ibank6.png)
 
 先用burpsuite的decoder解码试试看。
 
