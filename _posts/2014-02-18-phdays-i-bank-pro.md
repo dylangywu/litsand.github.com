@@ -7,6 +7,9 @@ tags: []
 ---
 {% include JB/setup %}
 
+
+I-Bank Pro是国际性信息安全竞赛[PHDays](http://www.phdays.com/)的一个虚拟银行系统。包含了很多真实银行系统常见的漏洞。本文主要讲述使用Burpsuite对I-Bank系统的登陆功能进行简单测试。
+
 #对虚拟银行系统的渗透测试
 
 虚拟机的登陆用户是root，密码是phd2012。配置好ip之后，就可以从浏览器访问这个虚拟银行系统了。
@@ -101,3 +104,9 @@ tags: []
 
 登陆系统之后，当然就是转账了。这个虚拟环境也设计了存在缺陷的交易验证码。感兴趣的同学可以自己测试一下。
 
+
+#虚拟机下载
+
+[I-Bank 系统](http://downloads.phdays.com/phdays_ibank_vm.zip)
+
+[I-bank源码](http://downloads.phdays.com/phdays_ibank_src.zip)
